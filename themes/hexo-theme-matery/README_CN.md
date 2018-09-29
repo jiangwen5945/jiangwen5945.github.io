@@ -1,8 +1,8 @@
 # hexo-theme-matery
 
-[![HitCount](http://hits.dwyl.io/blinkfox/hexo-theme-matery.svg)](http://hits.dwyl.io/blinkfox/hexo-theme-matery) [![GitHub issues](https://img.shields.io/github/issues/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/issues) [![GitHub license](https://img.shields.io/github/license/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/blob/master/LICENSE) [![Hexo Version](https://img.shields.io/badge/hexo-%3E%3D%203.0-blue.svg)](http://hexo.io) [![GitHub forks](https://img.shields.io/github/forks/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/network) [![GitHub stars](https://img.shields.io/github/stars/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/stargazers)
+[![HitCount](http://hits.dwyl.io/blinkfox/hexo-theme-matery.svg)](http://hits.dwyl.io/blinkfox/hexo-theme-matery) [![GitHub issues](https://img.shields.io/github/issues/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/issues) [![GitHub license](https://img.shields.io/github/license/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/blob/master/LICENSE) [![Download](https://img.shields.io/badge/downloads-master-green.svg)](https://codeload.github.com/blinkfox/hexo-theme-matery/zip/master) [![Hexo Version](https://img.shields.io/badge/hexo-%3E%3D%203.0-blue.svg)](http://hexo.io) [![GitHub forks](https://img.shields.io/github/forks/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/network) [![GitHub stars](https://img.shields.io/github/stars/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/stargazers)
 
-[English Document](README.md)
+[English Document](README.md) | [演示示例](https://blinkfox.github.io/)
 
 > 这是一个采用`Material Design`和响应式设计的 Hexo 博客主题。
 
@@ -16,11 +16,27 @@
 - 时间轴式的归档页
 - [Gitment](https://imsun.github.io/gitment/)和[Disqus](https://disqus.com/)评论模块
 
+## 后续开发计划
+
+- [x] 重构标签页为**可分页**
+- [x] 重构归档页为**可分页**
+- [ ] 增加分类页
+- [ ] 增加关于我页面
+- [ ] 集成[Gitalk](https://gitalk.github.io/)
+- [ ] 右上角实现`fork me on github`
+- [ ] 添加`RSS`
+- [ ] 网站底部加上访问量等统计功能
+- [ ] 首页设计和添加置顶文章
+- [ ] 文章结束后增加**打赏**功能
+- [ ] 为博客添加萌萌的**宠物**或者**成长树**等
+
+> 欢迎贡献!
+
 ## 下载
 
 当你看到这里的时候，应该已经有一个自己的[Hexo](https://hexo.io/zh-cn/)博客了，如果还没有的话，不妨使用 Hexo 和[Markdown](https://www.appinn.com/markdown/)来写博客和文章。
 
-点击[这里](https://codeload.github.com/blinkfox/hexo-theme-matery/zip/master)下载`master`分支的最新稳定版的代码，解压缩后，将`hexo-theme-matery`的文件夹复制到你 Hexo 的`themes`文件夹中即可。当然你也可以在你的`themes`文件夹下使用`Git clone`命令来下载:
+点击 [这里](https://codeload.github.com/blinkfox/hexo-theme-matery/zip/master) 下载`master`分支的最新稳定版的代码，解压缩后，将`hexo-theme-matery`的文件夹复制到你 Hexo 的`themes`文件夹中即可。当然你也可以在你的`themes`文件夹下使用`Git clone`命令来下载:
 
 ```bash
 git clone https://github.com/blinkfox/hexo-theme-matery.git
@@ -31,6 +47,8 @@ git clone https://github.com/blinkfox/hexo-theme-matery.git
 ### 切换主题
 
 修改 Hexo 根目录下的`_config.yml`的`theme`的值：`theme: hexo-theme-matery`
+
+> **注意**: 请修改根目录下的`_config.yml`的`url`的值为你的网站主`URL`，生成标签页的永久链接时会有用。每个页面的分页条数建议为`6`的倍数，即`12`、`18`条等。
 
 ### 配置tags页
 
@@ -118,16 +136,16 @@ permalink_pinyin:
 
 其中，社交图标（如：`fa-github`）你可以在[Font Awesome](https://fontawesome.com/icons)中搜索找到。以下是常用社交图标的标识，供你参考：
 
-- Facebook: fa-facebook
-- Twitter: fa-twitter
-- Google-plus: fa-google-plus
-- Linkedin: fa-linkedin
-- Tumblr: fa-tumblr
-- Medium: fa-medium
-- Slack: fa-slack
-- 新浪微博: fa-weibo
-- 微信: fa-wechat
-- QQ: fa-qq
+- Facebook: `fa-facebook`
+- Twitter: `fa-twitter`
+- Google-plus: `fa-google-plus`
+- Linkedin: `fa-linkedin`
+- Tumblr: `fa-tumblr`
+- Medium: `fa-medium`
+- Slack: `fa-slack`
+- 新浪微博: `fa-weibo`
+- 微信: `fa-wechat`
+- QQ: `fa-qq`
 
 > **注意**: 本主题中使用的`Font Awesome`版本为`4.5.0`。
 

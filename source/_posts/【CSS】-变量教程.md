@@ -2,7 +2,6 @@
 title: CSS 变量教程
 date: 2018-08-28 11:36:34
 tags: CSS
-img: http://pfl8ahv7p.bkt.clouddn.com/CSS.jpg
 ---
 
 ## 一、变量的声明

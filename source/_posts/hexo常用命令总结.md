@@ -2,7 +2,6 @@
 title: hexo常用命令总结
 date: 2018-09-22 11:46:15
 tags: 个人
-cover: /img/cover2.jpg
 ---
 ## hexo基础命令
 

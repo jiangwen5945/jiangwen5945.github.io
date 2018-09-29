@@ -1,25 +1,41 @@
 # hexo-theme-matery
 
-[![HitCount](http://hits.dwyl.io/blinkfox/hexo-theme-matery.svg)](http://hits.dwyl.io/blinkfox/hexo-theme-matery) [![GitHub issues](https://img.shields.io/github/issues/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/issues) [![GitHub license](https://img.shields.io/github/license/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/blob/master/LICENSE) [![Hexo Version](https://img.shields.io/badge/hexo-%3E%3D%203.0-blue.svg)](http://hexo.io) [![GitHub forks](https://img.shields.io/github/forks/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/network) [![GitHub stars](https://img.shields.io/github/stars/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/stargazers)
+[![HitCount](http://hits.dwyl.io/blinkfox/hexo-theme-matery.svg)](http://hits.dwyl.io/blinkfox/hexo-theme-matery) [![GitHub issues](https://img.shields.io/github/issues/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/issues) [![GitHub license](https://img.shields.io/github/license/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/blob/master/LICENSE) [![Download](https://img.shields.io/badge/downloads-master-green.svg)](https://codeload.github.com/blinkfox/hexo-theme-matery/zip/master) [![Hexo Version](https://img.shields.io/badge/hexo-%3E%3D%203.0-blue.svg)](http://hexo.io) [![GitHub forks](https://img.shields.io/github/forks/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/network) [![GitHub stars](https://img.shields.io/github/stars/blinkfox/hexo-theme-matery.svg)](https://github.com/blinkfox/hexo-theme-matery/stargazers)
 
-[中文文档](README_CN.md)
+[中文文档](README_CN.md) | [DEMO](https://blinkfox.github.io/)
 
 > This is a Hexo blog theme with 'Material Design' and responsive design.
 
 ## Feature
 
 - Simple and beautiful, and post is Beautiful and readable.
-- [Material Design](https://material.io/)design.
+- [Material Design](https://material.io/).
 - Responsive design,which can be displayed well on desktop, tablet, mobile phone, etc.
 - Changing 'banner' picture dynamically everday.
 - Blog posts list with waterflow(There will be 24 images if the articl dosn't have  featured pictures).
 - Archive page with timeline.
-- Comment module of Gitment and Disqus.
+- Comment module of [Gitment](https://imsun.github.io/gitment/) and [Disqus](https://disqus.com/).
+
+## Next development plans
+
+- [x] Refactoring tags page as **paginable**
+- [x] Refactoring Archives page as **paginable**
+- [ ] Add category page
+- [ ] Add about me page
+- [ ] Integrated [Gitalk](https://gitalk.github.io/) comment
+- [ ] Add `fork me on github` in the upper right corner
+- [ ] Add the `RSS` link
+- [ ] At the bottom of the site, add statistics such as traffic
+- [ ] design Index Page and support to add top posts
+- [ ] Add **rewards** function after the posts ends
+- [ ] Add a cute **pet** or **growth tree** for blogs, etc.
+
+> Welcome to contribute!
 
 ## Download
 
 You should have a [Hexo](https://hexo.io/zh-cn/) blog when you see it here.If not,try to use the hexo and [Markdown](https://www.appinn.com/markdown/) to write your blog and post.
-Click[here](https://codeload.github.com/blinkfox/hexo-theme-matery/zip/master)to download master branch of the last stable version of the code.After decompressing,copy the `hexo-theme-matery` folder
+Click [here](https://codeload.github.com/blinkfox/hexo-theme-matery/zip/master) to download master branch of the last stable version of the code.After decompressing,copy the `hexo-theme-matery` folder
 to your `themes` folder of your Hexo.Of course,you can uer `Git clone` to download in your `themes` folder.
 
 ```bash
@@ -31,6 +47,8 @@ git clone https://github.com/blinkfox/hexo-theme-matery.git
 ### Modify theme
 
 Modify the value of `theme` in `_config.yml` of Hexo's root folder: `theme: hexo-theme-matery`.
+
+> **Note**: Please modify the value of ``url` of `_config.yml` in the root directory to your website's main `URL`, which will be useful when generating a permanent link to the tab page. The number of pages per page is recommended to be a multiple of `6', such as `12`, `18`, etc.
 
 ### config tags page
 
@@ -118,16 +136,16 @@ You can find the content of `social-link` and add links you need in the `/layout
 
 You can search social icon such as `fa-github` in [Font Awesome](https://fontawesome.com/icons).There are common social icons you can reference:
 
-- Facebook: fa-facebook
-- Twitter: fa-twitter
-- Google-plus: fa-google-plus
-- Linkedin: fa-linkedin
-- Tumblr: fa-tumblr
-- Medium: fa-medium
-- Slack: fa-slack
-- Sina Weibo: fa-weibo
-- Wechat: fa-wechat
-- QQ: fa-qq
+- Facebook: `fa-facebook`
+- Twitter: `fa-twitter`
+- Google-plus: `fa-google-plus`
+- Linkedin: `fa-linkedin`
+- Tumblr: `fa-tumblr`
+- Medium: `fa-medium`
+- Slack: `fa-slack`
+- Sina Weibo: `fa-weibo`
+- Wechat: `fa-wechat`
+- QQ: `fa-qq`
 
 > **Note**: The version of `Font Awesome` is `4.5.0`.
 

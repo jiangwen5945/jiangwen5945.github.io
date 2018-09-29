@@ -2,7 +2,6 @@
 title: 【CSS基础】--居中的方式总结
 date: 2018-08-28 11:34:17
 tags: CSS
-img: http://pfl8ahv7p.bkt.clouddn.com/CSS.jpg
 ---
 
 

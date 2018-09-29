@@ -2,7 +2,6 @@
 title: 【JS】位置距离
 date: 2018-08-28 11:48:37
 tags: JS
-img: http://pfl8ahv7p.bkt.clouddn.com/JavaScript.jpg
 ---
 
 ## 名词解释

@@ -1,1 +1,22 @@
 /* Here is your custom css styles. */
+.bg-color {
+    background-color: #24292e !important;
+}
+
+.text-color {
+    color: #24292e !important;
+}
+
+
+.top-scroll .btn-floating {
+    background-color: rgba(0, 0, 0, 0.34)
+}
+
+
+@-webkit-keyframes rainbow {
+   
+}
+
+@keyframes rainbow {
+   
+}
