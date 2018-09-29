@@ -4,7 +4,7 @@ date: 2018-08-28 11:43:40
 img: /medias/common/git.jpg
 tags: Git
 ---
-![git](http://pft2g4xsp.bkt.clouddn.com/git2.jpg)
+![git](http://pfl8ahv7p.bkt.clouddn.com/Git.jpg)
 
 ## 名称解释
 
