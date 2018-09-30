@@ -1,7 +1,9 @@
 ---
 title: Axure PR原型
 date: 2018-08-28 11:36:34
-tags: Axure
+tags: 
+  - Axure
+  - 工具
 ---
 
 ## Axure PR是什么？
