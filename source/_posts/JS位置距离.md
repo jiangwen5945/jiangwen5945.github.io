@@ -1,7 +1,9 @@
 ---
-title: JS位置距离
-date: 2018-08-28 11:48:37
+title: JS位置区域小结
 tags: JS
+abbrlink: 64811
+date: 2018-08-28 11:48:37
+categories: JavaScript
 ---
 
 ## 名词解释
@@ -23,7 +25,7 @@ tags: JS
 
 所以在编程的时候，请加上这样的判断
 
-```
+```javascript
 if (document.body && document.body.scrollTop && document.body.scrollLeft)
 {
 　　top=document.body.scrollTop;

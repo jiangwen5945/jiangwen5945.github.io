@@ -1,7 +1,8 @@
 ---
-title: 关于我
-date: 2018-08-23 14:16:55
-img: /medias/common/about.jpg
+title: about
+date: 2018-09-30 17:25:30
+type: "about"
+layout: "about"
 ---
 
 
@@ -10,7 +11,6 @@ img: /medias/common/about.jpg
 <h2>姓名：姜文<h2>
 
 ## 简介
- <!-- <h4>一个94年出生的小菜鸟，目前从事前端开发工作，风格偏爱极简，喜欢旅游、骑行等一切追求自由的事物，同时也对历史、金融、科技有浓厚的兴趣，对未知的事物拥有很强的好奇心。</h4> -->
 
 
 
@@ -26,3 +26,7 @@ img: /medias/common/about.jpg
 ### 欢迎添加我的微信学习交流
 
 ![我的微信](/images/WeChat.png)
+
+<audio src="http://pfuolaa2n.bkt.clouddn.com/The%C2%A0Dawn.mp3"  id="myAudio" autoplay="autoplay" controls="controls">
+    Your browser does not support the audio element.
+</audio>

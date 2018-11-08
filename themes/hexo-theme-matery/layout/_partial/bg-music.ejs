@@ -1,0 +1,23 @@
+
+<% 
+    <!-- 检测文章是否有音乐设置 -->
+    if(page.music) {
+        music = page.music
+    } else {
+        <!-- 否则随机配置项的音乐列表 -->
+        let ranNum = Math.floor(Math.random()*theme.music.others.length);
+        music = theme.music.others[ranNum];
+    }
+%>
+
+
+
+<% if (is_home()) { %>
+    <audio src="<%= theme.music.home %>" loop="loop" class="myAudio" preload="none" <%= theme.music.autoplay %> >
+        Your browser does not support the audio element.
+    </audio>
+<% } else {%>
+    <audio src="<%= music %>" loop="loop" class="myAudio" preload="none" <%= theme.music.autoplay %> >
+        Your browser does not support the audio element.
+    </audio>
+<% } %> 

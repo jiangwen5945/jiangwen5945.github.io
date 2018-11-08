@@ -1,10 +1,12 @@
 ---
 title: Git常用命令小结
+img: /medias/post/Git常用命令小结/git.jpg
+tags: Git命令
+categories: Git
+abbrlink: 23174
 date: 2018-08-28 11:43:40
-img: /medias/common/git.jpg
-tags: Git
 ---
-![git](http://pfl8ahv7p.bkt.clouddn.com/Git.jpg)
+![git](http://pic.yupoo.com/1025787573/54d0ebee/a29ec21f.jpg)
 
 ## 名称解释
 

@@ -5,7 +5,7 @@
 # Site
 title: 唯独黑白丶
 subtitle: 文以载道
-description: 给时光以生命，给岁月以文明
+description: Just for fun
 keywords: blog
 author: Jiang Wen
 language: zh-CN
@@ -13,9 +13,9 @@ timezone:
 
 # URL
 # If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/' 
-url: https://jiangwen5945.github.io/
+url: https://jiangwen5945.gitee.io/
 root: /
-permalink: :year/:month/:day/:title/
+permalink: posts/:year/:month/:day/:abbrlink/
 permalink_defaults:
 
 # Directory
@@ -35,7 +35,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -80,7 +80,8 @@ theme: hexo-theme-matery
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:jiangwen5945/jiangwen5945.github.io.git
+  repository: git@gitee.com:jiangwen5945/jiangwen5945.git
+              
   branch: master
 
 avatar: /images/my_logo.png
@@ -92,4 +93,20 @@ prism_plugin:
   line_number: false    # default false
   custom_css:
   
+# 添加页面宠物精灵
+live2d:
+  enable: true
+  scriptFrom: local
+  model:
+    use: live2d-widget-model-wanko
+  display:
+    position: left
+    width: 90
+    height: 180
+  mobile:
+    show: false
 
+
+# abbrlink config
+  abbrlink:
+    rep: hex    #support dec(default) and hex

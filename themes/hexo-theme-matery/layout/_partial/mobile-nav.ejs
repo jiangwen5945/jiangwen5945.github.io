@@ -1,4 +1,5 @@
 <div class="side-nav" id="mobile-nav">
+
     <div class="mobile-head bg-color">
         <% if (theme.logo !== undefined && theme.logo.length > 0) { %>
         <img src="<%= theme.logo %>" class="logo-img circle responsive-img">
@@ -12,26 +13,29 @@
             <% } %>
         </div>
     </div>
-    <ul class="menu-list">
+
+    <ul class="menu-list mobile-menu-list">
         <% Object.keys(theme.menu).forEach(function(key) { %>
         <li>
-            <a href="<%= theme.menu[key] %>" class="waves-effect waves-light">
-                <i class="fa fa-link fa-lg fa-fw"></i><%= key %>
+            <a href="<%- theme.menu[key].url %>" class="waves-effect waves-light">
+                <% if (theme.menu[key].icon && theme.menu[key].icon.length > 0) { %>
+                <i class="fa fa-fw <%- theme.menu[key].icon %>"></i>
+                <% } else { %>
+                <i class="fa fa-fw fa-link"></i>
+                <% } %>
+                <%= key %>
             </a>
         </li>
         <% }); %>
+        <% if (theme.githubLink && theme.githubLink.enable) { %>
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="<%- theme.githubLink.url %>" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i><%- theme.githubLink.title %>
+            </a>
+        </li>
+        <% } %>
     </ul>
-    <div class="social-link">
-        <a href="https://github.com/jiangwen5945" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
-           data-position="top" data-delay="50">
-            <i class="fa fa-github fa-lg"></i>
-        </a>
-        <a href="mailto:908565666@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我"
-           data-position="top" data-delay="50">
-            <i class="fa fa-envelope fa-lg"></i>
-        </a>
-        <a href="#!" class="tooltipped" data-tooltip="QQ：908565666" data-position="top" data-delay="50">
-            <i class="fa fa-qq fa-lg"></i>
-        </a>
-    </div>
+
+    <div class="social-link"><%- partial('_partial/social-link') %></div>
 </div>

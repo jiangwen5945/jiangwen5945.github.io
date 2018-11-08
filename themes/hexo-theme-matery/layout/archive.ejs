@@ -3,11 +3,16 @@
 <main class="content">
 
     <% if (theme.postCalendar) { %>
-    <%- partial('_partial/post-calendar') %>
+    <%- partial('_widget/post-calendar') %>
     <% } %>
 
     <%
-    // hashCode function.
+    /**
+     * hashCode function.
+     *
+     * @param str str
+     * @returns {number}
+     */
     var hashCode = function (str) {
         if (!str && str.length === 0) {
             return 0;
@@ -32,26 +37,29 @@
 
     <div id="cd-timeline" class="container">
         <% page.posts.each(function(post) { %>
-        <div class="cd-timeline-block" data-aos="fade-up">
+        <div class="cd-timeline-block">
 
             <%# year. %>
             <% if (date(post.date, 'YYYY') != year) { %>
             <% year = date(post.date, 'YYYY'); %>
-            <div class="cd-timeline-img year">
-                <span><%- year %></span>
+            <div class="cd-timeline-img year" data-aos="zoom-in-up">
+                <a href="<%- url_for('/archives/' + year) %>"><%- year %></a>
             </div>
             <% } %>
 
             <%# month. %>
             <% if (date(post.date, 'YYYY-MM') != month) { %>
-            <% month = date(post.date, 'YYYY-MM'); %>
-            <div class="cd-timeline-img month">
-                <span><%- date(post.date, 'MM') %></span>
+            <%
+                month = date(post.date, 'YYYY-MM');
+                var m = date(post.date, 'MM')
+            %>
+            <div class="cd-timeline-img month" data-aos="zoom-in-up">
+                <a href="<%- url_for('/archives/' + year + '/' + m) %>"><%- m %></a>
             </div>
             <% } %>
 
             <%# every day posts. %>
-            <div class="cd-timeline-img day">
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
                 <span><%- date(post.date, 'YYYY-MM-DD').substring(8, 10) %></span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
@@ -71,40 +79,48 @@
                                 <% } %>
                                 <span class="card-title"><%- post.title %></span>
                             </div>
-
-                            <div class="card-content article-content">
-                                <div class="summary"><%- strip_html(post.content).substring(0, 80) %></div>
-                                <div class="publish-info">
-                                    <span class="publish-date">
-                                        <i class="fa fa-calendar fa-fw"></i><%= date(post.date, config.date_format) %>
-                                    </span>
-                                    <span class="publish-author">
-                                        <i class="fa fa-user fa-fw"></i>
-                                        <% if(post.author && post.author.length > 0) { %>
-                                        <%= post.author %>
-                                        <% } else { %>
-                                        <%= config.author %>
-                                        <% } %>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <% if (post.tags && post.tags.length) { %>
-                            <div class="card-action article-tags">
-                                <% post.tags.forEach(tag => { %>
-                                <a href="<%- tag.permalink %>"><span class="chip bg-color"><%= tag.name %></span></a>
-                                <% }); %>
-                            </div>
-                            <% } %>
                         </a>
+                        <div class="card-content article-content">
+                            <div class="summary"><%- strip_html(post.content).substring(0, 80) %></div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i><%= date(post.date, config.date_format) %>
+                                </span>
+                                <span class="publish-author">
+                                    <% if (post.categories && post.categories.length > 0) { %>
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    <% post.categories.forEach(category => { %>
+                                    <a href="<%- url_for(category.path) %>" class="post-category" target="_blank">
+                                    <%- category.name %>
+                                    </a>
+                                    <% }); %>
+                                    <% } else if (post.author && post.author.length > 0) { %>
+                                    <i class="fa fa-user fa-fw"></i>
+                                    <%- post.author %>
+                                    <% } else { %>
+                                    <i class="fa fa-user fa-fw"></i>
+                                    <%- config.author %>
+                                    <% } %>
+                                </span>
+                            </div>
+                        </div>
+
+                        <% if (post.tags && post.tags.length) { %>
+                        <div class="card-action article-tags">
+                            <% post.tags.forEach(tag => { %>
+                            <a href="<%- url_for(tag.path) %>"><span class="chip bg-color"><%= tag.name %></span></a>
+                            <% }); %>
+                        </div>
+                        <% } %>
                     </div>
                 </div>
             </article>
         </div>
         <% }); %>
     </div>
-
 </main>
+
+<%- partial('_partial/bg-music') %>
 
 <% if (page.total > 1) { %>
 <%- partial('_partial/paging') %>
