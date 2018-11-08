@@ -13,7 +13,7 @@ timezone:
 
 # URL
 # If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/' 
-url: https://jiangwen5945.gitee.io/
+url: https://jiangwen5945.github.io/
 root: /
 permalink: posts/:year/:month/:day/:abbrlink/
 permalink_defaults:
@@ -80,7 +80,7 @@ theme: hexo-theme-matery
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@gitee.com:jiangwen5945/jiangwen5945.git
+  repository: git@github.com:jiangwen5945/jiangwen5945.github.io.git
               
   branch: master
 
