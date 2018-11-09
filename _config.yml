@@ -83,6 +83,7 @@ deploy:
   repository: 
     gitee: git@gitee.com:jiangwen5945/jiangwen5945.git
     github: git@github.com:jiangwen5945/jiangwen5945.github.io.git
+    Coding: git@git.coding.net:jiangwen1994/jiangwen1994.git
               
   branch: master
 
