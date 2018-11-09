@@ -1,0 +1,33 @@
+<script type="text/javascript">
+    var a_idx = 0;
+    $("body").click(function(e) {
+        // 创建弹出文字数组
+        var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");
+        // 获取span元素并设置文本内容
+        var $i = $("<span/>").text(a[a_idx]);
+        // 对文字数组取余，达到循环数组的每个下标的作用
+        a_idx = (a_idx + 1) % a.length;
+        // 获取鼠标的x,y的坐标值
+        var x = e.pageX,
+        y = e.pageY;
+        //设置元素样式
+        $i.css({
+            "z-index": 9,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "#ff6651"
+        });
+        //在body中插入创建的元素i
+        $("body").append($i);
+        
+        //i元素的动态显隐效果
+        $i.animate({
+            "top": y - 180,
+            "opacity": 0
+        },1500,function() {
+            $i.remove();
+        });
+    });
+</script>

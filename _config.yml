@@ -79,13 +79,12 @@ theme: hexo-theme-matery
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
+  type: git   
+  branch: master
   repository: 
     gitee: git@gitee.com:jiangwen5945/jiangwen5945.git
     github: git@github.com:jiangwen5945/jiangwen5945.github.io.git
     Coding: git@git.coding.net:jiangwen1994/jiangwen1994.git
-              
-  branch: master
 
 avatar: /images/my_logo.png
 

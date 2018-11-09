@@ -107,6 +107,15 @@ $ hexo clean
 
 更多操作: [Deployment](https://hexo.io/docs/deployment.html)
 
+***
 
+## 自定义域名
+1. 在布置Hexo博客的平台上开启Pages服务
+2. 在购买域名提供商处为域名进行解析（一般需要等待10分钟左右生效），关联Pages服务的地址，我配置在Coding平台的的参数如下：
 
+|主机记录|记录类型|记录值|
+|---|---|---|
+|@|CNAME|jiangwen1994.coding.me|
+|www|CNAME|jiangwen1994.coding.me|
 
+>tips: 每个托管平台的记录值有差异，Github和Coding的记录值为该平台提供的Pages服务页面访问地址，而Gitee码云的记录值为固定的gitee.gitee.io
