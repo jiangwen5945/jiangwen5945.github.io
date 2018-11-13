@@ -63,7 +63,7 @@
     }
 
     #toc-content{
-        max-height: 80vh;
+        max-height: 78vh;
         overflow-y: scroll;
         margin-right: -20px;
         padding-right: 20px;
@@ -76,7 +76,7 @@
     <div class="col s12 m12 l9">
         <%- partial('_partial/post-detail.ejs') %>
     </div>
-    <div class="col l3 hide-on-med-and-down">
+    <div class="col hide-on-med-and-down">
         <div class="toc-widget">
             <h4><%- __('toc') %></h4>
             <div class="toc-warp">
@@ -106,17 +106,35 @@
             titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
         });
         let titleLen = titleTopArr.length;
-
+        
+       
+        
         /* 监听滚动条.*/
         let $tocWidget = $('.toc-widget');
         $(window).scroll(function () {
             let scroll = $(window).scrollTop();
+            // 计算body滚动条和toc目录滚动条的关系
+                // 获取浏览器窗口高度
+                let wH = $(window).height()
+                // 获取文档高度
+                let bH = $('body').height()
+                //获取目录窗口高度
+                let tH = $(".toc-warp").height()
+                //获取目录文档高度
+                let lH = $(".post-toc").height()
 
+               let scale = (bH/wH)*(lH/tH)
+
+            // console.log(wH,bH,tH,lH,scale);
+            
             /* add post toc fixed. */
             if (scroll > 240) {
                 $tocWidget.addClass('toc-fixed');
+                $('#toc-content').scrollTop(scroll/scale);
+                
             } else {
                 $tocWidget.removeClass('toc-fixed');
+                $('#toc-content').scrollTop(0);
             }
 
             /** 以下代码为动态设置TOC激活高亮的目录. */
