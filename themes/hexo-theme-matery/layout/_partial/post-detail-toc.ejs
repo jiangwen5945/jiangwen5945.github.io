@@ -112,26 +112,26 @@
         /* 监听滚动条.*/
         let $tocWidget = $('.toc-widget');
         $(window).scroll(function () {
+            // 获取窗口的滚动条高度
             let scroll = $(window).scrollTop();
+            
             // 计算body滚动条和toc目录滚动条的关系
                 // 获取浏览器窗口高度
                 let wH = $(window).height()
                 // 获取文档高度
                 let bH = $('body').height()
                 //获取目录窗口高度
-                let tH = $(".toc-warp").height()
+                let tH = $(".toc-warp").innerHeight();
                 //获取目录文档高度
                 let lH = $(".post-toc").height()
-
-               let scale = (bH/wH)*(lH/tH)
-
-            // console.log(wH,bH,tH,lH,scale);
+                //计算 滚动条间的比例关系
+               let scale = (bH-wH)/(lH-tH)
             
             /* add post toc fixed. */
             if (scroll > 240) {
                 $tocWidget.addClass('toc-fixed');
                 $('#toc-content').scrollTop(scroll/scale);
-                
+
             } else {
                 $tocWidget.removeClass('toc-fixed');
                 $('#toc-content').scrollTop(0);
