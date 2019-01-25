@@ -2,7 +2,8 @@
 title: JavaScript学习笔记
 abbrlink: 20244
 date: 2018-11-06 16:28:16
-tags:
+tags: JavaScript
+categories: JavaScript
 ---
 ## JavaScript高级程序设计
 
