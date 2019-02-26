@@ -67,20 +67,21 @@ profile:
 myProjects:
   enable: true
   data:
-    hexo-theme-matery:
-      icon: fa-meetup
-      iconBackground: 'linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)'
+    My blog:
+      icon: fa-book
+      iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
       url:  https://gitee.com/jiangwen5945/jiangwen5945/tree/dev-blog/
       desc: This is a Hexo blog theme with responsive design.
-    xiamaoShop:
-        icon: fa-database
+    ZOORON:
+        icon: fa-shopping-bag
         iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
         url:  http://www.987tea.com
         desc: This is a network shopping platform with tea.
-    Go:
-        icon: fa-file-text-o
-        iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
-        desc: A website base Vue 
+    Power:
+        icon: fa-bolt
+        iconBackground: 'linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)'
+        url:  https://dev.tencent.com/u/jiangwen1994/p/power
+        desc: This is a hybrid app. 
 
 # config my skills informations in about page.
 # If you don't want to display this `My Skills` content, you can deactivate or delete this configuration.
@@ -90,22 +91,22 @@ mySkills:
   data:
     PHP:
       background: 'linear-gradient(to right, #FF0066 0%, #FF00CC 100%)'
-      percent: 70%
+      percent: 65%
     JavaScript:
       background: 'linear-gradient(to right, #9900FF 0%, #CC66FF 100%)'
       percent: 75%
     HTML:
       background: 'linear-gradient(to right, #2196F3 0%, #42A5F5 100%)'
-      percent: 80%
+      percent: 85%
     CSS:
       background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
       percent: 85%
-    Axure:
+    Vue:
       background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
-      percent: 70%
+      percent: 80%
     PS:
       background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'
-      percent: 75%
+      percent: 70%
 
 # config gallery of my photos in about page.
 # If you don't want to display this `Gallery` content, you can deactivate or delete this configuration.

@@ -3,6 +3,13 @@
     .index-cover {
         height: 100vh;
     }
+    /* 文字不可选中，避免在首页双击时选中文本 */
+    body{
+        -webkit-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        user-select:none;
+    }
 </style>
 
 <%- partial('_partial/bg-cover') %>
