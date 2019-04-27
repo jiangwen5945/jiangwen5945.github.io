@@ -4,11 +4,9 @@ abbrlink: 58574
 date: 2018-11-02 11:14:10
 tags: CSS布局
 categories: CSS
-img: https://wx4.sinaimg.cn/mw690/b1bc0c45gy1fwr6my8c18j20go0afdo5.jpg
 ---
 
 ## 1.左右布局
-![image](https://wx4.sinaimg.cn/large/b1bc0c45gy1fx0f8n5ppqj20lm0btjr9.jpg)
 ### 1.1 float + margin
 ```css
 .left{
@@ -77,9 +75,6 @@ BFC(块级格式化上下文)定义了如下布局规则：
 
 
 ## 2. 等宽等高布局
-
-![image](https://wx2.sinaimg.cn/large/b1bc0c45gy1fx0f8n3d23j20e107ot8i.jpg)
-
 ### 2.1 table
 
 ```css
@@ -102,7 +97,6 @@ BFC(块级格式化上下文)定义了如下布局规则：
     flex: 1;
 }
 ```
-![image](http://wx3.sinaimg.cn/large/b1bc0c45gy1fx0f8n8bkdj20e207lwea.jpg)
 
 > 补充：多行多列并排等分
 ```css
@@ -142,7 +136,6 @@ BFC(块级格式化上下文)定义了如下布局规则：
 
 
 ## 3.经典布局
-![image](https://wx1.sinaimg.cn/large/b1bc0c45gy1fx0f8mzzecj20h609wq2w.jpg)
 ### 3.1圣杯布局
 
 ``` html

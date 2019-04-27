@@ -106,7 +106,7 @@ mySkills:
       percent: 80%
     PS:
       background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'
-      percent: 70%
+      percent: 60%
 
 # config gallery of my photos in about page.
 # If you don't want to display this `Gallery` content, you can deactivate or delete this configuration.
@@ -166,14 +166,25 @@ githubLink:
 # The post featured images that needs to be displayed when there is no image.
 # 无文章特色图片时需要显示的文章特色图片.
 featureImages: 
-- /medias/featureimages/default1.jpg
-- /medias/featureimages/default2.jpg
-- /medias/featureimages/default3.jpg
-- /medias/featureimages/default4.jpg
-- /medias/featureimages/default5.jpg
-- /medias/featureimages/default6.jpg
-- /medias/featureimages/default7.jpg
-
+- /medias/featureimages/article_1.jpg
+- /medias/featureimages/article_2.png
+- /medias/featureimages/article_3.jpg
+- /medias/featureimages/article_4.png
+- /medias/featureimages/article_5.jpg
+- /medias/featureimages/article_6.png
+- /medias/featureimages/article_7.jpg
+- /medias/featureimages/article_8.png
+- /medias/featureimages/article_9.png
+- /medias/featureimages/article_10.jpg
+- /medias/featureimages/article_11.jpg
+- /medias/featureimages/article_12.jpg
+- /medias/featureimages/article_13.jpg
+- /medias/featureimages/article_14.jpg
+- /medias/featureimages/article_15.jpg
+- /medias/featureimages/article_16.png
+- /medias/featureimages/article_17.jpg
+- /medias/featureimages/article_18.jpg
+- /medias/featureimages/article_19.png
 
 # 背景音乐
 music:

@@ -1,6 +1,5 @@
 ---
 title: Git常用命令小结
-img: /medias/post/Git常用命令小结/git.jpg
 tags: Git命令
 categories: Git
 abbrlink: 23174

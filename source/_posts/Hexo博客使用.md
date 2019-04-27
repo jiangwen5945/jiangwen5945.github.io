@@ -3,7 +3,6 @@ title: Hexo博客使用
 tags: 博客日志
 abbrlink: 59612
 date: 2018-09-30 16:34:20
-img: http://pic.yupoo.com/1025787573/01eba24d/medium.jpg
 ---
 ![hexo+git](/medias/post/Hexo博客使用/hexo.jpg)
 

@@ -5,7 +5,6 @@ tags:
   - 工具
 abbrlink: 48793
 date: 2018-09-25 11:46:15
-img: http://pic.yupoo.com/1025787573/25a1e98a/medium.jpg
 ---
 
 ![Markdown图片](/medias/post/Markdown快速入门/2018-09-29-14-26-41.png)
