@@ -680,7 +680,13 @@ article .card .card-content {
 article .article-content .summary {
     padding-bottom: 2px;
     padding-left: 0;
-    margin-bottom: 6px;
+    margin-bottom: 16px;
+    /* 多行文本溢出省略号 */
+    max-height: 46px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 
 article .article-content .publish-author {
