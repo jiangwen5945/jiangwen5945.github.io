@@ -596,10 +596,15 @@ header .go-back i {
 .recommend .post-card .post-description {
     margin: 20px auto;
     max-width: 500px;
-    height: 65px;
-    max-height: 65px;
+    height: 66px;
+    max-height: 66px;
     font-size: 14px;
     color: hsla(0, 0%, 100%, .7) !important;
+    /* 多行文本溢出隐藏 */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .recommend .post-card .read-more {

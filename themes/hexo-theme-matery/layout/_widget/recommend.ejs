@@ -75,7 +75,7 @@
                 <%
                     var post = topPosts[i];
                     var grid = (i % 3 === 0) ? 's12' : 's12 m6';
-                    var description = (i % 3 === 0) ? strip_html(post.content).substring(0, 120)
+                    var description = (i % 3 === 0) ? strip_html(post.content).substring(0, 130)
                             : strip_html(post.content).substring(0, 70);
                     var featureImg = post.img ? post.img : featureImages[Math.abs(hashCode(post.title) % imgCount)];
                     var bgColor = bgColorArr[i % colorCount];

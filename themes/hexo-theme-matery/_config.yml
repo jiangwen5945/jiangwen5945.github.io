@@ -114,10 +114,9 @@ mySkills:
 myGallery:
   enable: true
   data:
-    - http://wx4.sinaimg.cn/mw690/b1bc0c45gy1fwv03ny4etj20hs0a6jv2.jpg
-    - http://wx4.sinaimg.cn/mw690/b1bc0c45gy1fwv03l50sxj20z60k3ahh.jpg
-    - http://wx1.sinaimg.cn/mw690/b1bc0c45gy1fwv03r4dzij20z60k3k45.jpg
-    
+    - /medias/about/about_1.jpg
+    - /medias/about/about_2.jpg
+    - /medias/about/about_3.jpg
 
 # Whether to display post-calender in the `archive` page
 # 设置在归档页面中是否显示'文章日历'控件
