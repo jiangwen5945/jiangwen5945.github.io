@@ -682,11 +682,11 @@ article .article-content .summary {
     padding-left: 0;
     margin-bottom: 16px;
     /* 多行文本溢出省略号 */
-    max-height: 46px;
+    max-height: 66px;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
 }
 
 article .article-content .publish-author {
