@@ -30,8 +30,8 @@ recommend:
 
 # Configure website favicon and LOGO
 # 配置网站favicon和网站LOGO
-favicon: /medias/favicon.png
-logo: /medias/logo.png
+favicon: /medias/about/favicon.ico
+logo: /medias/about/logo.png
 
 # The configuration of the second button in the home banner,
 # including the display name of the button, the font awesome icon, and the hyperlink to the button.
@@ -57,7 +57,7 @@ reward:
 # profile in about page, including avatars, career, and personal introductions.
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
 profile:
-  avatar: /medias/avatar.jpg
+  avatar: /medias/about/avatar.jpg
   career: Software Engineer
   introduction: If you wish to succeed, you should use persistence as your good friend, experience as your reference, prudence as your brother and hope as your sentry.
 
@@ -166,24 +166,48 @@ githubLink:
 # 无文章特色图片时需要显示的文章特色图片.
 featureImages: 
 - /medias/featureimages/article_1.jpg
-- /medias/featureimages/article_2.png
+- /medias/featureimages/article_2.jpg
 - /medias/featureimages/article_3.jpg
-- /medias/featureimages/article_4.png
+- /medias/featureimages/article_4.jpg
 - /medias/featureimages/article_5.jpg
-- /medias/featureimages/article_6.png
+- /medias/featureimages/article_6.jpg
 - /medias/featureimages/article_7.jpg
-- /medias/featureimages/article_8.png
-- /medias/featureimages/article_9.png
+- /medias/featureimages/article_8.jpg
+- /medias/featureimages/article_9.jpg
 - /medias/featureimages/article_10.jpg
 - /medias/featureimages/article_11.jpg
 - /medias/featureimages/article_12.jpg
 - /medias/featureimages/article_13.jpg
 - /medias/featureimages/article_14.jpg
 - /medias/featureimages/article_15.jpg
-- /medias/featureimages/article_16.png
+- /medias/featureimages/article_16.jpg
 - /medias/featureimages/article_17.jpg
 - /medias/featureimages/article_18.jpg
-- /medias/featureimages/article_19.png
+- /medias/featureimages/article_19.jpg
+- /medias/featureimages/article_20.jpg
+# - /medias/featureimages/article_21.jpg
+# - /medias/featureimages/article_22.png
+# - /medias/featureimages/article_23.png
+# - /medias/featureimages/article_24.png
+# - /medias/featureimages/article_25.png
+# - /medias/featureimages/article_26.png
+# - /medias/featureimages/article_27.png
+# - /medias/featureimages/article_28.png
+# - /medias/featureimages/article_29.png
+# - /medias/featureimages/article_30.png
+# - /medias/featureimages/article_31.png
+# - /medias/featureimages/article_32.png
+# - /medias/featureimages/article_33.png
+# - /medias/featureimages/article_34.png
+# - /medias/featureimages/article_35.png
+# - /medias/featureimages/article_36.png
+# - /medias/featureimages/article_37.png
+# - /medias/featureimages/article_38.png
+# - /medias/featureimages/article_39.png
+# - /medias/featureimages/article_40.png
+# - /medias/featureimages/article_41.png
+# - /medias/featureimages/article_42.png
+# - /medias/featureimages/article_43.png
 
 # 背景音乐
 music:
