@@ -165,6 +165,27 @@ githubLink:
 # The post featured images that needs to be displayed when there is no image.
 # 无文章特色图片时需要显示的文章特色图片.
 featureImages: 
+- /medias/featureimages/article_1.webp
+- /medias/featureimages/article_2.webp
+- /medias/featureimages/article_3.webp
+- /medias/featureimages/article_4.webp
+- /medias/featureimages/article_5.webp
+- /medias/featureimages/article_6.webp
+- /medias/featureimages/article_7.webp
+- /medias/featureimages/article_8.webp
+- /medias/featureimages/article_9.webp
+- /medias/featureimages/article_10.webp
+- /medias/featureimages/article_11.webp
+- /medias/featureimages/article_12.webp
+- /medias/featureimages/article_13.webp
+- /medias/featureimages/article_14.webp
+- /medias/featureimages/article_15.webp
+- /medias/featureimages/article_16.webp
+- /medias/featureimages/article_17.webp
+- /medias/featureimages/article_18.webp
+- /medias/featureimages/article_19.webp
+
+featureImages2: 
 - /medias/featureimages/article_1.jpg
 - /medias/featureimages/article_2.jpg
 - /medias/featureimages/article_3.jpg
@@ -184,7 +205,7 @@ featureImages:
 - /medias/featureimages/article_17.jpg
 - /medias/featureimages/article_18.jpg
 - /medias/featureimages/article_19.jpg
-- /medias/featureimages/article_20.jpg
+
 
 # 背景音乐
 music:

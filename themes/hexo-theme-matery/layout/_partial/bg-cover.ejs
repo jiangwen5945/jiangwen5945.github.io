@@ -4,19 +4,19 @@
             <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
                 <div class="brand">
                     <div class="title center-align">
-                    <% if (config.subtitle && config.subtitle.length > 0) { %>
+                        <% if (config.subtitle && config.subtitle.length > 0) { %>
                         <%= config.subtitle %>
-                    <% } else { %>
+                        <% } else { %>
                         subtitle
-                    <% } %>
+                        <% } %>
                     </div>
 
                     <div class="description center-align swing animated">
-                    <% if (config.description && config.description.length > 0) { %>
+                        <% if (config.description && config.description.length > 0) { %>
                         <%= config.description %>
-                    <% } else { %>
+                        <% } else { %>
                         This is your root _config.yml 'description' value.
-                    <% } %>
+                        <% } %>
                     </div>
                 </div>
             </div>
@@ -43,6 +43,16 @@
 </div>
 
 <script>
-// Dynamically switch banner pictures every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.webp)');
+    // Dynamically switch banner pictures every day.
+    // $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.webp)');
+
+    // 判断浏览器是否兼容webp格式图片
+    ! function checkPic() {
+        let isWebP = document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0;
+        if (isWebP) {
+            $('.bg-cover').css('background-image', 'url(/medias/banner/banner.webp)');
+        } else {
+            $('.bg-cover').css('background-image', 'url(/medias/banner/banner.png)');
+        }
+    }()
 </script>
