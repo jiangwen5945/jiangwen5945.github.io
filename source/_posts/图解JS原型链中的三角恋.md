@@ -2,11 +2,12 @@
 title: 图解JS原型链中的三角恋
 abbrlink: 11593
 date: 2019-05-17 15:16:30
-tags:
+tags: 原型链
+categories: JavaScript
 ---
 > 直接上图！额(⊙o⊙)…，有点乱！不着急，让我们一步步来理解
 
-![img](16ac027609e7ec50.webp)
+![img](fe549bc3fdeb7089988f2715a8cbf91a.jpg)
 
 首先先来明确这三个属性的定义:
 
