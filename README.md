@@ -1,5 +1,5 @@
 #### 安装教程
-1. 首先在别人的电脑上面安装好git、node、hexo，然后使用克隆clone的命令下载源代码：
+1. 首先在电脑上面安装好git、node、hexo，然后使用克隆clone的命令下载源代码：
 > git clone -b dev-blog git@github.com:xxx/xxx.github.io.git // 克隆分支源码
 
 > npm install hexo    // 安装hexo  安装完成hexo 不需要初始化hexo，否者hexo 配置参数会重置
