@@ -13,7 +13,7 @@ timezone:
 
 # URL
 # If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/' 
-url: https://jiangwen5945.github.io/
+url: https://jiangwen1994.cn
 root: /
 permalink: posts/:year/:month/:day/:abbrlink/
 permalink_defaults:
@@ -83,8 +83,7 @@ deploy:
   branch: master
   repository: 
     github: git@github.com:jiangwen5945/jiangwen5945.github.io.git
-    Coding: git@git.coding.net:jiangwen1994/jiangwen1994.git
-
+    Coding: git@e.coding.net:jiangwen1994/jiangwen1994.git
 avatar: /images/my_logo.png
 
 
