@@ -43,9 +43,11 @@
 </div>
 
 <script>
+    // 配置一：每天显示不同主页封面
     // Dynamically switch banner pictures every day.
     // $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.webp)');
 
+    // 配置二：显示固定主页封面
     // 判断浏览器是否兼容webp格式图片
     ! function checkPic() {
         let isWebP = document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0;

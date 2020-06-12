@@ -4,7 +4,6 @@ tags: 博客日志
 abbrlink: 59612
 date: 2018-09-30 16:34:20
 ---
-![hexo+git](hexo.webp)
 
 ## Git管理博客源码
 

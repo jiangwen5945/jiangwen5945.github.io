@@ -25,12 +25,12 @@
 <script src="/js/matery.js"></script>
 
 <script>
-    // 手机端移除此功粒子效果
-    var sUserAgent = navigator.userAgent;
-    var isMobil = (sUserAgent.indexOf('Android') > -1 || sUserAgent.indexOf('iPhone') > -1 || sUserAgent.indexOf('iPad') > -1 || sUserAgent.indexOf('iPod') > -1 || sUserAgent.indexOf('Symbian') > -1)
-    if (!isMobil) {
-        document.write("<script src='/libs/canvasNest/canvas-nest.min.js'><\/script>");
-    }
+    // 判断是否移动端
+    // var sUserAgent = navigator.userAgent;
+    // var isMobil = (sUserAgent.indexOf('Android') > -1 || sUserAgent.indexOf('iPhone') > -1 || sUserAgent.indexOf('iPad') > -1 || sUserAgent.indexOf('iPod') > -1 || sUserAgent.indexOf('Symbian') > -1)
+    // if (!isMobil) {}
+
+     document.write("<script src='/libs/ribbon/canvas-ribbon.js'><\/script>");
 </script>
     
 </body>

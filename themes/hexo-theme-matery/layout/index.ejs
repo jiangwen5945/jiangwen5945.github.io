@@ -3,12 +3,13 @@
     .index-cover {
         height: 100vh;
     }
+
     /* 文字不可选中，避免在首页双击时选中文本 */
-    body{
-        -webkit-user-select:none;
-        -moz-user-select:none;
-        -ms-user-select:none;
-        user-select:none;
+    body {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 </style>
 
@@ -27,9 +28,9 @@
     <% } %>
 
     <div id="recommend-sections">
-    <% if (page.current === 1) { %>
-    <%- partial('_widget/recommend') %>
-    <% } %>
+        <% if (page.current === 1) { %>
+        <%- partial('_widget/recommend') %>
+        <% } %>
     </div>
 
     <%
@@ -50,6 +51,7 @@
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            <!-- 循环出所有文章卡片 -->
             <% page.posts.forEach(post => { %>
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -57,24 +59,20 @@
                         <div class="card-image">
                             <% if (post.img) { %>
                             <img src="<%= post.img %>" class="responsive-img" alt="<%- post.title %>"
-                            onerror="javascript:this.src='<%= post.img2 %>';this.onerror = null"
-                            >
+                                onerror="javascript:this.src='<%= post.img2 %>';this.onerror = null">
                             <% } else { %>
                             <%
-                                var featureimg = '/medias/featureimages/0.jpg';
                                 var featureImages = theme.featureImages;
                                 var featureImages2 = theme.featureImages2;
-                                if (!featureImages || featureImages.length == 0) {
-                                    return featureimg;
-                                }
+                               
                                 var len = featureImages.length;
                                 var num = Math.abs(hashCode(post.title) % len);
                                 featureimg = featureImages[num];
                                 featureimg2 = featureImages2[num];
                             %>
+                            <!-- 兼容webp格式图片 -->
                             <img src="<%- featureimg2 %>" class="responsive-img" alt="<%- post.title %>"
-                            onerror="javascript:this.src='<%= featureimg %>';this.onerror = null"
-                            >
+                                onerror="javascript:this.src='<%= featureimg %>';this.onerror = null">
                             <% } %>
                             <span class="card-title"><%- post.title %></span>
                         </div>

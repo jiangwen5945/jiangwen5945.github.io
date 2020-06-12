@@ -1,5 +1,7 @@
 /*全局基础样式*/
+
 /*小屏幕下(手机类)的样式*/
+
 @media only screen and (max-width: 601px) {
     .container {
         width: 95%;
@@ -7,6 +9,7 @@
 }
 
 /*中等屏幕下(平板类)的样式*/
+
 @media only screen and (min-width: 600px) and (max-width: 992px) {
     .container {
         width: 90%;
@@ -14,12 +17,12 @@
 }
 
 /*大屏幕下(桌面类)的样式*/
+
 @media only screen and (min-width: 993px) {
     .container {
         width: 85%;
         max-width: 1125px;
     }
-
     .post-container {
         width: 90%;
         margin: 0 auto;
@@ -28,7 +31,7 @@
 }
 
 body {
-    background-color: #eaeaea;
+    background: #eaeaea url(/medias/about/bg.gif) repeat;
     margin: 0;
     color: #34495e;
 }
@@ -169,6 +172,7 @@ mark {
 }
 
 /*头部导航栏样式*/
+
 @media only screen and (max-width: 600px) {
     header nav .brand-logo {
         left: 80px;
@@ -177,7 +181,6 @@ mark {
         -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
     }
-
     header .brand-logo .logo-span {
         font-size: 1.6rem !important;
     }
@@ -192,7 +195,8 @@ mark {
     opacity: 0.8;
 }
 
-nav, .side-nav {
+nav,
+.side-nav {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 7px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -338,6 +342,7 @@ header .go-back i {
 }
 
 /* 背景图效果. */
+
 .bg-cover {
     position: relative;
     display: flex;
@@ -356,7 +361,8 @@ header .go-back i {
     height: 40vh !important;
 }
 
-.bg-cover:before, .bg-cover:after {
+.bg-cover:before,
+.bg-cover:after {
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -418,7 +424,6 @@ header .go-back i {
         margin-top: 30px;
         padding: 0 0.75rem;
     }
-
     .recommend {
         margin-top: 20px;
         padding: 0 0.75rem;
@@ -432,6 +437,7 @@ header .go-back i {
 }
 
 /*中等屏幕下(平板类)的样式*/
+
 @media only screen and (min-width: 600px) and (max-width: 992px) {
     .recommend .card .card-content {
         padding: 20px 20px;
@@ -553,6 +559,7 @@ header .go-back i {
 }
 
 /*文章列表卡片各样式*/
+
 #articles {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -685,6 +692,7 @@ article .article-tags .chip {
 }
 
 /*文章详情样式*/
+
 #artDetail {
     margin-top: -60px;
 }
@@ -697,9 +705,7 @@ article .article-tags .chip {
 }
 
 #artDetail .card {
-    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15),
-    0 5px 15px rgba(0, 0, 0, .07),
-    0 2px 5px -5px rgba(0, 0, 0, .1) !important;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
 }
 
 #artDetail a {
@@ -766,7 +772,6 @@ article .article-tags .chip {
     #artDetail .article-card-content {
         padding: 0 30px 20px 32px;
     }
-
     #artDetail .article-info {
         padding: 25px 30px 30px 32px;
         margin-bottom: 20px;
@@ -839,12 +844,15 @@ ol li {
     list-style-type: circle;
 }
 
-#articleContent table, th, td {
+#articleContent table,
+th,
+td {
     padding: 12px 13px;
     border: 1px solid #dfe2e5;
 }
 
-table tr:nth-child(2n), thead {
+table tr:nth-child(2n),
+thead {
     background-color: #fafafa;
 }
 
@@ -857,7 +865,8 @@ table tr:nth-child(2n), thead {
     min-width: 80px;
 }
 
-#articleContent [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+#articleContent [type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
     position: inherit;
     margin-left: -1.3rem;
     margin-right: 0.4rem;
@@ -944,6 +953,7 @@ table tr:nth-child(2n), thead {
 }
 
 /* archive page. */
+
 #cd-timeline .year {
     position: relative;
     width: 80px;
@@ -1009,17 +1019,14 @@ table tr:nth-child(2n), thead {
         margin-top: 2rem;
         margin-bottom: 2rem;
     }
-
     #cd-timeline::before {
         left: 50%;
         margin-left: -2px;
     }
-
     #cd-timeline .year {
         margin: 10px 0 50px -40px;
         padding: 22px 11px;
     }
-
     #cd-timeline .month {
         margin: 10px 0 30px -30px;
         padding: 14px 16px;
@@ -1049,11 +1056,9 @@ table tr:nth-child(2n), thead {
     .cd-timeline-block {
         margin: 1em 0;
     }
-
     .cd-timeline-block:first-child {
         margin-top: 0;
     }
-
     .cd-timeline-block:last-child {
         margin-bottom: 0;
     }
@@ -1079,11 +1084,9 @@ table tr:nth-child(2n), thead {
         -webkit-transform: translateZ(0);
         -webkit-backface-visibility: hidden;
     }
-
     .cssanimations .cd-timeline-img.is-hidden {
         visibility: hidden;
     }
-
     .cssanimations .cd-timeline-img.bounce-in {
         visibility: visible;
         -webkit-animation: cd-bounce-1 0.6s;
@@ -1128,11 +1131,9 @@ table tr:nth-child(2n), thead {
     .cd-timeline-content h2 {
         font-size: 1.25rem;
     }
-
     .cd-timeline-content p {
         font-size: 1rem;
     }
-
     .cd-timeline-content .cd-read-more,
     .cd-timeline-content .cd-date {
         font-size: 0.875rem;
@@ -1144,37 +1145,29 @@ table tr:nth-child(2n), thead {
         margin-left: 0;
         padding: 0;
         width: 45%;
-
     }
-
     .cd-timeline-content::before {
         top: 24px;
         left: 100%;
     }
-
     .cd-timeline-content .cd-read-more {
         float: left;
     }
-
     .cd-timeline-block:nth-child(even) .cd-timeline-content {
         float: right;
     }
-
     .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
         top: 24px;
         left: auto;
         right: 100%;
         border-color: #ffa726;
     }
-
     .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
         float: right;
     }
-
     .cssanimations .cd-timeline-content.is-hidden {
         visibility: hidden;
     }
-
     .cssanimations .cd-timeline-content.bounce-in {
         visibility: visible;
         -webkit-animation: cd-bounce-2 0.6s;
@@ -1290,7 +1283,8 @@ table tr:nth-child(2n), thead {
     padding: 3.8rem 1.5rem 0.8rem 1.5rem;
 }
 
-.post-charts, .title,
+.post-charts,
+.title,
 .my-projects .title,
 .my-skills .title,
 .my-gallery .title {
@@ -1413,7 +1407,8 @@ table tr:nth-child(2n), thead {
 
 .other-skills .chip:hover {
     color: #fff;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);;
+    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    ;
     border: 1px solid #4cbf30;
     box-shadow: 0 5px 5px rgba(0, 0, 0, .25)
 }
@@ -1436,6 +1431,7 @@ table tr:nth-child(2n), thead {
 }
 
 /*尾部样式*/
+
 footer {
     padding-bottom: 1px;
 }
@@ -1449,6 +1445,7 @@ footer .copy-right {
 }
 
 /*搜索层样式*/
+
 #searchIcon {
     font-size: 1.6rem;
 }
@@ -1494,6 +1491,7 @@ footer .copy-right {
 }
 
 /*回到顶部按钮样式*/
+
 .top-scroll {
     display: none;
     position: fixed;

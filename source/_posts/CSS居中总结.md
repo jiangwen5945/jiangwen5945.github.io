@@ -5,10 +5,6 @@ categories: CSS
 abbrlink: 14596
 date: 2018-08-28 11:34:17
 ---
-
-
-
-![CSS居中](https://user-gold-cdn.xitu.io/2018/5/5/1632f4dfa8fce649?w=690&h=184&f=jpeg&s=22555)
 ## 1. 水平居中
 
 ### 1.1 内联元素水平居中

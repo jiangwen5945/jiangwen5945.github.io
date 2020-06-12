@@ -212,9 +212,7 @@ featureImages2:
 # 背景音乐
 music:
   autoplay: ''                                     # 是否自动播放[autoplay / '']
-  home: /medias/music/Always With Me.mp3           # 主页背景音乐
+  home:  /medias/music/The promise.mp3           # 主页背景音乐
   others:                  
     - /medias/music/The promise.mp3
-    - /medias/music/canon in d.mp3
-    - /medias/music/Always With Me.mp3      
   
