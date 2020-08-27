@@ -1,0 +1,1196 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Git常用命令小结, blog">
+    <meta name="description" content="
+名称解释Workspace：工作区
+Index / Stage：暂存区
+Repository：仓库区（或本地仓库）
+Remote：远程仓库
+
+新建代码库1.在当前目录新建一个Git代码库
+$ git init
+
+2.新建一个目录，将其初始">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Git常用命令小结 | Jiang Wen</title>
+    <link rel="icon" type="image/png" href="/medias/about/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/about/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Jiang Wen</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/about/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jiang Wen</div>
+        <div class="logo-desc">
+            
+            Just for fun
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/jiangwen5945/jiangwen5945.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/jiangwen5945" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github fa-lg"></i>
+</a>
+<a href="mailto:908565666@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope fa-lg"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ: 908565666" data-position="top" data-delay="50">
+    <i class="fa fa-qq fa-lg"></i>
+</a>
+<a href="#!" class="controlMusic">
+    <i class="fa fa-pause fa-lg"></i>
+</a>
+
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/jiangwen5945/jiangwen5945.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/article_3.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title animated bounce">
+                        Git常用命令小结
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <style>
+    #artDetail h1,
+    #artDetail h2,
+    #artDetail h3,
+    #artDetail h4,
+    #artDetail h5,
+    #artDetail h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #artDetail h1 {
+        line-height: 3.3rem;
+    }
+
+    #artDetail h2 {
+        line-height: 3rem;
+    }
+
+    #artDetail h3 {
+        line-height: 2.5rem;
+    }
+
+    #artDetail h4 {
+        line-height: 2.2rem;
+    }
+
+    #artDetail h5 {
+        line-height: 1.9rem;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    .post-toc ol {
+        padding-left: 20px;
+    }
+
+    .post-toc a {
+        color: #34495e;
+        font-size: 0.96rem;
+    }
+
+    .post-toc a:hover {
+        color: #42b983;
+        text-decoration: underline;
+    }
+
+    .post-toc .active {
+        color: #42b983;
+        font-weight: 500;
+    }
+
+    #toc-content{
+        max-height: 78vh;
+        overflow-y: scroll;
+        margin-right: -20px;
+        padding-right: 20px;
+    }
+    .toc-warp{
+        overflow: hidden;
+        position: relative;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/Git命令/" target="_blank">
+                    <span class="chip bg-color">Git命令</span>
+                </a>
+                
+
+                 <!-- 音乐控制 -->
+                <span class="chip bg-color controlMusic">
+                    <i class="fa fa-pause "></i>
+                </span>
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/Git/" class="post-category" target="_blank">
+                        Git
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-08-28
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><img src="http://pic.yupoo.com/1025787573/54d0ebee/a29ec21f.jpg" alt="git"></p>
+<h2 id="名称解释"><a href="#名称解释" class="headerlink" title="名称解释"></a>名称解释</h2><p><strong>Workspace：工作区</strong></p>
+<p><strong>Index / Stage：暂存区</strong></p>
+<p><strong>Repository：仓库区（或本地仓库）</strong></p>
+<p><strong>Remote：远程仓库</strong></p>
+<hr>
+<h2 id="新建代码库"><a href="#新建代码库" class="headerlink" title="新建代码库"></a>新建代码库</h2><h3 id="1-在当前目录新建一个Git代码库"><a href="#1-在当前目录新建一个Git代码库" class="headerlink" title="1.在当前目录新建一个Git代码库"></a>1.在当前目录新建一个Git代码库</h3><blockquote>
+<p>$ git init</p>
+</blockquote>
+<h3 id="2-新建一个目录，将其初始化为Git代码库"><a href="#2-新建一个目录，将其初始化为Git代码库" class="headerlink" title="2.新建一个目录，将其初始化为Git代码库"></a>2.新建一个目录，将其初始化为Git代码库</h3><blockquote>
+<p>$ git init [project-name]</p>
+</blockquote>
+<h3 id="3-下载一个项目和它的整个代码历史"><a href="#3-下载一个项目和它的整个代码历史" class="headerlink" title="3.下载一个项目和它的整个代码历史"></a>3.下载一个项目和它的整个代码历史</h3><blockquote>
+<p>$ git clone [url]</p>
+</blockquote>
+<hr>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><blockquote>
+<p>Git的配置文件为<code>.gitconfig</code>，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。</p>
+</blockquote>
+<h3 id="1-显示当前的Git配置"><a href="#1-显示当前的Git配置" class="headerlink" title="1.显示当前的Git配置"></a>1.显示当前的Git配置</h3><blockquote>
+<p>$ git config –lis</p>
+</blockquote>
+<h3 id="2-编辑Git配置文件"><a href="#2-编辑Git配置文件" class="headerlink" title="2.编辑Git配置文件"></a>2.编辑Git配置文件</h3><blockquote>
+<p>$ git config -e [–global]</p>
+</blockquote>
+<h3 id="3-设置提交代码时的用户信息"><a href="#3-设置提交代码时的用户信息" class="headerlink" title="3.设置提交代码时的用户信息"></a>3.设置提交代码时的用户信息</h3><blockquote>
+<p>$ git config [–global] user.name “[name]”</p>
+</blockquote>
+<blockquote>
+<p>$ git config [–global] user.email “[email address]”</p>
+</blockquote>
+<hr>
+<h2 id="增加-删除文件"><a href="#增加-删除文件" class="headerlink" title="增加/删除文件"></a>增加/删除文件</h2><h3 id="1-添加指定文件到暂存区"><a href="#1-添加指定文件到暂存区" class="headerlink" title="1.添加指定文件到暂存区"></a>1.添加指定文件到暂存区</h3><blockquote>
+<p>$ git add [file1] [file2] …</p>
+</blockquote>
+<h3 id="2-添加指定目录到暂存区，包括子目录"><a href="#2-添加指定目录到暂存区，包括子目录" class="headerlink" title="2.添加指定目录到暂存区，包括子目录"></a>2.添加指定目录到暂存区，包括子目录</h3><blockquote>
+<p>$ git add [dir]</p>
+</blockquote>
+<h3 id="3-添加当前目录的所有文件到暂存区"><a href="#3-添加当前目录的所有文件到暂存区" class="headerlink" title="3.添加当前目录的所有文件到暂存区"></a>3.添加当前目录的所有文件到暂存区</h3><blockquote>
+<p>$ git add .</p>
+</blockquote>
+<h3 id="4-删除工作区文件，并且将这次删除放入暂存区"><a href="#4-删除工作区文件，并且将这次删除放入暂存区" class="headerlink" title="4.删除工作区文件，并且将这次删除放入暂存区"></a>4.删除工作区文件，并且将这次删除放入暂存区</h3><blockquote>
+<p>$ git rm [file1] [file2] ..</p>
+</blockquote>
+<h3 id="5-停止追踪指定文件，但该文件会保留在工作区"><a href="#5-停止追踪指定文件，但该文件会保留在工作区" class="headerlink" title="5.停止追踪指定文件，但该文件会保留在工作区"></a>5.停止追踪指定文件，但该文件会保留在工作区</h3><blockquote>
+<p>$ git rm –cached [file]</p>
+</blockquote>
+<h3 id="6-改名文件，并且将这个改名放入暂存区"><a href="#6-改名文件，并且将这个改名放入暂存区" class="headerlink" title="6.改名文件，并且将这个改名放入暂存区"></a>6.改名文件，并且将这个改名放入暂存区</h3><blockquote>
+<p>$ git mv [file-original] [file-renamed]</p>
+</blockquote>
+<hr>
+<h2 id="代码提交"><a href="#代码提交" class="headerlink" title="代码提交"></a>代码提交</h2><h3 id="1-提交暂存区到仓库区"><a href="#1-提交暂存区到仓库区" class="headerlink" title="1.提交暂存区到仓库区"></a>1.提交暂存区到仓库区</h3><blockquote>
+<p>$ git commit -m [message]</p>
+</blockquote>
+<h3 id="2-提交暂存区的指定文件到仓库区"><a href="#2-提交暂存区的指定文件到仓库区" class="headerlink" title="2.提交暂存区的指定文件到仓库区"></a>2.提交暂存区的指定文件到仓库区</h3><blockquote>
+<p>$ git commit [file1] [file2] -m [message]</p>
+</blockquote>
+<h3 id="3-提交工作区自上次commit之后的变化，直接到仓库区"><a href="#3-提交工作区自上次commit之后的变化，直接到仓库区" class="headerlink" title="3.提交工作区自上次commit之后的变化，直接到仓库区"></a>3.提交工作区自上次commit之后的变化，直接到仓库区</h3><blockquote>
+<p>$ git commit -a</p>
+</blockquote>
+<h3 id="4-提交时显示所有diff信息"><a href="#4-提交时显示所有diff信息" class="headerlink" title="4.提交时显示所有diff信息"></a>4.提交时显示所有diff信息</h3><blockquote>
+<p>$ git commit -v</p>
+</blockquote>
+<h3 id="5-使用一次新的commit，替代上一次提交"><a href="#5-使用一次新的commit，替代上一次提交" class="headerlink" title="5.使用一次新的commit，替代上一次提交"></a>5.使用一次新的commit，替代上一次提交</h3><p><strong>如果代码没有任何新变化，则用来改写上一次commit的提交信息</strong></p>
+<blockquote>
+<p>$ git commit –amend -m  [message]</p>
+</blockquote>
+<h3 id="6-重做上一次commit，并包括指定文件的新变化"><a href="#6-重做上一次commit，并包括指定文件的新变化" class="headerlink" title="6.重做上一次commit，并包括指定文件的新变化"></a>6.重做上一次commit，并包括指定文件的新变化</h3><blockquote>
+<p>$ git commit –amend </p>
+</blockquote>
+<hr>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><h3 id="1-列出所有本地分支"><a href="#1-列出所有本地分支" class="headerlink" title="1.列出所有本地分支"></a>1.列出所有本地分支</h3><blockquote>
+<p>$ git branch</p>
+</blockquote>
+<h3 id="2-列出所有远程分支"><a href="#2-列出所有远程分支" class="headerlink" title="2.列出所有远程分支"></a>2.列出所有远程分支</h3><blockquote>
+<p>$ git branch -r</p>
+</blockquote>
+<h3 id="3-列出所有本地分支和远程分支"><a href="#3-列出所有本地分支和远程分支" class="headerlink" title="3.列出所有本地分支和远程分支"></a>3.列出所有本地分支和远程分支</h3><blockquote>
+<p>$ git branch -a</p>
+</blockquote>
+<h3 id="4-新建一个分支，但依然停留在当前分支"><a href="#4-新建一个分支，但依然停留在当前分支" class="headerlink" title="4.新建一个分支，但依然停留在当前分支"></a>4.新建一个分支，但依然停留在当前分支</h3><blockquote>
+<p>$ git branch [branch-name]</p>
+</blockquote>
+<h3 id="5-新建一个分支，并切换到该分支"><a href="#5-新建一个分支，并切换到该分支" class="headerlink" title="5.新建一个分支，并切换到该分支"></a>5.新建一个分支，并切换到该分支</h3><blockquote>
+<p>$ git checkout -b [branch]</p>
+</blockquote>
+<h3 id="6-新建一个分支，指向指定commit"><a href="#6-新建一个分支，指向指定commit" class="headerlink" title="6.新建一个分支，指向指定commit"></a>6.新建一个分支，指向指定commit</h3><blockquote>
+<p>$ git branch [branch] [commit]</p>
+</blockquote>
+<h3 id="7-新建一个分支，与指定的远程分支建立追踪关系"><a href="#7-新建一个分支，与指定的远程分支建立追踪关系" class="headerlink" title="7.新建一个分支，与指定的远程分支建立追踪关系"></a>7.新建一个分支，与指定的远程分支建立追踪关系</h3><blockquote>
+<p>$ git branch –track [branch] [remote-branch]</p>
+</blockquote>
+<h3 id="8-切换到指定分支，并更新工作区"><a href="#8-切换到指定分支，并更新工作区" class="headerlink" title="8.切换到指定分支，并更新工作区"></a>8.切换到指定分支，并更新工作区</h3><blockquote>
+<p>$ git checkout [branch-name]</p>
+</blockquote>
+<h3 id="9-建立追踪关系，在现有分支与指定的远程分支之间"><a href="#9-建立追踪关系，在现有分支与指定的远程分支之间" class="headerlink" title="9.建立追踪关系，在现有分支与指定的远程分支之间"></a>9.建立追踪关系，在现有分支与指定的远程分支之间</h3><blockquote>
+<p>$ git branch –set-upstream [branch] [remote-branch]</p>
+</blockquote>
+<h3 id="10-合并指定分支到当前分支"><a href="#10-合并指定分支到当前分支" class="headerlink" title="10.合并指定分支到当前分支"></a>10.合并指定分支到当前分支</h3><blockquote>
+<p>$ git merge [branch]</p>
+</blockquote>
+<h3 id="11-选择一个commit，合并进当前分支"><a href="#11-选择一个commit，合并进当前分支" class="headerlink" title="11.选择一个commit，合并进当前分支"></a>11.选择一个commit，合并进当前分支</h3><blockquote>
+<p>$ git cherry-pick [commit]</p>
+</blockquote>
+<h3 id="12-删除分支"><a href="#12-删除分支" class="headerlink" title="12.删除分支"></a>12.删除分支</h3><blockquote>
+<p>$ git branch -d [branch-name]</p>
+</blockquote>
+<h3 id="13-删除远程分支"><a href="#13-删除远程分支" class="headerlink" title="13.删除远程分支"></a>13.删除远程分支</h3><blockquote>
+<p>$ git push origin –delete </p>
+</blockquote>
+<blockquote>
+<p>$ git branch -dr</p>
+</blockquote>
+<hr>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><h3 id="1-列出所有tag"><a href="#1-列出所有tag" class="headerlink" title="1.列出所有tag"></a>1.列出所有tag</h3><blockquote>
+<p>$ git tag</p>
+</blockquote>
+<h3 id="2-新建一个tag在当前commit"><a href="#2-新建一个tag在当前commit" class="headerlink" title="2.新建一个tag在当前commit"></a>2.新建一个tag在当前commit</h3><blockquote>
+<p>$ git tag [tag]</p>
+</blockquote>
+<h3 id="3-新建一个tag在指定commit"><a href="#3-新建一个tag在指定commit" class="headerlink" title="3.新建一个tag在指定commit"></a>3.新建一个tag在指定commit</h3><blockquote>
+<p>$ git tag [tag] [commit]</p>
+</blockquote>
+<h3 id="4-查看tag信息"><a href="#4-查看tag信息" class="headerlink" title="4.查看tag信息"></a>4.查看tag信息</h3><blockquote>
+<p>$ git show [tag]</p>
+</blockquote>
+<h3 id="5-提交指定tag"><a href="#5-提交指定tag" class="headerlink" title="5.提交指定tag"></a>5.提交指定tag</h3><blockquote>
+<p>$ git push [remote] [tag]</p>
+</blockquote>
+<h3 id="6-提交所有tag"><a href="#6-提交所有tag" class="headerlink" title="6.提交所有tag"></a>6.提交所有tag</h3><blockquote>
+<p>$ git push [remote] –tags</p>
+</blockquote>
+<h3 id="7-新建一个分支，指向某个tag"><a href="#7-新建一个分支，指向某个tag" class="headerlink" title="7.新建一个分支，指向某个tag"></a>7.新建一个分支，指向某个tag</h3><blockquote>
+<p>$ git checkout -b [branch] [tag]</p>
+</blockquote>
+<hr>
+<h2 id="查看信息"><a href="#查看信息" class="headerlink" title="查看信息"></a>查看信息</h2><h3 id="1-显示有变更的文件"><a href="#1-显示有变更的文件" class="headerlink" title="1.显示有变更的文件"></a>1.显示有变更的文件</h3><blockquote>
+<p>$ git status</p>
+</blockquote>
+<h3 id="2-显示当前分支的版本历史"><a href="#2-显示当前分支的版本历史" class="headerlink" title="2.显示当前分支的版本历史"></a>2.显示当前分支的版本历史</h3><blockquote>
+<p>$ git log</p>
+</blockquote>
+<h3 id="3-显示commit历史，以及每次commit发生变更的文件"><a href="#3-显示commit历史，以及每次commit发生变更的文件" class="headerlink" title="3.显示commit历史，以及每次commit发生变更的文件"></a>3.显示commit历史，以及每次commit发生变更的文件</h3><blockquote>
+<p>$ git log –stat</p>
+</blockquote>
+<h3 id="4-显示某个文件的版本历史，包括文件改名"><a href="#4-显示某个文件的版本历史，包括文件改名" class="headerlink" title="4.显示某个文件的版本历史，包括文件改名"></a>4.显示某个文件的版本历史，包括文件改名</h3><blockquote>
+<p>$ git log –follow [file]</p>
+</blockquote>
+<blockquote>
+<p>$ git whatchanged [file]</p>
+</blockquote>
+<h3 id="5-显示指定文件相关的每一次diff"><a href="#5-显示指定文件相关的每一次diff" class="headerlink" title="5.显示指定文件相关的每一次diff"></a>5.显示指定文件相关的每一次diff</h3><blockquote>
+<p>$ git log -p [file]</p>
+</blockquote>
+<h3 id="6-显示指定文件是什么人在什么时间修改过"><a href="#6-显示指定文件是什么人在什么时间修改过" class="headerlink" title="6.显示指定文件是什么人在什么时间修改过"></a>6.显示指定文件是什么人在什么时间修改过</h3><blockquote>
+<p>$ git blame [file]</p>
+</blockquote>
+<h3 id="7-显示暂存区和工作区的差异"><a href="#7-显示暂存区和工作区的差异" class="headerlink" title="7.显示暂存区和工作区的差异"></a>7.显示暂存区和工作区的差异</h3><blockquote>
+<p>$ git diff</p>
+</blockquote>
+<h3 id="8-显示暂存区和上一个commit的差异"><a href="#8-显示暂存区和上一个commit的差异" class="headerlink" title="8.显示暂存区和上一个commit的差异"></a>8.显示暂存区和上一个commit的差异</h3><blockquote>
+<p>$ git diff –cached []</p>
+</blockquote>
+<h3 id="9-显示工作区与当前分支最新commit之间的差异"><a href="#9-显示工作区与当前分支最新commit之间的差异" class="headerlink" title="9.显示工作区与当前分支最新commit之间的差异"></a>9.显示工作区与当前分支最新commit之间的差异</h3><blockquote>
+<p>$ git diff HEAD</p>
+</blockquote>
+<h3 id="10-显示两次提交之间的差异"><a href="#10-显示两次提交之间的差异" class="headerlink" title="10.显示两次提交之间的差异"></a>10.显示两次提交之间的差异</h3><blockquote>
+<p>$ git diff [first-branch]…[second-branch]</p>
+</blockquote>
+<h3 id="11-显示某次提交的元数据和内容变化"><a href="#11-显示某次提交的元数据和内容变化" class="headerlink" title="11.显示某次提交的元数据和内容变化"></a>11.显示某次提交的元数据和内容变化</h3><blockquote>
+<p>$ git show [commit]</p>
+</blockquote>
+<h3 id="12-显示某次提交发生变化的文件"><a href="#12-显示某次提交发生变化的文件" class="headerlink" title="12.显示某次提交发生变化的文件"></a>12.显示某次提交发生变化的文件</h3><blockquote>
+<p>$ git show –name-only [commit]</p>
+</blockquote>
+<h3 id="13-显示当前分支的最近几次提交"><a href="#13-显示当前分支的最近几次提交" class="headerlink" title="13.显示当前分支的最近几次提交"></a>13.显示当前分支的最近几次提交</h3><blockquote>
+<p>$ git reflog</p>
+</blockquote>
+<hr>
+<h2 id="远程同步"><a href="#远程同步" class="headerlink" title="远程同步"></a>远程同步</h2><h3 id="1-下载远程仓库的所有变动"><a href="#1-下载远程仓库的所有变动" class="headerlink" title="1.下载远程仓库的所有变动"></a>1.下载远程仓库的所有变动</h3><blockquote>
+<p>$ git fetch [remote]</p>
+</blockquote>
+<h3 id="2-显示所有远程仓库"><a href="#2-显示所有远程仓库" class="headerlink" title="2.显示所有远程仓库"></a>2.显示所有远程仓库</h3><blockquote>
+<p>$ git remote -v</p>
+</blockquote>
+<h3 id="3-显示某个远程仓库的信息"><a href="#3-显示某个远程仓库的信息" class="headerlink" title="3.显示某个远程仓库的信息"></a>3.显示某个远程仓库的信息</h3><blockquote>
+<p>$ git remote show [remote]</p>
+</blockquote>
+<h3 id="4-增加一个新的远程仓库，并命名"><a href="#4-增加一个新的远程仓库，并命名" class="headerlink" title="4.增加一个新的远程仓库，并命名"></a>4.增加一个新的远程仓库，并命名</h3><blockquote>
+<p>$ git remote add [shortname] [url]</p>
+</blockquote>
+<h3 id="5-取回远程仓库的变化，并与本地分支合并"><a href="#5-取回远程仓库的变化，并与本地分支合并" class="headerlink" title="5.取回远程仓库的变化，并与本地分支合并"></a>5.取回远程仓库的变化，并与本地分支合并</h3><blockquote>
+<p>$ git pull [remote] [branch]</p>
+</blockquote>
+<h3 id="6-上传本地指定分支到远程仓库"><a href="#6-上传本地指定分支到远程仓库" class="headerlink" title="6.上传本地指定分支到远程仓库"></a>6.上传本地指定分支到远程仓库</h3><blockquote>
+<p>$ git push [remote] [branch]</p>
+</blockquote>
+<h3 id="7-强行推送当前分支到远程仓库，即使有冲突"><a href="#7-强行推送当前分支到远程仓库，即使有冲突" class="headerlink" title="7.强行推送当前分支到远程仓库，即使有冲突"></a>7.强行推送当前分支到远程仓库，即使有冲突</h3><blockquote>
+<p>$ git push [remote] –force</p>
+</blockquote>
+<h3 id="8-推送所有分支到远程仓库"><a href="#8-推送所有分支到远程仓库" class="headerlink" title="8.推送所有分支到远程仓库"></a>8.推送所有分支到远程仓库</h3><blockquote>
+<p>$ git push [remote] –all</p>
+</blockquote>
+<hr>
+<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><h3 id="1-恢复暂存区的指定文件到工作区"><a href="#1-恢复暂存区的指定文件到工作区" class="headerlink" title="1.恢复暂存区的指定文件到工作区"></a>1.恢复暂存区的指定文件到工作区</h3><blockquote>
+<p>$ git checkout [file]</p>
+</blockquote>
+<h3 id="2-恢复某个commit的指定文件到工作区"><a href="#2-恢复某个commit的指定文件到工作区" class="headerlink" title="2.恢复某个commit的指定文件到工作区"></a>2.恢复某个commit的指定文件到工作区</h3><blockquote>
+<p>$ git checkout [commit] [file]</p>
+</blockquote>
+<h3 id="3-恢复上一个commit的所有文件到工作区"><a href="#3-恢复上一个commit的所有文件到工作区" class="headerlink" title="3.恢复上一个commit的所有文件到工作区"></a>3.恢复上一个commit的所有文件到工作区</h3><blockquote>
+<p>$ git checkout .</p>
+</blockquote>
+<h3 id="4-重置暂存区的指定文件，与上一次commit保持一致，但工作区不变"><a href="#4-重置暂存区的指定文件，与上一次commit保持一致，但工作区不变" class="headerlink" title="4.重置暂存区的指定文件，与上一次commit保持一致，但工作区不变"></a>4.重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</h3><blockquote>
+<p>$ git reset [file]</p>
+</blockquote>
+<h3 id="5-重置暂存区与工作区，与上一次commit保持一致"><a href="#5-重置暂存区与工作区，与上一次commit保持一致" class="headerlink" title="5.重置暂存区与工作区，与上一次commit保持一致"></a>5.重置暂存区与工作区，与上一次commit保持一致</h3><blockquote>
+<p>$ git reset –hard</p>
+</blockquote>
+<h3 id="6-重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变"><a href="#6-重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变" class="headerlink" title="6.重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变"></a>6.重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变</h3><blockquote>
+<p>$ git reset [commit]</p>
+</blockquote>
+<h3 id="7-重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致"><a href="#7-重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致" class="headerlink" title="7.重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致"></a>7.重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致</h3><p>$ git reset –hard [commit]</p>
+<h3 id="8-重置当前HEAD为指定commit，但保持暂存区和工作区不变"><a href="#8-重置当前HEAD为指定commit，但保持暂存区和工作区不变" class="headerlink" title="8.重置当前HEAD为指定commit，但保持暂存区和工作区不变"></a>8.重置当前HEAD为指定commit，但保持暂存区和工作区不变</h3><blockquote>
+<p>$ git reset –keep [commit]</p>
+</blockquote>
+<h3 id="9-新建一个commit，用来撤销指定commit，后者的所有变化都将被前者抵消，并且应用到当前分支"><a href="#9-新建一个commit，用来撤销指定commit，后者的所有变化都将被前者抵消，并且应用到当前分支" class="headerlink" title="9.新建一个commit，用来撤销指定commit，后者的所有变化都将被前者抵消，并且应用到当前分支"></a>9.新建一个commit，用来撤销指定commit，后者的所有变化都将被前者抵消，并且应用到当前分支</h3><blockquote>
+<p>$ git revert [commit]</p>
+</blockquote>
+<hr>
+<h2 id="Git之vi命令的使用"><a href="#Git之vi命令的使用" class="headerlink" title="Git之vi命令的使用"></a>Git之vi命令的使用</h2><h3 id="vi的两种模式："><a href="#vi的两种模式：" class="headerlink" title="vi的两种模式："></a>vi的两种模式：</h3><blockquote>
+<p> 命令模式：接受、执行 vi &amp; vim 操作命令的模式，打开文件后的默认模式；</p>
+</blockquote>
+<p>在命令模式下键盘输入字母<code>i</code>或<code>Insert</code>键进入最常用的插入编辑模式。</p>
+<blockquote>
+<p> 编辑模式：对打开的文件内容进行 增、删、改 操作的模式；</p>
+</blockquote>
+<p>在编辑模式下按下<code>ESC</code>键，回退到命令模式。</p>
+<h3 id="创建、打开文件："><a href="#创建、打开文件：" class="headerlink" title="创建、打开文件："></a>创建、打开文件：</h3><blockquote>
+<p>方法1：使用<code>vi</code>加文件路径（或文件名）<code>$[filename]</code>，</p>
+<ul>
+<li>如果文件存在则打开现有文件;             </li>
+<li>如果文件不存在则新建文件，并在终端最下面一行显示打开的是一个新文件。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>方法2：使用<code>touch</code>加文件路径（或文件名）<code>$[filename]</code>直接创建文件，</p>
+</blockquote>
+<h3 id="保存文件："><a href="#保存文件：" class="headerlink" title="保存文件："></a>保存文件：</h3><ol>
+<li>保存并退出：在命令模式下键入<code>ZZ</code>或者<code>:wq</code>或者<code>:x</code>保存修改并且退出<code>vi</code></li>
+<li>仅保存文件：在命令模式下键入<code>:w</code>，回车后底行会提示写入操作结果，并保持停留在命令模式</li>
+</ol>
+<h3 id="退出或放弃所有文件修改："><a href="#退出或放弃所有文件修改：" class="headerlink" title="退出或放弃所有文件修改："></a>退出或放弃所有文件修改：</h3><ol>
+<li>退出编辑：在命令模式下键入<code>:q</code>，如果文本内容被修改过，则会报错</li>
+<li>强制退出编辑：在命令模式下键入<code>:q!</code>,如果文本内容被修改过，会丢弃此次的修改</li>
+<li>放弃所有文件修改，但不退出 vi:键入<code>:e!</code>,即回退到文件打开后最后一次保存操作的状态。</li>
+</ol>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+        padding-top: 0;
+        line-height: 1.45rem;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://jiangwen1994.cn" class="b-link-green">Jiang Wen</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/posts/2018/08/28/23174/" class="b-link-green">Git常用命令小结</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '3236a6f7975a50e6643f',
+        clientSecret: 'ffe1f5524b818724876a533e005c681f4f8670c6',
+        repo: 'Gitalk',
+        owner: 'jiangwen5945',
+        admin: "jiangwen5945",
+        id: '2018-08-28T11-43-40',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/posts/2018/09/30/59612/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/article_8.jpg" class="responsive-img" alt="Hexo博客使用">
+                        
+                        <span class="card-title">Hexo博客使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Git管理博客源码博客源码初始备份：
+由于在本地hexo g -d操作上传到git上的只是生成的public静态博客页面文件夹，为了实现多台电脑管理操作，可以在Git上建立分支dev-blog保存备份hexo源码.
+
+$ git init </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Jiang Wen
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/博客日志/" target="_blank">
+                        <span class="chip bg-color">博客日志</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/posts/2018/08/28/29169/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/article_13.jpg" class="responsive-img" alt="CSS 变量教程">
+                        
+                        <span class="card-title">CSS 变量教程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">一、变量的声明声明变量的时候，变量名前面要加两根连词线（–）。
+body {
+  --foo: #7F583F;
+  --bar: #F7EFD2;
+}
+
+各种值都可以放入 CSS 变量。
+:root{
+  --main-color: #4</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CSS/" class="post-category" target="_blank">
+                                    CSS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CSS变量/" target="_blank">
+                        <span class="chip bg-color">CSS变量</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col hide-on-med-and-down">
+        <div class="toc-widget">
+            <h4>目录</h4>
+            <div class="toc-warp">
+                <div id="toc-content">
+                    <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#名称解释"><span class="post-toc-text">名称解释</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#新建代码库"><span class="post-toc-text">新建代码库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-在当前目录新建一个Git代码库"><span class="post-toc-text">1.在当前目录新建一个Git代码库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-新建一个目录，将其初始化为Git代码库"><span class="post-toc-text">2.新建一个目录，将其初始化为Git代码库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-下载一个项目和它的整个代码历史"><span class="post-toc-text">3.下载一个项目和它的整个代码历史</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置"><span class="post-toc-text">配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-显示当前的Git配置"><span class="post-toc-text">1.显示当前的Git配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-编辑Git配置文件"><span class="post-toc-text">2.编辑Git配置文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-设置提交代码时的用户信息"><span class="post-toc-text">3.设置提交代码时的用户信息</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#增加-删除文件"><span class="post-toc-text">增加/删除文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-添加指定文件到暂存区"><span class="post-toc-text">1.添加指定文件到暂存区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-添加指定目录到暂存区，包括子目录"><span class="post-toc-text">2.添加指定目录到暂存区，包括子目录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-添加当前目录的所有文件到暂存区"><span class="post-toc-text">3.添加当前目录的所有文件到暂存区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-删除工作区文件，并且将这次删除放入暂存区"><span class="post-toc-text">4.删除工作区文件，并且将这次删除放入暂存区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-停止追踪指定文件，但该文件会保留在工作区"><span class="post-toc-text">5.停止追踪指定文件，但该文件会保留在工作区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-改名文件，并且将这个改名放入暂存区"><span class="post-toc-text">6.改名文件，并且将这个改名放入暂存区</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码提交"><span class="post-toc-text">代码提交</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-提交暂存区到仓库区"><span class="post-toc-text">1.提交暂存区到仓库区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-提交暂存区的指定文件到仓库区"><span class="post-toc-text">2.提交暂存区的指定文件到仓库区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-提交工作区自上次commit之后的变化，直接到仓库区"><span class="post-toc-text">3.提交工作区自上次commit之后的变化，直接到仓库区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-提交时显示所有diff信息"><span class="post-toc-text">4.提交时显示所有diff信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-使用一次新的commit，替代上一次提交"><span class="post-toc-text">5.使用一次新的commit，替代上一次提交</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-重做上一次commit，并包括指定文件的新变化"><span class="post-toc-text">6.重做上一次commit，并包括指定文件的新变化</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分支"><span class="post-toc-text">分支</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-列出所有本地分支"><span class="post-toc-text">1.列出所有本地分支</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-列出所有远程分支"><span class="post-toc-text">2.列出所有远程分支</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-列出所有本地分支和远程分支"><span class="post-toc-text">3.列出所有本地分支和远程分支</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-新建一个分支，但依然停留在当前分支"><span class="post-toc-text">4.新建一个分支，但依然停留在当前分支</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-新建一个分支，并切换到该分支"><span class="post-toc-text">5.新建一个分支，并切换到该分支</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-新建一个分支，指向指定commit"><span class="post-toc-text">6.新建一个分支，指向指定commit</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-新建一个分支，与指定的远程分支建立追踪关系"><span class="post-toc-text">7.新建一个分支，与指定的远程分支建立追踪关系</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-切换到指定分支，并更新工作区"><span class="post-toc-text">8.切换到指定分支，并更新工作区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-建立追踪关系，在现有分支与指定的远程分支之间"><span class="post-toc-text">9.建立追踪关系，在现有分支与指定的远程分支之间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-合并指定分支到当前分支"><span class="post-toc-text">10.合并指定分支到当前分支</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-选择一个commit，合并进当前分支"><span class="post-toc-text">11.选择一个commit，合并进当前分支</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#12-删除分支"><span class="post-toc-text">12.删除分支</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#13-删除远程分支"><span class="post-toc-text">13.删除远程分支</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#标签"><span class="post-toc-text">标签</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-列出所有tag"><span class="post-toc-text">1.列出所有tag</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-新建一个tag在当前commit"><span class="post-toc-text">2.新建一个tag在当前commit</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-新建一个tag在指定commit"><span class="post-toc-text">3.新建一个tag在指定commit</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-查看tag信息"><span class="post-toc-text">4.查看tag信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-提交指定tag"><span class="post-toc-text">5.提交指定tag</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-提交所有tag"><span class="post-toc-text">6.提交所有tag</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-新建一个分支，指向某个tag"><span class="post-toc-text">7.新建一个分支，指向某个tag</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看信息"><span class="post-toc-text">查看信息</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-显示有变更的文件"><span class="post-toc-text">1.显示有变更的文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-显示当前分支的版本历史"><span class="post-toc-text">2.显示当前分支的版本历史</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-显示commit历史，以及每次commit发生变更的文件"><span class="post-toc-text">3.显示commit历史，以及每次commit发生变更的文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-显示某个文件的版本历史，包括文件改名"><span class="post-toc-text">4.显示某个文件的版本历史，包括文件改名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-显示指定文件相关的每一次diff"><span class="post-toc-text">5.显示指定文件相关的每一次diff</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-显示指定文件是什么人在什么时间修改过"><span class="post-toc-text">6.显示指定文件是什么人在什么时间修改过</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-显示暂存区和工作区的差异"><span class="post-toc-text">7.显示暂存区和工作区的差异</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-显示暂存区和上一个commit的差异"><span class="post-toc-text">8.显示暂存区和上一个commit的差异</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-显示工作区与当前分支最新commit之间的差异"><span class="post-toc-text">9.显示工作区与当前分支最新commit之间的差异</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-显示两次提交之间的差异"><span class="post-toc-text">10.显示两次提交之间的差异</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-显示某次提交的元数据和内容变化"><span class="post-toc-text">11.显示某次提交的元数据和内容变化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#12-显示某次提交发生变化的文件"><span class="post-toc-text">12.显示某次提交发生变化的文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#13-显示当前分支的最近几次提交"><span class="post-toc-text">13.显示当前分支的最近几次提交</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#远程同步"><span class="post-toc-text">远程同步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-下载远程仓库的所有变动"><span class="post-toc-text">1.下载远程仓库的所有变动</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-显示所有远程仓库"><span class="post-toc-text">2.显示所有远程仓库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-显示某个远程仓库的信息"><span class="post-toc-text">3.显示某个远程仓库的信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-增加一个新的远程仓库，并命名"><span class="post-toc-text">4.增加一个新的远程仓库，并命名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-取回远程仓库的变化，并与本地分支合并"><span class="post-toc-text">5.取回远程仓库的变化，并与本地分支合并</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-上传本地指定分支到远程仓库"><span class="post-toc-text">6.上传本地指定分支到远程仓库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-强行推送当前分支到远程仓库，即使有冲突"><span class="post-toc-text">7.强行推送当前分支到远程仓库，即使有冲突</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-推送所有分支到远程仓库"><span class="post-toc-text">8.推送所有分支到远程仓库</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#撤销"><span class="post-toc-text">撤销</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-恢复暂存区的指定文件到工作区"><span class="post-toc-text">1.恢复暂存区的指定文件到工作区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-恢复某个commit的指定文件到工作区"><span class="post-toc-text">2.恢复某个commit的指定文件到工作区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-恢复上一个commit的所有文件到工作区"><span class="post-toc-text">3.恢复上一个commit的所有文件到工作区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-重置暂存区的指定文件，与上一次commit保持一致，但工作区不变"><span class="post-toc-text">4.重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-重置暂存区与工作区，与上一次commit保持一致"><span class="post-toc-text">5.重置暂存区与工作区，与上一次commit保持一致</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变"><span class="post-toc-text">6.重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致"><span class="post-toc-text">7.重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-重置当前HEAD为指定commit，但保持暂存区和工作区不变"><span class="post-toc-text">8.重置当前HEAD为指定commit，但保持暂存区和工作区不变</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-新建一个commit，用来撤销指定commit，后者的所有变化都将被前者抵消，并且应用到当前分支"><span class="post-toc-text">9.新建一个commit，用来撤销指定commit，后者的所有变化都将被前者抵消，并且应用到当前分支</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Git之vi命令的使用"><span class="post-toc-text">Git之vi命令的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vi的两种模式："><span class="post-toc-text">vi的两种模式：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建、打开文件："><span class="post-toc-text">创建、打开文件：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#保存文件："><span class="post-toc-text">保存文件：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#退出或放弃所有文件修改："><span class="post-toc-text">退出或放弃所有文件修改：</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        // 设置目录活动状态
+        let tocLinks = $('#toc-content a');
+        let setTocLinkActive = function (jqObj) {
+            tocLinks.removeClass('active');
+            jqObj.addClass('active');
+        };
+
+        // 监听点击TOC目录.
+        tocLinks.on('click', function () {
+            setTocLinkActive($(this));
+        });
+
+        // 获取文章标题元素数组
+        let titleTopArr = [];
+        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+            titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
+        });
+        let titleLen = titleTopArr.length;
+
+        //获取目录标题元素的数组
+        let tocLinksArr = [];
+        $('#toc-content a').each(function () {
+            tocLinksArr.push($(this).position().top)
+        })
+        
+        
+        /* 监听滚动条.*/
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            // 获取窗口的滚动条高度
+            let scroll = $(window).scrollTop();
+            //获取目录窗口高度
+            let tH = $(".toc-warp").innerHeight();
+            /* add post toc fixed. */
+            if (scroll > 240) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+
+            /** 以下代码为动态设置TOC激活高亮的目录. */
+            if (titleLen === 0) {
+                return;
+            }
+            
+            let firstTitleObj = titleTopArr[0];
+            if (firstTitleObj.top > scroll) {
+                return;
+            } else if (firstTitleObj.top === scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + firstTitleObj.id + '"]'));
+                return;
+            }
+
+            let lastTitleObj = titleTopArr[titleLen - 1];
+
+
+            if (lastTitleObj.top <= scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + lastTitleObj.id + '"]'));
+                return;
+            } 
+
+
+            for (let i = 0; i < titleLen; i++) {
+                if (titleTopArr[i].top > scroll) {
+                    setTocLinkActive($('#toc-content a[href="#' + titleTopArr[i - 1].id + '"]'));
+                    break;
+                }
+
+                if (tocLinksArr[i] >= tH ) {
+                    var t = $('#toc-content').scrollTop();
+                    $('#toc-content').scrollTop(tocLinksArr[i]);
+                }else {
+                    $('#toc-content').scrollTop(0)
+                }
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+
+
+
+
+
+    <audio src="/medias/music/The promise.mp3" loop="loop" class="myAudio" preload="none"  >
+        Your browser does not support the audio element.
+    </audio>
+ 
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright ©  <a href="https://github.com/jiangwen5945" target="_blank">JiangWen</a> 2018  |  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> 
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/jiangwen5945" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github fa-lg"></i>
+</a>
+<a href="mailto:908565666@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope fa-lg"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ: 908565666" data-position="top" data-delay="50">
+    <i class="fa fa-qq fa-lg"></i>
+</a>
+<a href="#!" class="controlMusic">
+    <i class="fa fa-pause fa-lg"></i>
+</a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+<!-- 鼠标点击效果(手机端移除此功能) -->
+<script type="text/javascript">
+    // 检测是否手机端
+    var sUserAgent = navigator.userAgent;
+    var isMobil = (sUserAgent.indexOf('Android') > -1 || sUserAgent.indexOf('iPhone') > -1 || sUserAgent.indexOf('iPad') > -1 || sUserAgent.indexOf('iPod') > -1 || sUserAgent.indexOf('Symbian') > -1)
+    if (!isMobil) {
+        var click_cnt = 0;
+        var $html = document.getElementsByTagName("html")[0];
+        var $body = document.getElementsByTagName("body")[0];
+        $html.onclick = function(e) {
+            var $elem = document.createElement("b");
+            $elem.style.color = "#E94F06";
+            $elem.style.zIndex = 9999;
+            $elem.style.position = "absolute";
+            $elem.style.select = "none";
+            var x = e.pageX;
+            var y = e.pageY;
+            $elem.style.left = (x - 10) + "px";
+            $elem.style.top = (y - 20) + "px";
+            clearInterval(anim);
+            switch (++click_cnt) {
+                case 10:
+                    $elem.innerText = "OωO";
+                    break;
+                case 20:
+                    $elem.innerText = "(๑•́ ∀ •̀๑)";
+                    break;
+                case 30:
+                    $elem.innerText = "(๑•́ ₃ •̀๑)";
+                    break;
+                case 40:
+                    $elem.innerText = "(๑•̀_•́๑)";
+                    break;
+                case 50:
+                    $elem.innerText = "（￣へ￣）";
+                    break;
+                case 60:
+                    $elem.innerText = "(╯°口°)╯(┴—┴";
+                    break;
+                case 70:
+                    $elem.innerText = "૮( ᵒ̌皿ᵒ̌ )ა";
+                    break;
+                case 80:
+                    $elem.innerText = "╮(｡>口<｡)╭";
+                    break;
+                case 90:
+                    $elem.innerText = "( ง ᵒ̌皿ᵒ̌)ง⁼³₌₃";
+                    break;
+                case 100:
+                case 101:
+                case 102:
+                case 103:
+                case 104:
+                case 105:
+                    $elem.innerText = "(ꐦ°᷄д°᷅)";
+                    break;
+                default:
+                    $elem.innerText = "❤";
+                    break;
+            }
+            $elem.style.fontSize = Math.random() * 16 + 8 + "px";255 * Math.random()
+            $elem.style.color = 'rgb(' + 255 * Math.random()+','+255 * Math.random()+','+255 * Math.random()+')'
+            var increase = 0;
+            var anim;
+            setTimeout(function() {
+                anim = setInterval(function() {
+                    if (++increase == 150) {
+                        clearInterval(anim);
+                        $body.removeChild($elem);
+                    }
+                    $elem.style.top = y - 20 - increase + "px";
+                    $elem.style.opacity = (150 - increase) / 120;
+                }, 8);
+            }, 70);
+            $body.appendChild($elem);
+        };
+    }
+</script>
+
+<!-- 背景音乐 -->
+
+
+
+
+
+
+    <audio src="/medias/music/The promise.mp3" loop="loop" class="myAudio" preload="none"  >
+        Your browser does not support the audio element.
+    </audio>
+ 
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<script>
+    // 判断是否移动端
+    // var sUserAgent = navigator.userAgent;
+    // var isMobil = (sUserAgent.indexOf('Android') > -1 || sUserAgent.indexOf('iPhone') > -1 || sUserAgent.indexOf('iPad') > -1 || sUserAgent.indexOf('iPod') > -1 || sUserAgent.indexOf('Symbian') > -1)
+    // if (!isMobil) {}
+
+     document.write("<script src='/libs/ribbon/canvas-ribbon.js'><\/script>");
+</script>
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":90,"height":180},"mobile":{"show":false},"react":{"opacityDefault":1,"opacityOnHover":1},"abbrlink":{"rep":"hex"},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

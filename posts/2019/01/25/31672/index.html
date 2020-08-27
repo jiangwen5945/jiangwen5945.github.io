@@ -1,0 +1,1147 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="CSS代码规范, blog">
+    <meta name="description" content="一、文件规范1、文件均归档至约定的目录中。所有的CSS分为两大类：通用类和业务类。
+对具体的CSS进行文档化的整理。如：
+
+reset /css/core/reset.css
+通用模块容器 /css/core/mod.css
+喜欢按钮 /c">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>CSS代码规范 | Jiang Wen</title>
+    <link rel="icon" type="image/png" href="/medias/about/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/about/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Jiang Wen</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/about/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jiang Wen</div>
+        <div class="logo-desc">
+            
+            Just for fun
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/jiangwen5945/jiangwen5945.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/jiangwen5945" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github fa-lg"></i>
+</a>
+<a href="mailto:908565666@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope fa-lg"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ: 908565666" data-position="top" data-delay="50">
+    <i class="fa fa-qq fa-lg"></i>
+</a>
+<a href="#!" class="controlMusic">
+    <i class="fa fa-pause fa-lg"></i>
+</a>
+
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/jiangwen5945/jiangwen5945.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/article_1.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title animated bounce">
+                        CSS代码规范
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <style>
+    #artDetail h1,
+    #artDetail h2,
+    #artDetail h3,
+    #artDetail h4,
+    #artDetail h5,
+    #artDetail h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #artDetail h1 {
+        line-height: 3.3rem;
+    }
+
+    #artDetail h2 {
+        line-height: 3rem;
+    }
+
+    #artDetail h3 {
+        line-height: 2.5rem;
+    }
+
+    #artDetail h4 {
+        line-height: 2.2rem;
+    }
+
+    #artDetail h5 {
+        line-height: 1.9rem;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    .post-toc ol {
+        padding-left: 20px;
+    }
+
+    .post-toc a {
+        color: #34495e;
+        font-size: 0.96rem;
+    }
+
+    .post-toc a:hover {
+        color: #42b983;
+        text-decoration: underline;
+    }
+
+    .post-toc .active {
+        color: #42b983;
+        font-weight: 500;
+    }
+
+    #toc-content{
+        max-height: 78vh;
+        overflow-y: scroll;
+        margin-right: -20px;
+        padding-right: 20px;
+    }
+    .toc-warp{
+        overflow: hidden;
+        position: relative;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/代码规范/" target="_blank">
+                    <span class="chip bg-color">代码规范</span>
+                </a>
+                
+
+                 <!-- 音乐控制 -->
+                <span class="chip bg-color controlMusic">
+                    <i class="fa fa-pause "></i>
+                </span>
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/CSS/" class="post-category" target="_blank">
+                        CSS
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-25
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一、文件规范"><a href="#一、文件规范" class="headerlink" title="一、文件规范"></a>一、文件规范</h2><p>1、文件均归档至约定的目录中。所有的CSS分为两大类：通用类和业务类。</p>
+<p>对具体的CSS进行文档化的整理。如：</p>
+<ul>
+<li>reset /css/core/reset.css</li>
+<li>通用模块容器 /css/core/mod.css</li>
+<li>喜欢按钮 /css/core/fav_btn.css</li>
+<li>视频/相册列表项 /css/core/media_item.css</li>
+<li>评星 /css/core/rating.css</li>
+<li>通用按钮 /css/core/common_button.css</li>
+<li>分页 /css/core/pagination.css</li>
+<li>推荐按钮 /css/core/rec_btn.css</li>
+<li>老版对话框 /css/core/old_dialog.css</li>
+<li>老版Tab /css/core/old_tab.css</li>
+<li>老版成员列表 /css/core/old_userlist.css</li>
+<li>老版信息区 /css/core/notify.css</li>
+<li>社区用户导航 /css/core/profile_nav.css</li>
+<li>当前大社区导航 /css/core/site_nav.css</li>
+<li>加载中 /css/lib/loading.css</li>
+</ul>
+<h2 id="二、注释规范"><a href="#二、注释规范" class="headerlink" title="二、注释规范"></a>二、注释规范</h2><p>1、文件顶部注释（推荐使用）</p>
+<pre><code>/*
+ * @description: 中文说明
+ * @author: name
+ * @update: name (2013-04-13 18:32)
+ */
+</code></pre><p>2、模块注释</p>
+<pre><code> /* module: module1 by 张三 */
+</code></pre><p>3、特殊注释（用于标注修改、待办等信息）</p>
+<pre><code>/* TODO: xxxx by name 2013-04-13 18:32 */
+/* BUGFIX: xxxx by name 2012-04-13 18:32 */
+</code></pre><p>4、区块注释<br>复制代码对一个代码区块注释（可选），将样式语句分区块并在新行中对其注释。</p>
+<pre><code>/* Header */
+ /* Footer */
+ /* Gallery */
+</code></pre><h2 id="三、命名规范"><a href="#三、命名规范" class="headerlink" title="三、命名规范"></a>三、命名规范</h2><blockquote>
+<p>使用有意义的或通用的ID和class命名：ID和class的命名应反映该元素的功能或使用通用名称，而不要用抽象的晦涩的命名。反映元素的使用目的是首选；使用通用名称代表该元素不表特定意义，与其同级元素无异，通常是用于辅助命名；使用功能性或通用的名称可以更适用于文档或模版变化的情况。</p>
+</blockquote>
+<ul>
+<li>/<em> 不推荐: 无意义 </em>/ <code>#yee-1901 {}</code></li>
+<li>/<em> 不推荐: 与样式相关 </em>/ <code>.button-green {}.clear {}</code></li>
+<li>/<em> 推荐: 特殊性 </em>/ <code>#gallery {}#login {}.video {}</code></li>
+<li>/<em> 推荐: 通用性 </em>/ <code>.aux {}.alt {}</code></li>
+</ul>
+<p><strong>常用命名（多记多查英文单词</strong>）：</p>
+<blockquote>
+<p>page、wrap、layout、header(head)、footer(foot、ft)、<br>content(cont)、menu、nav、main、submain、sidebar(side)、logo、banner、<br>title(tit)、popo(pop)、icon、note、btn、txt、iblock、window(win)、tips等</p>
+</blockquote>
+<p>ID和class命名越简短越好，只要足够表达涵义。这样既有助于理解，也能提高代码效率。</p>
+<pre><code>不推荐： #navigation {}.atr {}
+推荐： #nav {}.author {}
+</code></pre><p>类型选择器避免同时使用标签、ID和class作为定位一个元素选择器；从性能上考虑也应尽量减少选择器的层级。</p>
+<pre><code>不推荐：ul#example {}div.error {}
+推荐： #example {}.error {}
+</code></pre><p><strong>命名时需要注意的点：</strong></p>
+<ul>
+<li>规则命名中，一律采用小写加中划线的方式，不允许使用大写字母或 _</li>
+<li>命名避免使用中文拼音，应该采用更简明有语义的英文单词进行组合</li>
+<li>命名注意缩写，但是不能盲目缩写，具体请参见常用的CSS命名规则</li>
+<li>不允许通过1、2、3等序号进行命名</li>
+<li>避免class与id重名</li>
+<li>id用于标识模块或页面的某一个父容器区域，名称必须唯一，不要随意新建id</li>
+<li>class用于标识某一个类型的对象，命名必须言简意赅。</li>
+<li>尽可能提高代码模块的复用，样式尽量用组合的方式</li>
+<li>规则名称中不应该包含颜色（red/blue）、定位（left/right）等与具体显示效果相关的信息。应该用意义命名，而不是样式显示结果命名。</li>
+</ul>
+<p><strong>常用id的命名：</strong></p>
+<p>(1)页面结构</p>
+<ul>
+<li>容器: container</li>
+<li>页头：header</li>
+<li>内容：content/container</li>
+<li>页面主体：main</li>
+<li>页尾：footer</li>
+<li>导航：nav</li>
+<li>侧栏：sidebar</li>
+<li>栏目：column</li>
+<li>页面外围控制整体布局宽度：wrapper</li>
+<li>左右中：left right center</li>
+</ul>
+<p>(2)导航</p>
+<ul>
+<li>导航：nav</li>
+<li>主导航：mainbav</li>
+<li>子导航：subnav</li>
+<li>顶导航：topnav</li>
+<li>边导航：sidebar</li>
+<li>左导航：leftsidebar</li>
+<li>右导航：rightsidebar</li>
+<li>菜单：menu</li>
+<li>子菜单：submenu</li>
+<li>标题: title</li>
+<li>摘要: summary</li>
+</ul>
+<p>(3)功能</p>
+<ul>
+<li>标志：logo</li>
+<li>广告：banner</li>
+<li>登陆：login</li>
+<li>登录条：loginbar</li>
+<li>注册：regsiter</li>
+<li>搜索：search</li>
+<li>功能区：shop</li>
+<li>标题：title</li>
+<li>加入：joinus</li>
+<li>状态：status</li>
+<li>按钮：btn</li>
+<li>滚动：scroll</li>
+<li>标签页：tab</li>
+<li>文章列表：list</li>
+<li>提示信息：msg</li>
+<li>当前的: current</li>
+<li>小技巧：tips</li>
+<li>图标: icon</li>
+<li>注释：note</li>
+<li>指南：guild</li>
+<li>服务：service</li>
+<li>热点：hot</li>
+<li>新闻：news</li>
+<li>下载：download</li>
+<li>投票：vote</li>
+<li>合作伙伴：partner</li>
+<li>友情链接：link</li>
+<li>版权：copyright</li>
+</ul>
+<h2 id="四、书写规范"><a href="#四、书写规范" class="headerlink" title="四、书写规范"></a>四、书写规范</h2><p>1、排版规范<br>(1)使用4个空格，而不使用tab或者混用空格+tab作为缩进；<br>(2)规则可以写成单行，或者多行，但是整个文件内的规则排版必须统一；</p>
+<p>单行形式书写风格的排版约束</p>
+<ul>
+<li>如果是在html中写内联的css，则必须写成单行；</li>
+<li>每一条规则的大括号 { 前后加空格 ；</li>
+<li>每一条规则结束的大括号 } 前加空格；</li>
+<li>属性名冒号之前不加空格，冒号之后加空格；</li>
+<li>每一个属性值后必须添加分号; 并且分号后空格；</li>
+<li>多个selector共用一个样式集，则多个selector必须写成多行形式 ；</li>
+</ul>
+<p>多行形式书写风格的排版约束</p>
+<ul>
+<li>每一条规则的大括号 { 前添加空格;</li>
+<li>多个selector共用一个样式集，则多个selector必须写成多行形式 ;</li>
+<li>每一条规则结束的大括号 } 必须与规则选择器的第一个字符对齐 ;</li>
+<li>属性名冒号之前不加空格，冒号之后加空格;</li>
+<li>属性值之后添加分号;</li>
+</ul>
+<p>2、属性编写顺序</p>
+<ul>
+<li>显示属性：display/list-style/position/float/clear …</li>
+<li>自身属性（盒模型）：width/height/margin/padding/border</li>
+<li>背景：background</li>
+<li>行高：line-height</li>
+<li>文本属性：color/font/text-decoration/text-align/text-indent/vertical-align/white-space/content…</li>
+<li>其他：cursor/z-index/zoom/overflow</li>
+<li>CSS3属性：transform/transition/animation/box-shadow/border-radius</li>
+<li>如果使用CSS3的属性，如果有必要加入浏览器前缀，则按照 -webkit- / -moz- / -ms- / -o- /的顺序进行添加，标准属性写在最后。</li>
+<li>链接的样式请严格按照如下顺序添加：a:link -&gt; a:visited -&gt; a:hover -&gt; a:active</li>
+</ul>
+<p>3、规则书写规范</p>
+<ul>
+<li>使用单引号，不允许使用双引号;</li>
+<li>每个声明结束都应该带一个分号，不管是不是最后一个声明;</li>
+<li>除16进制颜色和字体设置外，CSS文件中的所有的代码都应该小写;</li>
+<li>除了重置浏览器默认样式外，禁止直接为html tag添加css样式设置;</li>
+<li>每一条规则应该确保选择器唯一，禁止直接为全局.nav/.header/.body等类设置属性;</li>
+</ul>
+<p>4、代码性能优化</p>
+<ul>
+<li>background、font、margin、padding、border等可以缩写的属性，尽量使用缩写形式</li>
+<li>选择器应该在满足功能的基础上尽量简短，减少选择器嵌套，查询消耗。但是一定要避免覆盖全局样式设置。</li>
+<li>注意选择器的性能，不要使用低性能的选择器。</li>
+<li>禁止在css中使用*选择符。</li>
+<li>除非必须，否则，一般有class或id的，不需要再写上元素对应的tag。</li>
+<li>0后面不需要单位，比如0px可以省略成0，0.8px可以省略成.8px。</li>
+<li>如果是16进制表示颜色，则颜色取值应该大写，颜色尽量用三位字符表示，例如#AABBCC写成#ABC 。</li>
+<li>如果没有边框时，不要写成border:0，应该写成border:none 。</li>
+<li>在保持代码解耦的前提下，尽量合并重复的样式。</li>
+</ul>
+<p>5、CSS Hack的使用</p>
+<p>请不用动不动就使用浏览器检测和CSS<br>Hacks，先试试别的解决方法吧！考虑到代码高效率和易管理，虽然这两种方法能快速解决浏览器解析差异，但应被视为最后的手段。在长期的项目中，允许使用hack只会带来更多的hack，你越是使用它，你越是会依赖它！</p>
+<p>6、字体规则</p>
+<ul>
+<li>为了防止文件合并及编码转换时造成问题，建议将样式中文字体名字改成对应的英文名字，如：黑体(SimHei) 宋体(SimSun) 微软雅黑<br>(Microsoft Yahei，几个单词中间有空格组成的必须加引号)</li>
+<li>字体粗细采用具体数值，粗体bold写为700，正常normal写为400<br>-<br>font-size必须以px或pt为单位，推荐用px（注：pt为打印版字体大小设置），不允许使用xx-small/x-small/small/medium/large/x-large/xx-large等值</li>
+<li>为了对font-family取值进行统一，更好的支持各个操作系统上各个浏览器的兼容性，font-family不允许在业务代码中随意设置</li>
+</ul>
+<h2 id="五、其他规范"><a href="#五、其他规范" class="headerlink" title="五、其他规范"></a>五、其他规范</h2><ul>
+<li>不要轻易改动全站级CSS和通用CSS库。</li>
+<li>避免使用filter属性（图片滤镜）</li>
+<li>避免在CSS中使用expression</li>
+<li>避免过小的背景图片平铺</li>
+<li>避免使用!important</li>
+<li>绝对不要在CSS中使用<code>*</code>选择符</li>
+</ul>
+<p>层级(z-index)必须清晰明确:</p>
+<ul>
+<li>页面弹窗、气泡为最高级（最高级为999），不同弹窗气泡之间可在三位数之间调整</li>
+<li>普通区块为10-90内10的倍数</li>
+<li>区块展开、弹出为当前父层级上个位增加，禁止层级间盲目攀比。</li>
+</ul>
+<p>背景图片尽量使用sprite技术, 减小http请求, 考虑到多人协作开发, sprite按照模块、业务、页面来划分均可。</p>
+<h2 id="六、测试规范"><a href="#六、测试规范" class="headerlink" title="六、测试规范"></a>六、测试规范</h2><h4 id="1、-了解浏览器特效支持，设定浏览器支持标准"><a href="#1、-了解浏览器特效支持，设定浏览器支持标准" class="headerlink" title="1、 了解浏览器特效支持，设定浏览器支持标准"></a>1、 了解浏览器特效支持，设定浏览器支持标准</h4><ul>
+<li>A级－交互和视觉完全符全设计的要求</li>
+<li>B级－视觉上允许有所差异，但不破坏页面的整体效果</li>
+<li>C级－可忽略设计上的细节，但不防碍使用</li>
+</ul>
+<h4 id="2、常用样式测试工具"><a href="#2、常用样式测试工具" class="headerlink" title="2、常用样式测试工具"></a>2、常用样式测试工具</h4><ul>
+<li>W3C CSS validator：<a href="https://note.youdao.com/" target="_blank" rel="noopener">http://jigsaw.w3.org/css-validator/</a></li>
+<li>CSS Lint：<a href="https://note.youdao.com/" target="_blank" rel="noopener">http://csslint.net/</a></li>
+<li>CSS Usage：<a href="https://note.youdao.com/" target="_blank" rel="noopener">https://addons.mozilla.org/en-us/firefox/addon/css-usage/</a></li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+        padding-top: 0;
+        line-height: 1.45rem;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://jiangwen1994.cn" class="b-link-green">Jiang Wen</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/posts/2019/01/25/31672/" class="b-link-green">CSS代码规范</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '3236a6f7975a50e6643f',
+        clientSecret: 'ffe1f5524b818724876a533e005c681f4f8670c6',
+        repo: 'Gitalk',
+        owner: 'jiangwen5945',
+        admin: "jiangwen5945",
+        id: '2019-01-25T09-21-38',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/posts/2019/02/18/47289/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/article_11.jpg" class="responsive-img" alt="看！这就是JavaScript中的原型链">
+                        
+                        <span class="card-title">看！这就是JavaScript中的原型链</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+直接上图！额(⊙o⊙)…，有点乱！不着急，让我们一步步来理解
+
+
+首先先来明确这三个属性的定义:
+
+prototype：指向原型对象（函数特有属性）
+__proto__：指向构造该对象的构造函数的原型对象
+constructor：指回该原</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Jiang Wen
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JavaScript/" target="_blank">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/posts/2018/11/02/58574/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/article_19.jpg" class="responsive-img" alt="CSS布局方案">
+                        
+                        <span class="card-title">CSS布局方案</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">1.左右布局1.1 float + margin.left{
+    float: left;
+    width: 100px; // 仅适用于左侧定宽的情况
+}
+.right{
+    margin-left: 100px;
+}
+
+1.</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CSS/" class="post-category" target="_blank">
+                                    CSS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CSS布局/" target="_blank">
+                        <span class="chip bg-color">CSS布局</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col hide-on-med-and-down">
+        <div class="toc-widget">
+            <h4>目录</h4>
+            <div class="toc-warp">
+                <div id="toc-content">
+                    <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、文件规范"><span class="post-toc-text">一、文件规范</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、注释规范"><span class="post-toc-text">二、注释规范</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、命名规范"><span class="post-toc-text">三、命名规范</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、书写规范"><span class="post-toc-text">四、书写规范</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、其他规范"><span class="post-toc-text">五、其他规范</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、测试规范"><span class="post-toc-text">六、测试规范</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、-了解浏览器特效支持，设定浏览器支持标准"><span class="post-toc-text">1、 了解浏览器特效支持，设定浏览器支持标准</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、常用样式测试工具"><span class="post-toc-text">2、常用样式测试工具</span></a></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        // 设置目录活动状态
+        let tocLinks = $('#toc-content a');
+        let setTocLinkActive = function (jqObj) {
+            tocLinks.removeClass('active');
+            jqObj.addClass('active');
+        };
+
+        // 监听点击TOC目录.
+        tocLinks.on('click', function () {
+            setTocLinkActive($(this));
+        });
+
+        // 获取文章标题元素数组
+        let titleTopArr = [];
+        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+            titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
+        });
+        let titleLen = titleTopArr.length;
+
+        //获取目录标题元素的数组
+        let tocLinksArr = [];
+        $('#toc-content a').each(function () {
+            tocLinksArr.push($(this).position().top)
+        })
+        
+        
+        /* 监听滚动条.*/
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            // 获取窗口的滚动条高度
+            let scroll = $(window).scrollTop();
+            //获取目录窗口高度
+            let tH = $(".toc-warp").innerHeight();
+            /* add post toc fixed. */
+            if (scroll > 240) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+
+            /** 以下代码为动态设置TOC激活高亮的目录. */
+            if (titleLen === 0) {
+                return;
+            }
+            
+            let firstTitleObj = titleTopArr[0];
+            if (firstTitleObj.top > scroll) {
+                return;
+            } else if (firstTitleObj.top === scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + firstTitleObj.id + '"]'));
+                return;
+            }
+
+            let lastTitleObj = titleTopArr[titleLen - 1];
+
+
+            if (lastTitleObj.top <= scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + lastTitleObj.id + '"]'));
+                return;
+            } 
+
+
+            for (let i = 0; i < titleLen; i++) {
+                if (titleTopArr[i].top > scroll) {
+                    setTocLinkActive($('#toc-content a[href="#' + titleTopArr[i - 1].id + '"]'));
+                    break;
+                }
+
+                if (tocLinksArr[i] >= tH ) {
+                    var t = $('#toc-content').scrollTop();
+                    $('#toc-content').scrollTop(tocLinksArr[i]);
+                }else {
+                    $('#toc-content').scrollTop(0)
+                }
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+
+
+
+
+
+    <audio src="/medias/music/The promise.mp3" loop="loop" class="myAudio" preload="none"  >
+        Your browser does not support the audio element.
+    </audio>
+ 
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright ©  <a href="https://github.com/jiangwen5945" target="_blank">JiangWen</a> 2018  |  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> 
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/jiangwen5945" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github fa-lg"></i>
+</a>
+<a href="mailto:908565666@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope fa-lg"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ: 908565666" data-position="top" data-delay="50">
+    <i class="fa fa-qq fa-lg"></i>
+</a>
+<a href="#!" class="controlMusic">
+    <i class="fa fa-pause fa-lg"></i>
+</a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+<!-- 鼠标点击效果(手机端移除此功能) -->
+<script type="text/javascript">
+    // 检测是否手机端
+    var sUserAgent = navigator.userAgent;
+    var isMobil = (sUserAgent.indexOf('Android') > -1 || sUserAgent.indexOf('iPhone') > -1 || sUserAgent.indexOf('iPad') > -1 || sUserAgent.indexOf('iPod') > -1 || sUserAgent.indexOf('Symbian') > -1)
+    if (!isMobil) {
+        var click_cnt = 0;
+        var $html = document.getElementsByTagName("html")[0];
+        var $body = document.getElementsByTagName("body")[0];
+        $html.onclick = function(e) {
+            var $elem = document.createElement("b");
+            $elem.style.color = "#E94F06";
+            $elem.style.zIndex = 9999;
+            $elem.style.position = "absolute";
+            $elem.style.select = "none";
+            var x = e.pageX;
+            var y = e.pageY;
+            $elem.style.left = (x - 10) + "px";
+            $elem.style.top = (y - 20) + "px";
+            clearInterval(anim);
+            switch (++click_cnt) {
+                case 10:
+                    $elem.innerText = "OωO";
+                    break;
+                case 20:
+                    $elem.innerText = "(๑•́ ∀ •̀๑)";
+                    break;
+                case 30:
+                    $elem.innerText = "(๑•́ ₃ •̀๑)";
+                    break;
+                case 40:
+                    $elem.innerText = "(๑•̀_•́๑)";
+                    break;
+                case 50:
+                    $elem.innerText = "（￣へ￣）";
+                    break;
+                case 60:
+                    $elem.innerText = "(╯°口°)╯(┴—┴";
+                    break;
+                case 70:
+                    $elem.innerText = "૮( ᵒ̌皿ᵒ̌ )ა";
+                    break;
+                case 80:
+                    $elem.innerText = "╮(｡>口<｡)╭";
+                    break;
+                case 90:
+                    $elem.innerText = "( ง ᵒ̌皿ᵒ̌)ง⁼³₌₃";
+                    break;
+                case 100:
+                case 101:
+                case 102:
+                case 103:
+                case 104:
+                case 105:
+                    $elem.innerText = "(ꐦ°᷄д°᷅)";
+                    break;
+                default:
+                    $elem.innerText = "❤";
+                    break;
+            }
+            $elem.style.fontSize = Math.random() * 16 + 8 + "px";255 * Math.random()
+            $elem.style.color = 'rgb(' + 255 * Math.random()+','+255 * Math.random()+','+255 * Math.random()+')'
+            var increase = 0;
+            var anim;
+            setTimeout(function() {
+                anim = setInterval(function() {
+                    if (++increase == 150) {
+                        clearInterval(anim);
+                        $body.removeChild($elem);
+                    }
+                    $elem.style.top = y - 20 - increase + "px";
+                    $elem.style.opacity = (150 - increase) / 120;
+                }, 8);
+            }, 70);
+            $body.appendChild($elem);
+        };
+    }
+</script>
+
+<!-- 背景音乐 -->
+
+
+
+
+
+
+    <audio src="/medias/music/The promise.mp3" loop="loop" class="myAudio" preload="none"  >
+        Your browser does not support the audio element.
+    </audio>
+ 
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<script>
+    // 判断是否移动端
+    // var sUserAgent = navigator.userAgent;
+    // var isMobil = (sUserAgent.indexOf('Android') > -1 || sUserAgent.indexOf('iPhone') > -1 || sUserAgent.indexOf('iPad') > -1 || sUserAgent.indexOf('iPod') > -1 || sUserAgent.indexOf('Symbian') > -1)
+    // if (!isMobil) {}
+
+     document.write("<script src='/libs/ribbon/canvas-ribbon.js'><\/script>");
+</script>
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":90,"height":180},"mobile":{"show":false},"react":{"opacityDefault":1,"opacityOnHover":1},"abbrlink":{"rep":"hex"},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
