@@ -6,13 +6,13 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="MongoDB学习小记, blog">
-    <meta name="description" content="起步（Mac）第一步：下载
+    <meta name="description" content="第一步：下载
 方式一：通过浏览器在Mongo官网中下载对应安装包
 
 方式二：通过终端的命令下载
 
 
-curl http://downloads.mongodb.org/osx/mongodb-osx-x86_64-2.4.6.">
+curl http://downloads.mongodb.org/osx/mongodb-osx-x86_64-2.4.6.tgz --o">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -383,8 +383,8 @@ curl http://downloads.mongodb.org/osx/mongodb-osx-x86_64-2.4.6.">
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="起步（Mac）"><a href="#起步（Mac）" class="headerlink" title="起步（Mac）"></a>起步（Mac）</h2><h3 id="第一步：下载"><a href="#第一步：下载" class="headerlink" title="第一步：下载"></a>第一步：下载</h3><ul>
-<li><p>方式一：通过浏览器在<a href="https://www.mongodb.com/try/download/community" target="_blank" rel="noopener">Mongo官网</a>中下载对应安装包<br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/216c4cd1831444df8f4312226a6c70bb~tplv-k3u1fbpfcp-zoom-1.image" alt="下载MongoDB安装包"></p>
+                <h3 id="第一步：下载"><a href="#第一步：下载" class="headerlink" title="第一步：下载"></a>第一步：下载</h3><ul>
+<li><p>方式一：通过浏览器在<a href="https://www.mongodb.com/try/download/community" target="_blank" rel="noopener">Mongo官网</a>中下载对应安装包<br><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/804956016fdf4dcc83f53a7a50b32687~tplv-k3u1fbpfcp-zoom-1.image" alt="下载MongoDB安装包"></p>
 </li>
 <li><p>方式二：通过终端的命令下载</p>
 </li>
@@ -407,7 +407,7 @@ curl http://downloads.mongodb.org/osx/mongodb-osx-x86_64-2.4.6.">
 <h3 id="第三步：启动服务"><a href="#第三步：启动服务" class="headerlink" title="第三步：启动服务"></a>第三步：启动服务</h3><p> <strong>方法1:</strong> 通过终端进入<code>mongodb/bin</code>目录后，再输入<code>./mongod</code>启动MongoDB服务（⚠️注意： 如果<code>data/db</code>目录不是建在根目录<code>/</code>下,需要在<code>./mongod</code>命令后指定相应的数据库存放路径）</p>
 <pre class=" language-bash"><code class="language-bash">./mongod --dbpath /Users/jiangwen/data
 </code></pre>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18d2a3c7de634765a60d36e5d528de83~tplv-k3u1fbpfcp-zoom-1.image" alt="启动MongoDB服务"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b45814d28d2f4b35827547df960a02ce~tplv-k3u1fbpfcp-zoom-1.image" alt="启动MongoDB服务"></p>
 <p><strong>方法2:</strong> </p>
 <p>在<code>mongodb/etc</code>目录下创建mongo.conf配置文件，然后就可以在bin目录下通过<code>./mongod -f ./mongo.conf</code>启动：</p>
 <p>📌：输入<code>vim /opt/mongodb3.6/bin/mongodb.conf</code>进入mongodb.conf的编辑，配置文件如下：</p>
@@ -422,12 +422,12 @@ bind_ip=0.0.0.0
 </code></pre><h3 id="第四步：-启动命令行-amp-可视化操作工具"><a href="#第四步：-启动命令行-amp-可视化操作工具" class="headerlink" title="第四步： 启动命令行&amp;可视化操作工具"></a>第四步： 启动命令行&amp;可视化操作工具</h3><ol>
 <li>打开一个新建终端，在<code>mongodb/bin</code>目录中，执行命令<code>./mongo</code>（⚠️注意：不是<code>./mongod</code>），进入<code>mongo</code>客户端命令行工具</li>
 </ol>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0633ccbccd8c4e079c81a81897ce561f~tplv-k3u1fbpfcp-zoom-1.image" alt="启动命令行工具"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f11e7e6c38374940aa3f447912f7a3cd~tplv-k3u1fbpfcp-zoom-1.image" alt="启动命令行工具"></p>
 <h3 id="补充：MongoDB远程配置（用于连接云服务器上MongoDB数据库）"><a href="#补充：MongoDB远程配置（用于连接云服务器上MongoDB数据库）" class="headerlink" title="补充：MongoDB远程配置（用于连接云服务器上MongoDB数据库）"></a>补充：MongoDB远程配置（用于连接云服务器上MongoDB数据库）</h3><ol>
 <li>进行服务器的防火墙设置</li>
 <li>在你的云服务器管理后台中上配置安全组，允许mongoDB默认的27017端口进行访问</li>
 </ol>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25d3704183c64860968f137649042d73~tplv-k3u1fbpfcp-zoom-1.image" alt="配置安全组"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e80fa73be33349288a598468ef08676f~tplv-k3u1fbpfcp-zoom-1.image" alt></p>
 <h2 id="MongoDB-基础操作"><a href="#MongoDB-基础操作" class="headerlink" title="MongoDB 基础操作"></a>MongoDB 基础操作</h2><h3 id="基础概念："><a href="#基础概念：" class="headerlink" title="基础概念："></a>基础概念：</h3><ul>
 <li><strong>数据库(db)：</strong> 存放集合数据的库</li>
 <li><strong>集合(collections)：</strong> 文档的集合表，对应mysql的数据表</li>
@@ -581,7 +581,7 @@ db.col.save({
 
 mongoimport <span class="token operator">-</span><span class="token number">d</span> <span class="token punctuation">[</span>DB_name<span class="token punctuation">]</span> <span class="token operator">-</span><span class="token number">c</span> <span class="token punctuation">[</span>Collection_name<span class="token punctuation">]</span> <span class="token operator">-</span><span class="token number">f</span> <span class="token punctuation">[</span>File_url<span class="token punctuation">]</span> 
 </code></pre>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c4fd87d4b60a4a87828e762e8f57f23c~tplv-k3u1fbpfcp-zoom-1.image" alt></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/87ed9f3555754601ad16972ba056ed77~tplv-k3u1fbpfcp-zoom-1.image" alt="导入数据"></p>
 <pre class=" language-sql"><code class="language-sql"><span class="token punctuation">.</span><span class="token operator">/</span>mongoimport  <span class="token operator">-</span><span class="token number">d</span> <span class="token keyword">user</span> <span class="token operator">-</span><span class="token number">c</span> goods <span class="token comment" spellcheck="true">--file /Users/jiangwen/Desktop/z1b8jp/resource/dumall-goods</span>
 </code></pre>
 <p><strong>注意：</strong> 在使用 mongoimport模块的时候必须要退出 mongo环境！！！</p>
@@ -862,7 +862,7 @@ mongoimport <span class="token operator">-</span><span class="token number">d</s
             <h4>目录</h4>
             <div class="toc-warp">
                 <div id="toc-content">
-                    <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#起步（Mac）"><span class="post-toc-text">起步（Mac）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一步：下载"><span class="post-toc-text">第一步：下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第二步：配置环境"><span class="post-toc-text">第二步：配置环境</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第三步：启动服务"><span class="post-toc-text">第三步：启动服务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第四步：-启动命令行-amp-可视化操作工具"><span class="post-toc-text">第四步： 启动命令行&amp;可视化操作工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#补充：MongoDB远程配置（用于连接云服务器上MongoDB数据库）"><span class="post-toc-text">补充：MongoDB远程配置（用于连接云服务器上MongoDB数据库）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MongoDB-基础操作"><span class="post-toc-text">MongoDB 基础操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基础概念："><span class="post-toc-text">基础概念：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本操作："><span class="post-toc-text">基本操作：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看"><span class="post-toc-text">查看</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#增加"><span class="post-toc-text">增加</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#删除"><span class="post-toc-text">删除</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改"><span class="post-toc-text">修改</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查询"><span class="post-toc-text">查询</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#导入数据"><span class="post-toc-text">导入数据</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#重启mongodb"><span class="post-toc-text">重启mongodb</span></a>
+                    <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一步：下载"><span class="post-toc-text">第一步：下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第二步：配置环境"><span class="post-toc-text">第二步：配置环境</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第三步：启动服务"><span class="post-toc-text">第三步：启动服务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第四步：-启动命令行-amp-可视化操作工具"><span class="post-toc-text">第四步： 启动命令行&amp;可视化操作工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#补充：MongoDB远程配置（用于连接云服务器上MongoDB数据库）"><span class="post-toc-text">补充：MongoDB远程配置（用于连接云服务器上MongoDB数据库）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MongoDB-基础操作"><span class="post-toc-text">MongoDB 基础操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基础概念："><span class="post-toc-text">基础概念：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本操作："><span class="post-toc-text">基本操作：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看"><span class="post-toc-text">查看</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#增加"><span class="post-toc-text">增加</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#删除"><span class="post-toc-text">删除</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改"><span class="post-toc-text">修改</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查询"><span class="post-toc-text">查询</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#导入数据"><span class="post-toc-text">导入数据</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#重启mongodb"><span class="post-toc-text">重启mongodb</span></a>
                 </div>
             </div>
         </div>
