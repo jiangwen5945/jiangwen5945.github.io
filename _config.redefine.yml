@@ -19,7 +19,7 @@ style:
   avatar: /images/redefine-avatar.svg # avatar of the author
 
   # Favicon (You can use local image or image external link)
-  favicon: /images/logo.svg # favicon of the site
+  favicon: /images/redefine-logo.svg # favicon of the site
 
   # Article image align position
   article_img_align: center # value: left | center
@@ -95,7 +95,7 @@ menu: #you can customize, i18n files are in the theme's languages folder. fa-reg
   About: 
     icon: fa-regular fa-user
     submenus:
-      Me: /about
+      我: /about
       link: /links
 
   # ...... # you can add more
