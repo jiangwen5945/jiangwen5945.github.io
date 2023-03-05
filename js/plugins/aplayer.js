@@ -1,0 +1,1 @@
+const audioList=[];for(const a of REDEFINE.theme_config.plugins.aplayer.audio){const b={name:a.name,artist:a.artist,url:a.url,cover:a.cover,lrc:a.lrc,theme:a.theme};audioList.push(b)}const ap=new APlayer({container:document.getElementById("aplayer"),fixed:!0,audio:audioList});
