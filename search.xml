@@ -25,6 +25,27 @@
       </tags>
   </entry>
   <entry>
+    <title>函数的防抖与截流</title>
+    <url>/2023/03/06/%E5%87%BD%E6%95%B0%E7%9A%84%E9%98%B2%E6%8A%96%E4%B8%8E%E6%88%AA%E6%B5%81/</url>
+    <content><![CDATA[<p>防抖函数: 只执行一次传入的函数(类似于弹簧,只在结束或者开头的时候执行一次)</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 防抖函数</span></span><br><span class="line"><span class="comment">fn:需要执行防抖的函数</span></span><br><span class="line"><span class="comment">immediate: 是否立即执行传入的函数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">fn, delay = <span class="number">300</span>, immediate = <span class="literal">false</span></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer,res;</span><br><span class="line">  <span class="keyword">let</span> myDebounce = <span class="keyword">function</span> (<span class="params">...args</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (timer) &#123;</span><br><span class="line">      <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (immediate) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!timer) &#123;</span><br><span class="line">        res = fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, args)</span><br><span class="line">      &#125;</span><br><span class="line">      timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        timer = <span class="literal">null</span></span><br><span class="line">      &#125;, delay);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, args)</span><br><span class="line">      &#125;, delay);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">  &#125;</span><br><span class="line">  myDebounce.<span class="property">cancel</span>=(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> myDebounce</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+
+
+<p>节流函数:在一定时间段内执行一次(类似于水龙头每隔500ms滴一滴水)</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 节流函数1（时间戳）</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">thorttle</span>(<span class="params">fn, interval = <span class="number">500</span></span>) &#123;</span><br><span class="line">  preTime = <span class="title class_">Date</span>.<span class="title function_">now</span>()</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">...args</span>) &#123;</span><br><span class="line">    nowTime = <span class="title class_">Date</span>.<span class="title function_">now</span>()</span><br><span class="line">    <span class="keyword">if</span> (nowTime - preTime &gt;= interval) &#123;</span><br><span class="line">      fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, args)</span><br><span class="line">      preTime = <span class="title class_">Date</span>.<span class="title function_">now</span>()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// timer = setTimeout(() =&gt; &#123;</span></span><br><span class="line">    <span class="comment">//     fn.apply(this, args)</span></span><br><span class="line">    <span class="comment">// &#125;, interval);</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 节流函数2（定时器）</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">thorttle2</span>(<span class="params">fn, interval = <span class="number">500</span></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">...args</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!timer) &#123;</span><br><span class="line">      timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, args);</span><br><span class="line">        <span class="built_in">clearTimeout</span>(timer);</span><br><span class="line">        timer = <span class="literal">null</span></span><br><span class="line">      &#125;, interval);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>满纸荒唐言</title>
     <url>/2023/03/06/%E6%BB%A1%E7%BA%B8%E8%8D%92%E5%94%90%E8%A8%80/</url>
     <content><![CDATA[<p><i id="typed-text"></i></p>
@@ -79,10 +100,5 @@
       <tags>
         <tag>阅读</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>函数的防抖与截流</title>
-    <url>/2023/03/06/%E5%87%BD%E6%95%B0%E7%9A%84%E9%98%B2%E6%8A%96%E4%B8%8E%E6%88%AA%E6%B5%81/</url>
-    <content><![CDATA[]]></content>
   </entry>
 </search>
