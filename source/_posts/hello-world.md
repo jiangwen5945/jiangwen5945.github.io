@@ -1,11 +1,12 @@
----
 title: Hello World
-date: 2022-9-28 11:45:14
-tags: [Hexo]
-categories: [Hexo]
+tags:
+  - Hexo
+categories:
+  - Hexo
 sticky: 999
-thumbnail: "https://evan.beee.top/img/208184324-f2640ade-587a-4f46-8ad1-7b4c1b31394f.png"
-excerpt: "这是文章摘要 This is the excerpt of the post"
+thumbnail: 'http://rr2u16sq3.bkt.clouddn.com/2387ae258a104923ad649dbb740b4f8b.webp'
+excerpt: 这是文章摘要 This is the excerpt of the post
+date: 2022-09-28 11:45:00
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 

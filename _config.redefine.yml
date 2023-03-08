@@ -4,7 +4,7 @@
 base_info:
   title: JiangWen's Blog # Site title
   author: Jiang Wen # Author name
-  url: https://jiangwen.love # Site url
+  url: https://blog.jiangwen.site # Site url
   # Logo image (You can use local image, image external link or don’t fill)
   logo_img: # logo image on the left of the navigation bar
 
@@ -16,10 +16,10 @@ style:
   primary_color: "#005080"
 
   # Avatar (You can use local image or image external link)
-  avatar: /images/redefine-avatar.svg # avatar of the author
+  avatar: /images/avatar.svg # avatar of the author
 
   # Favicon (You can use local image or image external link)
-  favicon: /images/redefine-logo.svg # favicon of the site
+  favicon: /images/logo.svg # favicon of the site
 
   # Article image align position
   article_img_align: center # value: left | center
@@ -45,8 +45,8 @@ style:
   first_screen:
     enable: true
     background_image:
-      light: https://evan.beee.top/img/wallhaven-wqery6-light.webp # background image of the first screen, use relative path or external link (if your website is in subdirectory, use external link)
-      dark: https://evan.beee.top/img/wallhaven-wqery6-dark.webp # background image of the first screen, use relative path or external link (if your website is in subdirectory, use external link)
+      light: http://rr2u16sq3.bkt.clouddn.com/c5340e3e880811ebb6edd017c2d2eca2.webp # background image of the first screen, use relative path or external link (if your website is in subdirectory, use external link)
+      dark: http://rr2u16sq3.bkt.clouddn.com/50bb6cb5cef84475bd912705b3d5da55.webp  # background image of the first screen, use relative path or external link (if your website is in subdirectory, use external link)
     title_color:
       light: "#fff" # first screen title color (light mode)
       dark: "#d1d1b6" # first screen title color (dark mode)
@@ -93,7 +93,7 @@ menu: #you can customize, i18n files are in the theme's languages folder. fa-reg
     path: /categories 
     icon: fa-regular fa-folders # can be empty
   About: 
-    icon: fa-regular fa-user
+    icon: fa-regular fa-compass
     submenus:
       我: /about
       link: /links
@@ -196,7 +196,7 @@ comment:
   # Waline
   # See: https://waline.js.org/guide/get-started.html
   waline:
-    serverUrl: blog-comment-three-rho.vercel.app # Waline server url(vercel) example: https://example.example.com
+    serverUrl: comment.jiangwen.site # Waline server url(vercel) example: https://example.example.com
     lang: zh-CN # Waline language, default: zh-CN. See: https://waline.js.org/guide/client/i18n.html
   
   # Gitalk
@@ -293,7 +293,6 @@ inject:
   footer: # inject code into <footer> tag
     - 
     - 
-
 # ---------------------------------------------------------------------------------------
 # Theme plugins
 # ---------------------------------------------------------------------------------------
@@ -301,6 +300,10 @@ plugins:
   aplayer: # APlayer
     enable: true
     audio:
+    - name: The Promise
+      artist: Secret Garden
+      url: http://rr1yabuvi.bkt.clouddn.com/The%20promise.mp3
+      cover: /images/redefine-avatar.svg
     - name: Imagine # audio name
       artist: John Lennon # audio artist
       url: https://evan.beee.top/music/Imagine%20-%20John%20Lennon.mp3 # audio url
@@ -317,7 +320,6 @@ search:
   field: post
   content: true
   format: striptags
-
 
 # ---------------------------------------------------------------------------------------
 # Redefine Theme version (Please dont modify it)

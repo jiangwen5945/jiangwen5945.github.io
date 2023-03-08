@@ -99,14 +99,22 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: redefine
 
+# 资源压缩
+all_minifier: true
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 # 一键部署 需安装 $npm install hexo-deployer-git --save
 deploy:
   type: git
-  repo: <repository url> #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
-  branch: [branch]
-  message: [message]
+  repo: https://github.com/jiangwen5945/jiangwen5945.github.io # https://github.com/<username>/<project>
+  branch: gh-pages
+  message: "新增功能：一键部署"
 
-# 资源压缩
-all_minifier: true
+# Admin
+admin:
+  name: jiangwen
+  password: admin
+  secret: hexo
+  expire: 60*1
+  # cors: http://localhost:3000
