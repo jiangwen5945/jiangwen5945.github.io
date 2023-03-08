@@ -109,7 +109,7 @@ deploy:
   type: git
   repo: https://github.com/jiangwen5945/jiangwen5945.github.io # https://github.com/<username>/<project>
   branch: gh-pages
-  message: "新增功能：一键部署"
+  message: "一键部署：文章修改/编辑"
 
 # Admin
 admin:
