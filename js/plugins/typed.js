@@ -1,0 +1,1 @@
+REDEFINE.initTyped=e=>{var t=[];for(const s of REDEFINE.theme_config.style.first_screen.subtitle.list)t.push(s);document.getElementById(e)&&new Typed("#"+e,{strings:t,typeSpeed:100,smartBackspace:!0,backSpeed:50,backDelay:1500,loop:!1,startDelay:500})};
