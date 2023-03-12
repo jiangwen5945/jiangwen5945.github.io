@@ -100,6 +100,7 @@ menu: #you can customize, i18n files are in the theme's languages folder. fa-reg
     submenus:
       我: /about
       link: /links
+      说说: /essays 
 
   # ...... # you can add more
 
