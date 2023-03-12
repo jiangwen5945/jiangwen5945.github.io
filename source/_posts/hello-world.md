@@ -4,7 +4,7 @@ tags:
 categories:
   - Hexo
 sticky: 999
-thumbnail: 'http://rr2u16sq3.bkt.clouddn.com/2387ae258a104923ad649dbb740b4f8b.webp'
+thumbnail: 'https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/dd3e880811ebb6e017c2d2eca2.webp'
 excerpt: 这是文章摘要 This is the excerpt of the post
 date: 2022-09-28 11:45:00
 ---

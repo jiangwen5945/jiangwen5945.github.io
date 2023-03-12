@@ -45,8 +45,8 @@ style:
   first_screen:
     enable: true
     background_image:
-      light: http://rr2u16sq3.bkt.clouddn.com/c5340e3e880811ebb6edd017c2d2eca2.webp # background image of the first screen, use relative path or external link (if your website is in subdirectory, use external link)
-      dark: http://rr2u16sq3.bkt.clouddn.com/50bb6cb5cef84475bd912705b3d5da55.webp  # background image of the first screen, use relative path or external link (if your website is in subdirectory, use external link)
+      light: https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/c5340e3e880811ebb6edd017c2d2eca2.webp # background image of the first screen, use relative path or external link (if your website is in subdirectory, use external link)
+      dark: https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/50bb6cb5cef84475bd912705b3d5da55.webp  # background image of the first screen, use relative path or external link (if your website is in subdirectory, use external link)
     title_color:
       light: "#fff" # first screen title color (light mode)
       dark: "#d1d1b6" # first screen title color (dark mode)
@@ -306,7 +306,7 @@ plugins:
     audio:
     - name: The Promise
       artist: Secret Garden
-      url: http://rr1yabuvi.bkt.clouddn.com/The%20promise.mp3
+      url: https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/music/The%20promise.mp3
       cover: /images/redefine-avatar.svg
     - name: Imagine # audio name
       artist: John Lennon # audio artist
