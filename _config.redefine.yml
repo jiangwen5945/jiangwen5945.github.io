@@ -19,7 +19,10 @@ style:
   avatar: /images/avatar.svg # avatar of the author
 
   # Favicon (You can use local image or image external link)
-  favicon: /images/logo.svg # favicon of the site
+  favicon: /images/redefine-logo.svg # favicon of the site
+  og_image: # og:image of the site
+    enable: false
+    image_url: # image url
 
   # Article image align position
   article_img_align: center # value: left | center
@@ -50,7 +53,11 @@ style:
     title_color:
       light: "#fff" # first screen title color (light mode)
       dark: "#d1d1b6" # first screen title color (dark mode)
-    description: <h2>文以载道</h2> # the title in the middle of the first screen. HTML supported (e.g. svg html code of your logo)
+    font_sizes:
+      title: 2.8rem # first screen title font size
+      subtitle: 1.5rem # first screen subtitle font size
+    line_height: 1.2 # first screen title line height
+    title: 文以载道 # the title in the middle of the first screen. HTML supported (e.g. svg html code of your logo)
     subtitle: 
       enable: true
       list: ['Writings are for conveying truth', 'Take action to think, to change, to create.']
@@ -215,6 +222,7 @@ comment:
   # See: https://github.com/imaegoo/twikoo
   twikoo:
     visitor: true
+    version: 1.6.10 # Twikoo version, do not modify if you dont know what it is
     env_id: # Vercel or Tencent Cloud Function environment ID
     region: # environment region. If select Guangzhou, fill in "ap-guangzhou". (optional)
 
@@ -243,6 +251,10 @@ lazyload:
 # ---------------------------------------------------------------------------------------
 cdn:
   enable: false
+  use: aliyun # values: jsdelivr | unpkg | aliyun 
+  # aliyun cdn is funded by myself, so if you want to make it work longer, please donate to me.
+  # For donation, please see https://github.com/EvanNotFound/hexo-theme-redefine/blob/dev/DONATION.md
+  # Thank you for your support.
 
 # ---------------------------------------------------------------------------------------
 # PJAX
@@ -279,7 +291,8 @@ fontawesome: # select fontawesome versions you want to use, in order to reduce t
 # ---------------------------------------------------------------------------------------
 footer:
   runtime: true # show website running time or not
-  start_time: 2020/9/29 11:45:14 # the starting time of your website, format: yyyy/mm/dd hh:mm:ss
+  icon: '<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>' # footer icon, write fontawesome html code here
+  start_time: 2022/8/17 11:45:14 # the starting time of your website, format: yyyy/mm/dd hh:mm:ss
   customize:  # customize footer message, can be html code
   icp: # ICP record number of your website, Can be null
     enable: false
@@ -326,8 +339,8 @@ search:
   format: striptags
 
 # ---------------------------------------------------------------------------------------
-# Redefine Theme version (Please dont modify it)
+# Redefine Theme version (DELETE THIS PART IN YOUR _config.redefine.yml)
 # Please go to github to update the latest version frequently
 # Github: https://github.com/EvanNotFound/hexo-theme-redefine
 # ---------------------------------------------------------------------------------------
-version: 1.1.6
+version: 1.2.1 #DELETE THIS LINE IN YOUR _config.redefine.yml
