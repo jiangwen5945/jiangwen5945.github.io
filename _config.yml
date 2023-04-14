@@ -110,11 +110,3 @@ deploy:
   repo: https://github.com/jiangwen5945/jiangwen5945.github.io # https://github.com/<username>/<project>
   branch: gh-pages
   message: "一键部署：文章修改/编辑"
-
-# Admin
-admin:
-  name: jiangwen
-  password: admin
-  secret: hexo
-  expire: 60*1
-  # cors: http://localhost:3000
