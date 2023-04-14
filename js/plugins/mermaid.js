@@ -1,1 +1,1 @@
-REDEFINE.initMermaid=()=>{mermaid.init()};
+Global.initMermaid=()=>{mermaid.init()};
