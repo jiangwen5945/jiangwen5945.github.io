@@ -338,6 +338,127 @@ BFC清除浮动</p>
       </tags>
   </entry>
   <entry>
+    <title>flex布局最后一行列表左对齐的N种方法</title>
+    <url>/2023/01/18/CSS/flex%E5%B8%83%E5%B1%80%E6%9C%80%E5%90%8E%E4%B8%80%E8%A1%8C%E5%88%97%E8%A1%A8%E5%B7%A6%E5%AF%B9%E9%BD%90%E7%9A%84N%E7%A7%8D%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<blockquote>
+<p>在CSS flex布局中，<code>justify-content</code>属性可以控制列表的水平对齐方式，例如<code>space-between</code>值可以实现两端对齐。但是，如果最后一行的列表的个数不满，则就会出现最后一行没有完全垂直对齐的问题。</p>
+</blockquote>
+<p>如下代码：</p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;    </span><br><span class="line">    <span class="attribute">display</span>: flex;    </span><br><span class="line">    <span class="attribute">justify-content</span>: space-between;</span><br><span class="line">    <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.list</span> &#123; </span><br><span class="line">    <span class="attribute">width</span>: <span class="number">24%</span>; <span class="attribute">height</span>: <span class="number">100px</span>;    </span><br><span class="line">    <span class="attribute">background-color</span>: skyblue;    </span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">15px</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>然后列表的个数不多不少正好7个：</p>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>   </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>此时最后一行的小方块的排列就显得很尴尬了：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://mmbiz.qpic.cn/mmbiz_png/eXCSRjyNYcZ3wJlqWvhA0agiceDXYyUF1qbHBWMp2CuvlKDOwqmBjoGhaYBZ7nHZMoqrdMkvkt4HqugDFFOgaWQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1"
+                      alt="图片"
+                ></p>
+<p>您可以狠狠地点击这里：最后一行flex列表没有对齐demo</p>
+<p>此时，最后一行应该左对齐排列才是我们想要的效果，如何实现呢？</p>
+<p>其实实现的思路和display:inline-block的两端对齐是一样的。</p>
+<h3 id="二、如果每一行列数是固定的"><a href="#二、如果每一行列数是固定的" class="headerlink" title="二、如果每一行列数是固定的"></a><strong>二、如果每一行列数是固定的</strong></h3><p>如果每一行列数是固定的，则下面两种方法可以实现最后一行左对齐。</p>
+<h4 id="方法一：模拟space-between和间隙"><a href="#方法一：模拟space-between和间隙" class="headerlink" title="方法一：模拟space-between和间隙"></a>方法一：模拟space-between和间隙</h4><p>也就是我们不使用<code>justify-content:space-between</code>声明在模拟两端对齐效果。中间的gap间隙我们使用margin进行控制。</p>
+<p>例如：</p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;    </span><br><span class="line">    <span class="attribute">display</span>: flex;    </span><br><span class="line">    <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.list</span> &#123;    </span><br><span class="line">    <span class="attribute">width</span>: <span class="number">24%</span>; <span class="attribute">height</span>: <span class="number">100px</span>;    </span><br><span class="line">    <span class="attribute">background-color</span>: skyblue;    </span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.list</span><span class="selector-pseudo">:not</span>(<span class="selector-pseudo">:nth-child</span>(<span class="number">4</span>n)) &#123;    </span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="built_in">calc</span>(<span class="number">4%</span> / <span class="number">3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>此时，布局效果是这样的：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://mmbiz.qpic.cn/mmbiz_png/eXCSRjyNYcZ3wJlqWvhA0agiceDXYyUF1cAOMOzbdZbFDEsG5ZcKicAlLy1ygpeS1QuyJVIfO7CgFeTEAOibkV9MQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1"
+                      alt="图片"
+                ></p>
+<h4 id="方法二：-根据个数最后一个元素动态margin"><a href="#方法二：-根据个数最后一个元素动态margin" class="headerlink" title="方法二：****根据个数最后一个元素动态margin"></a><strong>方法二：****根据个数最后一个元素动态margin</strong></h4><p>由于每一列的数目都是固定的，因此，我们可以计算出不同个数列表应当多大的<code>margin</code>值才能保证完全左对齐。</p>
+<p>例如，假设每行4个元素，结果最后一行只有3个元素，则最后一个元素的<code>margin-right</code>大小是“列表宽度+间隙大小”的话，那最后3个元素也是可以完美左对齐的。</p>
+<p>然后，借助树结构伪类数量匹配技术（这篇文章“伪类匹配列表数目实现微信群头像CSS布局的技巧”中的布局技巧就是借助这种技术实现），我们可以知道最后一行有几个元素。</p>
+<p>例如：</p>
+<ul>
+<li><code>.list:last-child:nth-child(4n - 1)</code>说明最后一行，要么3个元素，要么7个元素……</li>
+<li><code>.list:last-child:nth-child(4n - 2)</code>说明最后一行，要么2个元素，要么6个元素……</li>
+</ul>
+<p>在本例中，一行就4个元素，因此，我们可以有如下CSS设置：</p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;    </span><br><span class="line">    <span class="attribute">display</span>: flex;    <span class="comment">/* 两端对齐 */</span>    </span><br><span class="line">    <span class="attribute">justify-content</span>: space-between;    </span><br><span class="line">    <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.list</span> &#123;    </span><br><span class="line">    <span class="attribute">width</span>: <span class="number">24%</span>; </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;    </span><br><span class="line">    <span class="attribute">background-color</span>: skyblue;    </span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 如果最后一行是3个元素 */</span></span><br><span class="line"><span class="selector-class">.list</span><span class="selector-pseudo">:last-child</span><span class="selector-pseudo">:nth-child</span>(<span class="number">4</span>n - <span class="number">1</span>) &#123;    </span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="built_in">calc</span>(<span class="number">24%</span> + <span class="number">4%</span> / <span class="number">3</span>);&#125;</span><br><span class="line"><span class="comment">/* 如果最后一行是2个元素 */</span><span class="selector-class">.list</span><span class="selector-pseudo">:last-child</span><span class="selector-pseudo">:nth-child</span>(<span class="number">4</span>n - <span class="number">2</span>) &#123;    </span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="built_in">calc</span>(<span class="number">48%</span> + <span class="number">8%</span> / <span class="number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>效果如下GIF示意，删除列表后，布局依然稳稳地左对齐。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://mmbiz.qpic.cn/mmbiz_gif/eXCSRjyNYcZ3wJlqWvhA0agiceDXYyUF1HBgKYMib47MyCeOvOgjA5EdyQibiaiadLlicfQUcejwoL5iaqRladCHHdkHg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1"
+                      alt="图片"
+                ></p>
+<p>眼见为实，您可以狠狠地点击这里：动态匹配数量实现flex子项左对齐demo</p>
+<h3 id="三、如果每一子项宽度不固定"><a href="#三、如果每一子项宽度不固定" class="headerlink" title="三、如果每一子项宽度不固定"></a><strong>三、如果每一子项宽度不固定</strong></h3><p>有时候，每一个flex子项的宽度都是不固定的，这个时候希望最后一行左对齐该如何实现呢？</p>
+<p>由于此时间隙的大小不固定，对齐不严格，因此，我们可以直接让最后一行左对齐即可。具体方法有两个：</p>
+<h4 id="方法一：-最后一项margin-right-auto"><a href="#方法一：-最后一项margin-right-auto" class="headerlink" title="方法一：****最后一项margin-right:auto"></a><strong>方法一：****最后一项margin-right:auto</strong></h4><p>CSS代码如下：</p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;    </span><br><span class="line">    <span class="attribute">display</span>: flex;    </span><br><span class="line">    <span class="attribute">justify-content</span>: space-between;    </span><br><span class="line">    <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.list</span> &#123;   </span><br><span class="line">    <span class="attribute">background-color</span>: skyblue;    </span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 最后一项margin-right:auto */</span></span><br><span class="line"><span class="selector-class">.list</span><span class="selector-pseudo">:last-child</span> &#123;    </span><br><span class="line">    <span class="attribute">margin-right</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>最终效果如下GIF：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://mmbiz.qpic.cn/mmbiz_gif/eXCSRjyNYcZ3wJlqWvhA0agiceDXYyUF1FIlAwqXlZCKTzHdmraW9WUPGrDvkWXXiaZWfoFzYQicOiaOIzROMcJXvQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1"
+                      alt="图片"
+                ></p>
+<h4 id="方法二：-创建伪元素并设置flex-auto或flex-1"><a href="#方法二：-创建伪元素并设置flex-auto或flex-1" class="headerlink" title="方法二：****创建伪元素并设置flex:auto或flex:1"></a><strong>方法二：****创建伪元素并设置flex:auto或flex:1</strong></h4><p>CSS代码如下：</p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;    </span><br><span class="line">    <span class="attribute">display</span>: flex;    </span><br><span class="line">    <span class="attribute">justify-content</span>: space-between;    </span><br><span class="line">    <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.list</span> &#123;    </span><br><span class="line">    <span class="attribute">background-color</span>: skyblue;  </span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 使用伪元素辅助左对齐 */</span></span><br><span class="line"><span class="selector-class">.container</span><span class="selector-pseudo">::after</span> &#123;    </span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="attribute">flex</span>: auto;    <span class="comment">/* 或者flex: 1 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>最终效果如下GIF：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://mmbiz.qpic.cn/mmbiz_gif/eXCSRjyNYcZ3wJlqWvhA0agiceDXYyUF1FIlAwqXlZCKTzHdmraW9WUPGrDvkWXXiaZWfoFzYQicOiaOIzROMcJXvQ/640?wx_fmt=gif&wxfrom=5&wx_lazy=1"
+                      alt="图片"
+                ></p>
+<hr>
+<p>这两个方法我合在一个demo页面了，您可以狠狠的点击这里：flex子元素宽度不固定最后一行左对齐demo</p>
+<h3 id="四、如果每一行列数不固定"><a href="#四、如果每一行列数不固定" class="headerlink" title="四、如果每一行列数不固定"></a><strong>四、如果每一行列数不固定</strong></h3><p>如果每一行的列数不固定，则上面的这些方法均不适用，需要使用其他技巧来实现最后一行左对齐。</p>
+<p>这个方法其实很简单，也很好理解，就是使用足够的空白标签进行填充占位，具体的占位数量是由最多列数的个数决定的，例如这个布局最多7列，那我们可以使用7个空白标签进行填充占位，最多10列，那我们需要使用10个空白标签。</p>
+<p>如下HTML示意：</p>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>相关CSS如下，实现的关键就是占位的<code>&lt;i&gt;</code>元素宽度和<code>margin</code>大小设置得和<code>.list</code>列表元素一样即可，其他样式都不需要写。</p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;    </span><br><span class="line">    <span class="attribute">display</span>: flex;    </span><br><span class="line">    <span class="attribute">justify-content</span>: space-between;    </span><br><span class="line">    <span class="attribute">flex-wrap</span>: wrap;    </span><br><span class="line">    <span class="attribute">margin-right</span>: -<span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.list</span> &#123;    </span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>; </span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;    </span><br><span class="line">    <span class="attribute">background-color</span>: skyblue;   </span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">15px</span> <span class="number">10px</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 和列表一样的宽度和margin值 */</span></span><br><span class="line"><span class="selector-class">.container</span> &gt; <span class="selector-tag">i</span> &#123;    </span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;    </span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>由于<code>&lt;i&gt;</code>元素高度为0，因此，并不会影响垂直方向上的布局呈现。</p>
+<p>最后的效果如下GIF图示：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://mmbiz.qpic.cn/mmbiz_gif/eXCSRjyNYcZ3wJlqWvhA0agiceDXYyUF1T6BebmEck5cnabYglrdB9biapOwXSumRjpAY4sicibuZ9U8kdicRfdhWCw/640?wx_fmt=gif&wxfrom=5&wx_lazy=1"
+                      alt="图片"
+                ></p>
+<h3 id="五、如果列数不固定HTML又不能调整"><a href="#五、如果列数不固定HTML又不能调整" class="headerlink" title="五、如果列数不固定HTML又不能调整"></a><strong>五、如果列数不固定HTML又不能调整</strong></h3><p>然而有时候，由于客观原因，前端重构人员没有办法去调整html结构，同时布局的列表个数又不固定，这个时候该如何实现我们最后一行左对齐效果呢？</p>
+<p>我们不妨可以试试使用Grid布局。</p>
+<p>Grid布局天然有gap间隙，且天然格子对齐排布，因此，实现最后一行左对齐可以认为是天生的效果。</p>
+<p>CSS代码如下：</p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;    </span><br><span class="line">    <span class="attribute">display</span>: grid;    </span><br><span class="line">    <span class="attribute">justify-content</span>: space-between;    </span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fill, <span class="number">100px</span>);    </span><br><span class="line">    <span class="attribute">grid-gap</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.list</span> &#123;    </span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>; </span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;    </span><br><span class="line">    <span class="attribute">background-color</span>: skyblue;    </span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>可以看到CSS代码非常简洁。</p>
+<p>HTML代码就是非常规整非常普通的代码片段：</p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">div</span> class=&quot;container&quot;&gt;    </span><br><span class="line">    &lt;<span class="selector-tag">div</span> class=&quot;list&quot;&gt;&lt;/<span class="selector-tag">div</span>&gt;    </span><br><span class="line">    &lt;<span class="selector-tag">div</span> class=&quot;list&quot;&gt;&lt;/<span class="selector-tag">div</span>&gt;    </span><br><span class="line">    &lt;<span class="selector-tag">div</span> class=&quot;list&quot;&gt;&lt;/<span class="selector-tag">div</span>&gt;    </span><br><span class="line">    &lt;<span class="selector-tag">div</span> class=&quot;list&quot;&gt;&lt;/<span class="selector-tag">div</span>&gt;    </span><br><span class="line">    &lt;<span class="selector-tag">div</span> class=&quot;list&quot;&gt;&lt;/<span class="selector-tag">div</span>&gt;    </span><br><span class="line">    &lt;<span class="selector-tag">div</span> class=&quot;list&quot;&gt;&lt;/<span class="selector-tag">div</span>&gt;    </span><br><span class="line">    &lt;<span class="selector-tag">div</span> class=&quot;list&quot;&gt;&lt;/<span class="selector-tag">div</span>&gt;</span><br><span class="line">&lt;/<span class="selector-tag">div</span>&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>最后的效果如下GIF：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://mmbiz.qpic.cn/mmbiz_gif/eXCSRjyNYcZ3wJlqWvhA0agiceDXYyUF1T6BebmEck5cnabYglrdB9biapOwXSumRjpAY4sicibuZ9U8kdicRfdhWCw/640?wx_fmt=gif&wxfrom=5&wx_lazy=1"
+                      alt="图片"
+                ></p>
+<h3 id="六、这几种实现方法点评"><a href="#六、这几种实现方法点评" class="headerlink" title="六、这几种实现方法点评"></a><strong>六、这几种实现方法点评</strong></h3><p>首先最后一行需要左对齐的布局更适合使用CSS grid布局实现，但是，<code>repeat()</code>函数兼容性有些要求，IE浏览器并不支持。如果项目需要兼容IE，则此方法需要斟酌。</p>
+<p>然后，适用范围最广的方法是使用空的元素进行占位，此方法不仅适用于列表个数不固定的场景，对于列表个数固定的场景也可以使用这个方法。但是有些人代码洁癖，看不惯这种空的占位的html标签，则可以试试一开始的两个方法，一是动态计算margin，模拟两端对齐，另外一个是根据列表的个数，动态控制最后一个列表元素的margin值实现左对齐。</p>
+<p>累计6种方法，各有各的优缺点，大家根据自己项目的实际场景，选择合适的方法。</p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>flex</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello git</title>
     <url>/2022/09/28/Git/hello-git/</url>
     <content><![CDATA[<h2 id="git起步"><a href="#git起步" class="headerlink" title="git起步"></a>git起步</h2><h5 id="…在命令行上创建新的存储库"><a href="#…在命令行上创建新的存储库" class="headerlink" title="…在命令行上创建新的存储库"></a>…在命令行上创建新的存储库</h5><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;# article-img&quot;</span> &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">&quot;first commit&quot;</span></span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin git@github.com:jiangwen5945/article-img.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure></div>
@@ -348,6 +469,170 @@ BFC清除浮动</p>
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTML5一览</title>
+    <url>/2020/01/01/HTML/HTML5%E4%B8%80%E8%A7%88/</url>
+    <content><![CDATA[<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+语义化</p>
+<ul>
+<li>页面结构更加清晰和可读性，有利于团队开发和维护</li>
+<li>方便其他设备解析</li>
+<li>有利于SEO，搜索引擎根据标签来确定上下文和各个关键字的权重</li>
+<li>易于用户阅读，样式丢失的时候能让页面呈现清晰的结构</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+H5新增标签特性</p>
+<table>
+<thead>
+<tr>
+<th align="center">标签名</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><article></td>
+<td align="center">定义文章，规定独立的自包含内容</td>
+</tr>
+<tr>
+<td align="center"><aside></td>
+<td align="center">定义页面内容之外的内容</td>
+</tr>
+<tr>
+<td align="center"><section></td>
+<td align="center">定义文档中的小节、区段</td>
+</tr>
+<tr>
+<td align="center"><header></td>
+<td align="center">定义section或page的页眉</td>
+</tr>
+<tr>
+<td align="center"><footer></td>
+<td align="center">定义section或page的页脚</td>
+</tr>
+<tr>
+<td align="center"><main></td>
+<td align="center">定义文档的主要内容</td>
+</tr>
+<tr>
+<td align="center"><nav></td>
+<td align="center">定义导航链接</td>
+</tr>
+<tr>
+<td align="center"><bdi></td>
+<td align="center">定义文本的文本方向，使其脱离其周围文本的方向设置</td>
+</tr>
+<tr>
+<td align="center"><canvas></td>
+<td align="center">定义图形画布</td>
+</tr>
+<tr>
+<td align="center"><command></td>
+<td align="center">定义命令按钮  (仅ie9支持这个标签)</td>
+</tr>
+<tr>
+<td align="center"><datalist></td>
+<td align="center">定义下拉列表（配合input使用）</td>
+</tr>
+<tr>
+<td align="center"><details></td>
+<td align="center">定义元素的细节:页面只显示summary里的内容，点击之后才显示详细内容</td>
+</tr>
+<tr>
+<td align="center"><summary></td>
+<td align="center">为<details>元素定义可见的标题</td>
+</tr>
+<tr>
+<td align="center"><embed></td>
+<td align="center">定义外部交互内容或插件</td>
+</tr>
+<tr>
+<td align="center"><figcaption></td>
+<td align="center">定义figure元素的标题</td>
+</tr>
+<tr>
+<td align="center"><figure></td>
+<td align="center">定义媒介</td>
+</tr>
+<tr>
+<td align="center"><keygen></td>
+<td align="center">定义生成密钥</td>
+</tr>
+<tr>
+<td align="center"><mark></td>
+<td align="center">定义有记号的文本</td>
+</tr>
+<tr>
+<td align="center"><meter></td>
+<td align="center">定义预定义范围内的度量</td>
+</tr>
+<tr>
+<td align="center"><output></td>
+<td align="center">定义输出的一些类型</td>
+</tr>
+<tr>
+<td align="center"><progress></td>
+<td align="center">定义任何类型的任务的进度</td>
+</tr>
+<tr>
+<td align="center"><audio></td>
+<td align="center">定义声音内容，比如音乐或其他音频流</td>
+</tr>
+<tr>
+<td align="center"><source></td>
+<td align="center">定义媒介源</td>
+</tr>
+<tr>
+<td align="center"><dialog></td>
+<td align="center">定义对话框或窗口</td>
+</tr>
+<tr>
+<td align="center"><time></td>
+<td align="center">定义日期&#x2F;时间</td>
+</tr>
+<tr>
+<td align="center"><track></td>
+<td align="center">定义用在媒体播放器中的文本轨道</td>
+</tr>
+<tr>
+<td align="center"><video></td>
+<td align="center">定义视频</td>
+</tr>
+<tr>
+<td align="center"><wbr></td>
+<td align="center">定义英文字符自动进行软换行</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>tip : 对于一段主题性的内容，则就适用<code>section</code>，而假如这段内容可以脱离上下文，作为完整的独立存在的一段内容，则就适用 <code>article</code>  </p>
+</blockquote>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+input和textarea的区别</p>
+<ul>
+<li>有无value属性</li>
+<li>是否闭合标签</li>
+</ul>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+用div模拟textarea的实现</p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.editBox</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">min-height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">max-height</span>: <span class="number">300px</span>;</span><br><span class="line">    _height: <span class="number">100px</span>; <span class="comment">/* IE6 */</span></span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">3px</span>;</span><br><span class="line">    <span class="attribute">outline</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#a0b3d6</span>;</span><br><span class="line">    <span class="attribute">overflow-y</span>: auto; <span class="comment">/* 超过最大高度就出现滚动条 */</span></span><br><span class="line">    _overflow-y: visible;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;<span class="selector-tag">div</span> class=&quot;editBox&quot; contenteditable&gt;&lt;/<span class="selector-tag">div</span>&gt;</span><br></pre></td></tr></table></figure></div>
+
+
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+移动设备忽略将页面的数字识别为电话号码</p>
+<meta name = "format-detection" content = "telephone=no"></li>
+</ul>
+]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>h5</tag>
       </tags>
   </entry>
   <entry>
@@ -579,6 +864,152 @@ BFC清除浮动</p>
       </categories>
       <tags>
         <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript数据类型</title>
+    <url>/2020/02/28/Javascript/JavaScript%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h2 id="JavaScript的数据类型"><a href="#JavaScript的数据类型" class="headerlink" title="JavaScript的数据类型"></a>JavaScript的数据类型</h2><blockquote>
+<p>按照类型来分有<strong>基本数据类型</strong>和<strong>引用数据类型</strong></p>
+</blockquote>
+<p><strong>基本数据类型：</strong><code>String</code>、<code>Number</code>、<code>Boolean</code>、<code>Null</code>、<code>Undefined</code>、<code>Symbol</code></p>
+<p><strong>引用数据类型：</strong><code>Object</code>【Object是个大类，表示一种无序键值对的集合：function函数、array数组、date日期…等都归属于Object】</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\90856\Documents\思维导图\JavaScript的数据类型.png"
+                      alt="JavaScript的数据类型"  
+                >
+
+
+
+
+
+<h2 id="JavaScript的内置对象-RegExp-正则表达式"><a href="#JavaScript的内置对象-RegExp-正则表达式" class="headerlink" title="JavaScript的内置对象_RegExp(正则表达式)"></a>JavaScript的内置对象_RegExp(正则表达式)</h2><blockquote>
+<p>正则表达式是用于匹配字符串中字符组合的模式。在 JavaScript 中，正则表达式也是对象。这些模式被用于 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp"><code>RegExp</code></a> 的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec"><code>exec</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test"><code>test</code></a> 方法，以及 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String"><code>String</code></a> 的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/match"><code>match</code></a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll"><code>matchAll</code></a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace"><code>replace</code></a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/search"><code>search</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split"><code>split</code></a> 方法。下面介绍 JavaScript 正则表达式。</p>
+</blockquote>
+<p>RegExp中的方法：</p>
+<ul>
+<li><p>test():  </p>
+<p>检索正则表达式与指定的字符串是否匹配。返回 <code>true</code> 或 <code>false</code>。</p>
+</li>
+<li><p>exec(): </p>
+<p>在一个指定字符串中执行一个搜索匹配。返回一个结果<code>数组</code>或 <code>null</code></p>
+</li>
+<li><p>toString():  </p>
+<p>返回一个表示该正则表达式的字符串</p>
+</li>
+</ul>
+<p>String中用到正则的方法有：</p>
+<ul>
+<li><p>match():  </p>
+<p>检索返回一个字符串匹配正则表达式的结果</p>
+</li>
+<li><p>replace():  </p>
+<p>返回一个由替换值（<code>replacement</code>）替换部分或所有的模式（<code>pattern</code>）匹配项后的新字符串。                   原字符串不会改变</p>
+</li>
+<li><p>search():  </p>
+</li>
+<li><p>split():</p>
+</li>
+</ul>
+<p>match: 提取匹配项</p>
+<p>注意：<code>.match</code> 语法是目前为止一直使用的 <code>.test</code> 方法中的“反向”，即：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/match"><code>String.prototype.match()</code></a></p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;string&#x27;</span>.<span class="title function_">match</span>(<span class="regexp">/regex/</span>);</span><br><span class="line"><span class="regexp">/regex/</span>.<span class="title function_">test</span>(<span class="string">&#x27;string&#x27;</span>);</span><br></pre></td></tr></table></figure></div>
+
+<p>多种模式匹配:  <code>/a|b|c/</code></p>
+<p>精准匹配：<code>/abc/</code></p>
+<p>范围匹配：<code>/[0-9a-z]/</code></p>
+<p>字符集：<code>/q[abc]n/</code></p>
+<p>字符组：<code>/P(engu|umpk)in/</code></p>
+<p>否定字符集：[ ^0-9abc ] </p>
+<p><a href="">g</a>：全局匹配</p>
+<p><a href="">i</a> ：忽略大小写 <code>/Aa/i</code></p>
+<p><a href="">+</a>：匹配一次或多次的字符</p>
+<p><a href="">*</a>：匹配出现零次或多次的字符</p>
+<p><a href="">?</a>：匹配零个或一个的字符</p>
+<p><a href="">?</a>：懒惰匹配 <code>/a+?/</code></p>
+<p><a href="">i</a>：贪婪匹配<code>/a+i/</code>（默认）</p>
+<blockquote>
+<p>tip: 用于设置数量符号<code>*</code>、<code>+</code>的匹配模式</p>
+</blockquote>
+<p><a href="/story$/">$</a>: 搜寻字符串末尾的匹配模式：<code>/Cal$/</code></p>
+<p><a href="/story$/">^</a>: </p>
+<ol>
+<li>搜寻字符串开始的匹配模式：<code>/^Cal/</code></li>
+<li>创建否定字符集 <code>[^0-9aeiou]</code></li>
+</ol>
+<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><p><code>\w</code>：匹配大写字母和小写字母以及数字，等同于<code>[A-Za-z0-9_]</code></p>
+<p><code>\W</code>：匹配模式是非字母数字字符，等同于<code>[^A-Za-z0-9_]</code></p>
+<p><code>\d</code>：匹配数字字符，等同于元字符 <code>[0-9]</code></p>
+<p><code>\D</code>：匹配非数字字符，等同于元字符 <code>[^0-9]</code></p>
+<p><code>\s</code>：匹配空格、回车符、制表符、换页符和换行符，等同于元字符 <code>[ \r\t\f\n\v]</code></p>
+<p><code>\S</code>：匹配非空白字符，等同于元字符 <code> [^ \r\t\f\n\v]</code></p>
+<p><code>.</code> ： 匹配任何一个字符</p>
+<p><a href="">{}</a>：数量说明符 </p>
+<ol>
+<li>指定匹配模式的上下限<code>/a&#123;3,5&#125;/</code></li>
+<li>只指定匹配的下限<code>/a&#123;3,&#125;/</code></li>
+<li>指定匹配的确切数量<code>/a&#123;3&#125;/</code></li>
+</ol>
+<p><strong>正向先行断言</strong>：正向先行断言会查看并确保搜索匹配模式中的元素存在，但实际上并不匹配。 正向先行断言的用法是 <code>(?=...)</code>，其中 <code>...</code> 就是需要存在但不会被匹配的部分</p>
+<p><strong>负向先行断言</strong>：负向先行断言会查看并确保搜索匹配模式中的元素不存在。 负向先行断言的用法是 <code>(?!...)</code>，其中 <code>...</code> 是希望不存在的匹配模式。 如果负向先行断言部分不存在，将返回匹配模式的其余部分</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在正则表达式 pwRegex 中使用先行断言以匹配大于 5 个字符且有两个连续数字的密码</span></span><br><span class="line"><span class="keyword">let</span> sampleWord = <span class="string">&quot;astronaut&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> pwRegex = <span class="regexp">/(?=\w&#123;6&#125;)(?=\w*\d&#123;2&#125;)/</span>; </span><br><span class="line">pwRegex.<span class="title function_">test</span>(sampleWord); <span class="comment">// =&gt; true</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+<p><strong>捕获组重用模式</strong>: 捕获组是通过把要捕获的正则表达式放在括号中来构建的。 </p>
+<p>在下面这个例子里， 目标是捕获一个包含数字字符的词，所以捕获组是将 <code>\d+</code> 放在括号中：<code>/(\d+)/</code></p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在reRegex中使用捕获组来匹配一个只由相同的数字重复三次组成的由空格分隔字符串。</span></span><br><span class="line"><span class="keyword">let</span> repeatNum = <span class="string">&quot;42 42 42&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> reRegex = <span class="regexp">/^(\d+)\s\1\s\1$/</span>;</span><br><span class="line">repeatNum.<span class="title function_">match</span>(reRegex) <span class="comment">// =&gt; [ &#x27;42 42 42&#x27;,&#x27;42&#x27;]</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+<p><strong>使用捕获组搜索和替换</strong>：</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//使用三个捕获组编写一个正则表达式 `fixRegex`，这三个捕获组将搜索字符串 `one two three` 中的每个单词。 然后更新 `replaceText` 变量，以字符串 `three two one` 替换 `one two three`，并将结果分配给 `result` 变量。 确保使用美元符号（`$`）语法在替换字符串中使用捕获组。</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;one two three&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> fixRegex = <span class="regexp">/([a-z]&#123;3,&#125;)\s([a-z]&#123;3,&#125;)\s([a-z]&#123;3,&#125;)/</span>; <span class="comment">// 用于匹配的字符串或正则表达式</span></span><br><span class="line"><span class="keyword">let</span> replaceText = <span class="string">&#x27;$3 $2 $1&#x27;</span>; <span class="comment">// 用于替换匹配的字符串</span></span><br><span class="line">str.<span class="title function_">replace</span>(fixRegex, replaceText); <span class="comment">// =&gt; three two one</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+
+
+<h2 id="JavaScript的对象"><a href="#JavaScript的对象" class="headerlink" title="JavaScript的对象"></a>JavaScript的对象</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\90856\Documents\Typora笔记\images\JS原型链详细图解.png"
+                      alt="JS原型链详细图解"
+                ></p>
+<p><strong><code>constructor</code>:</strong> </p>
+<blockquote>
+<p>该属性是对创建这个实例(f)的<code>构造函数</code>(F)的一个引用</p>
+</blockquote>
+<p><strong><code>__proto__</code>:</strong> </p>
+<blockquote>
+<p>该属性是对实例对象(f)所在原型链上的<code>原型对象</code>(F.prototype)的引用,即：f._ <em>proto</em> _ 与 F.prototype 指向同一个原型对象</p>
+<p><strong>tip</strong>: </p>
+<ul>
+<li><p>实例对象与其原型对象处于同一原型链，所以对象可以向上查找使用该原型对象的属性和方法，即：可以沿着<code>__proto__</code>逐层查找</p>
+</li>
+<li><p>自定义构造函数(F)在JS中也是一种特殊的对象,所以F的<code>__proto__</code>指向构造函数(Function)的原型对象，即<code>Foo.__proto__ === Function.__proto__ === Function.prototype</code></p>
+</li>
+</ul>
+</blockquote>
+<p><strong><code>instanceof</code>：</strong></p>
+<blockquote>
+<p>用于检测构造函数(F)的 <code>prototype</code> 属性是否出现在某个实例对象(f)的原型链上。 </p>
+</blockquote>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> f = <span class="keyword">new</span> <span class="title function_">F</span>()</span><br><span class="line">f <span class="keyword">instanceof</span> F <span class="comment">//=&gt; true</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+
+
+
+
+<h2 id="编程方式"><a href="#编程方式" class="headerlink" title="编程方式"></a>编程方式</h2><h3 id="命令式编程"><a href="#命令式编程" class="headerlink" title="命令式编程"></a>命令式编程</h3><h3 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h3><h3 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h3>]]></content>
+      <categories>
+        <category>Javascript</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -1061,8 +1492,325 @@ BFC清除浮动</p>
       </tags>
   </entry>
   <entry>
+    <title>setup中如何使用mapState</title>
+    <url>/2020/02/28/Vue/setup%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8mapState/</url>
+    <content><![CDATA[<blockquote>
+<p>vuex提供了mapState、mapMutations…辅助函数，让我们能够方便的映射vuex中的state、getters、mutations以及actions</p>
+</blockquote>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">computed</span>: &#123;</span><br><span class="line">	...<span class="title function_">mapState</span>([<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;age&#x27;</span>]),</span><br><span class="line">	<span class="comment">// otherComputed...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>mapState函数实际生成的是一个如下的对象，我们将其展开到组件的配置中</p>
+</blockquote>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">computed</span>: &#123;</span><br><span class="line">	<span class="attr">name</span>: <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">$store</span>.<span class="property">state</span>.<span class="property">name</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">age</span>: <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">$store</span>.<span class="property">state</span>.<span class="property">age</span></span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">// ...otherComputed</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+<p>但是setup中没有computed选项，的计算属性只能使用computed组合式api进行创建，如下</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useStore &#125; <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line"><span class="comment">// store等同于this.$store，setup中没有this，只能这个书写</span></span><br><span class="line"><span class="keyword">const</span> store = <span class="title function_">useStore</span>()</span><br><span class="line"><span class="keyword">const</span> name = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> store.<span class="property">state</span>.<span class="property">name</span>)</span><br><span class="line"><span class="keyword">const</span> age = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> store.<span class="property">state</span>.<span class="property">age</span>)</span><br></pre></td></tr></table></figure></div>
+
+<p>因此我们只需要将mapState返回的对象改造为setup的组合式API写法即可解决这个问题</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 此处省略依赖导入...</span></span><br><span class="line"><span class="keyword">const</span> stateObj = <span class="title function_">mapState</span>([<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;age&#x27;</span>])</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// stateObj结果</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">    name: function()&#123;</span></span><br><span class="line"><span class="comment">        return this.$store.state.name</span></span><br><span class="line"><span class="comment">    &#125;,</span></span><br><span class="line"><span class="comment">    age: function()&#123;</span></span><br><span class="line"><span class="comment">        return this.$store.state.age</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> myState = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> stateObj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="property">hasOwnProperty</span>.<span class="title function_">call</span>(stateObj, key)) &#123;</span><br><span class="line">        <span class="comment">// fn函数中需要使用到this.$store，因为setup中没有this，因此需要手动修改该函数的this指向</span></span><br><span class="line">        <span class="keyword">const</span> fn = stateObj[key].<span class="title function_">bind</span>(&#123; <span class="attr">$store</span>: <span class="title function_">useStore</span>() &#125;)</span><br><span class="line">        myState[key] = <span class="title function_">computed</span>(fn)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 然后就可以正常使用我们仓库的数据了</span></span><br><span class="line"><span class="keyword">const</span> &#123; name, age &#125; = myState</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="property">value</span>, age.<span class="property">value</span>);</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><blockquote>
+<p> 每次这么写会很麻烦，不仅会使键盘的寿命缩减，还容易把手上磨出茧子，因此我们可以对这些东西进行封装</p>
+</blockquote>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 省略导入语法</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">setupMapState</span> (keys) &#123;</span><br><span class="line">    <span class="comment">// 使用仓库对象</span></span><br><span class="line">    <span class="keyword">const</span> $store = <span class="title function_">useStore</span>()</span><br><span class="line">    <span class="comment">// 根据参数进行映射</span></span><br><span class="line">    <span class="keyword">const</span> stateFn = <span class="title function_">mapState</span>(keys)</span><br><span class="line">    <span class="keyword">const</span> res = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> stateFn) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="property">hasOwnProperty</span>.<span class="title function_">call</span>(stateFn, key)) &#123;</span><br><span class="line">            <span class="comment">// 修改计算函数内部this指向</span></span><br><span class="line">            <span class="keyword">const</span> fn = stateFn[key].<span class="title function_">bind</span>(&#123; $store &#125;)</span><br><span class="line">            <span class="comment">// 存储</span></span><br><span class="line">            res[key] = <span class="title function_">computed</span>(fn)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将映射结果返回</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+<p>大功告成，接下来就可以正常使用了</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; name, age &#125; = <span class="title function_">setupMapState</span>([<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;age&#x27;</span>])</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="property">value</span>, age.<span class="property">value</span>);</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h2 id="vuex的模块化"><a href="#vuex的模块化" class="headerlink" title="vuex的模块化"></a>vuex的模块化</h2><blockquote>
+<p>如果vuex进行了模块化拆分，我们在进行映射时需要传递对应的模块名，显然现在的一个参数难以满足我们的需求，展开运算符可以帮上大忙</p>
+</blockquote>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 省略导入语法</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">setupMapState</span> (...arg) &#123;</span><br><span class="line">    <span class="comment">// 使用仓库对象</span></span><br><span class="line">    <span class="keyword">const</span> $store = <span class="title function_">useStore</span>()</span><br><span class="line">    <span class="comment">// 根据参数进行映射</span></span><br><span class="line">    <span class="keyword">const</span> stateFn = <span class="title function_">mapState</span>(...arg)</span><br><span class="line">    <span class="keyword">const</span> res = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> stateFn) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="property">hasOwnProperty</span>.<span class="title function_">call</span>(stateFn, key)) &#123;</span><br><span class="line">            <span class="comment">// 修改计算函数内部this指向</span></span><br><span class="line">            <span class="keyword">const</span> fn = stateFn[key].<span class="title function_">bind</span>(&#123; $store &#125;)</span><br><span class="line">            <span class="comment">// 存储</span></span><br><span class="line">            res[key] = <span class="title function_">computed</span>(fn)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将映射结果返回</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+<p>这样就能支持其他模块的导入了</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; name, age &#125; = <span class="title function_">setupMapState</span>([<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;age&#x27;</span>])</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="property">value</span>, age.<span class="property">value</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">name</span>: otherModuleName &#125; = <span class="title function_">setupMapState</span>(<span class="string">&#x27;otherModule&#x27;</span> ,[<span class="string">&#x27;name&#x27;</span>]) </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(otherModuleName.<span class="property">value</span>);</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="最终版本"><a href="#最终版本" class="headerlink" title="最终版本"></a>最终版本</h2><blockquote>
+<p> 其他的映射函数也可以进行处理，这样就更加方便了</p>
+</blockquote>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; computed &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="comment">// 相关辅助函数导入</span></span><br><span class="line"><span class="keyword">import</span> &#123; mapActions, mapGetters, mapMutations, mapState, useStore &#125; <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">mapAll</span> (keys, mapFn) &#123;</span><br><span class="line">    <span class="comment">// 导入仓库对象</span></span><br><span class="line">    <span class="keyword">const</span> $store = <span class="title function_">useStore</span>()</span><br><span class="line">    <span class="comment">// 根据传入的辅助函数和其他参数进行映射</span></span><br><span class="line">    <span class="keyword">const</span> stateFn = <span class="title function_">mapFn</span>(...keys)</span><br><span class="line">    <span class="comment">// 记录映射结果</span></span><br><span class="line">    <span class="keyword">const</span> res = &#123;&#125;</span><br><span class="line">    <span class="comment">// 如果映射的是state或getters需要使用computed组合式API包裹，因此做了这样一个判断</span></span><br><span class="line">    <span class="keyword">const</span> isMapData = [mapState, mapGetters].<span class="title function_">includes</span>(mapFn)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> stateFn) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="property">hasOwnProperty</span>.<span class="title function_">call</span>(stateFn, key)) &#123;</span><br><span class="line">            <span class="comment">// 修改映射函数内部this指向</span></span><br><span class="line">            <span class="keyword">const</span> fn = stateFn[key].<span class="title function_">bind</span>(&#123; $store &#125;)</span><br><span class="line">            <span class="comment">// 记录：state或getters使用computed进行包裹，其他的直接记录</span></span><br><span class="line">            res[key] = isMapData ? <span class="title function_">computed</span>(fn) : fn</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 返回结果</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 导出对应的setup映射函数</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">setupMapState</span> (...keys) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">mapAll</span>(keys, mapState)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">setupMapMutations</span> (...keys) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">mapAll</span>(keys, mapMutations)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">setupMapGetters</span> (...keys) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">mapAll</span>(keys, mapGetters)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">setupMapActions</span> (...keys) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">mapAll</span>(keys, mapActions)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+<p>使用说明: 封装完成之后只需要进行导入，然后和使用正常的辅助函数用法相同</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 映射state</span></span><br><span class="line"><span class="keyword">const</span> &#123; name &#125; = <span class="title function_">setupMapState</span>([<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;age&#x27;</span>])</span><br><span class="line"><span class="comment">// 其他模块的state</span></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">name</span>: homeName &#125; = <span class="title function_">setupMapState</span>(<span class="string">&#x27;home&#x27;</span>, [<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line"><span class="comment">// 映射mutations</span></span><br><span class="line"><span class="keyword">const</span> &#123; setName &#125; = <span class="title function_">setupMapMutations</span>([<span class="string">&#x27;setName&#x27;</span>])</span><br><span class="line"><span class="comment">// 映射getters</span></span><br><span class="line"><span class="keyword">const</span> &#123; names &#125; = <span class="title function_">setupMapGetters</span>(&#123;</span><br><span class="line">  <span class="attr">names</span>: <span class="string">&#x27;getName&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 映射actions</span></span><br><span class="line"><span class="keyword">const</span> &#123; postName &#125; = <span class="title function_">setupMapActions</span>([<span class="string">&#x27;postName&#x27;</span>])</span><br><span class="line"><span class="comment">// 传参方式和vuex辅助函数相同</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>vue3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>setup中如何使用mapState</title>
+    <url>/2020/02/28/Vue/vue-cli%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<h2 id="开发环境、测试环境、生产环境"><a href="#开发环境、测试环境、生产环境" class="headerlink" title="开发环境、测试环境、生产环境"></a>开发环境、测试环境、生产环境</h2><p>1.开发环境，创建.env.development文件</p>
+<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line">VUE_APP_BASEURL=<span class="string">&quot;http://192.168.0.136:8088&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>2.测试环境，创建.env.test文件</p>
+<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line">VUE_APP_BASEURL=<span class="string">&quot;http://test.baidu.com&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>3.生产环境，创建.env.production文件</p>
+<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line">VUE_APP_BASEURL=<span class="string">&quot;http://www.baidu.com&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+<h2 id="package-json文件的配置"><a href="#package-json文件的配置" class="headerlink" title="package.json文件的配置"></a>package.json文件的配置</h2><div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;serve&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vue-cli-service serve&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vue-cli-service build&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vue-cli-service build --mode test&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+<h2 id="打包命令"><a href="#打包命令" class="headerlink" title="打包命令"></a>打包命令</h2><p>1.打生产包</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure></div>
+
+<p>2.打测试包</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm run <span class="built_in">test</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+<h2 id="打包后的dist目录如何启动？"><a href="#打包后的dist目录如何启动？" class="headerlink" title="打包后的dist目录如何启动？"></a>打包后的dist目录如何启动？</h2><p>安装web 服务</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm i -g serve</span><br></pre></td></tr></table></figure></div>
+
+<p>启动</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">serve dist</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>vue-cli</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue3实现遮罩层外部禁止页面滚动，内部可滚动</title>
+    <url>/2020/02/28/Vue/vue3%E5%AE%9E%E7%8E%B0%E9%81%AE%E7%BD%A9%E5%B1%82%E5%A4%96%E9%83%A8%E7%A6%81%E6%AD%A2%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%EF%BC%8C%E5%86%85%E9%83%A8%E5%8F%AF%E6%BB%9A%E5%8A%A8/</url>
+    <content><![CDATA[<blockquote>
+<p>方法一：直接在遮罩层添加 <code>@touchmove.prevent</code> ，就可以实现禁止页面滚动，但是同时遮罩层内部也无法滚动了，适用于内部不需滚动的场景。</p>
+</blockquote>
+<blockquote>
+<p>方法二：(此方法可以实现需求，但是关闭遮罩层后主页面会滑动到顶部，无法回到原来的浏览位置)</p>
+</blockquote>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> mo = <span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">    e.<span class="title function_">preventDefault</span>();</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//禁止滚动-在显示遮罩层的时候调用</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">stopScroll</span>(<span class="params"></span>)&#123;</span><br><span class="line">   <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">style</span>.<span class="property">overflow</span> = <span class="string">&#x27;hidden&#x27;</span>;</span><br><span class="line">   <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;touchmove&quot;</span>, mo, <span class="literal">false</span>);</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// 取消滑动限制-在关闭遮罩层的时候调用</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">resetScroll</span>(<span class="params"></span>)&#123;</span><br><span class="line">   <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">style</span>.<span class="property">overflow</span> = <span class="string">&#x27;&#x27;</span>;<span class="comment">//出现滚动条</span></span><br><span class="line">   <span class="variable language_">document</span>.<span class="title function_">removeEventListener</span>(<span class="string">&quot;touchmove&quot;</span>, mo, <span class="literal">false</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>方法三：（推荐：此方法不仅可以实现需求，还会记录打开遮罩层时的位置，使关闭后仍然停在原来的位置）</p>
+</blockquote>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 记录页面滚动位置</span></span><br><span class="line"><span class="keyword">const</span> pageLocation = <span class="title function_">ref</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 禁止滚动-在显示遮罩层的时候调用</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">stopScroll</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> scrollTop = <span class="variable language_">window</span>.<span class="property">scrollY</span>;<span class="comment">//滚动的高度；</span></span><br><span class="line">    pageLocation.<span class="property">value</span> = scrollTop;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">style</span>.<span class="property">position</span> = <span class="string">&#x27;fixed&#x27;</span>;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">style</span>.<span class="property">top</span> = <span class="string">&#x27;-&#x27;</span> + scrollTop + <span class="string">&#x27;px&#x27;</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消滑动限制-在关闭遮罩层的时候调用</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">resetScroll</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">style</span>.<span class="property">position</span> = <span class="string">&#x27;static&#x27;</span>;</span><br><span class="line">    <span class="variable language_">window</span>.<span class="title function_">scrollTo</span>(<span class="number">0</span>, pageLocation.<span class="property">value</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>vue3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTTP报文结构分析</title>
+    <url>/2021/01/01/%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/HTTP%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<h2 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h2><p>HTTP请求报文由请求行、请求头、空行和请求内容4个部分构成</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1556086946814.png"
+                      alt="1556086946814"
+                ></p>
+<h3 id="请求行："><a href="#请求行：" class="headerlink" title="请求行："></a>请求行：</h3><p>请求行由请求方法字段、URL字段、协议版本字段三部分构成，字段之间由空格隔开</p>
+<p>常用的请求方法有：GET、POST、HEAD、PUT、DELETE、OPTIONS、TRACE、CONNECT</p>
+<h3 id="请求头："><a href="#请求头：" class="headerlink" title="请求头："></a>请求头：</h3><p>请求头由key&#x2F;value对组成，每行为一对，key和value之间通过冒号(:)分割。</p>
+<p>请求头的作用主要是用于通知服务端有关于客户端的请求信息</p>
+<p>常见的请求头(Request Headers)有:</p>
+<ul>
+<li><strong>User-Agent：</strong>生成请求的浏览器类型</li>
+<li><strong>Accept：</strong>客户端可识别的响应内容类型列表；星号*用于按范围将类型分组</li>
+<li><strong>Accept-Language:</strong>  客户端可接受的自然语言</li>
+<li><strong>Accept-Encoding:</strong>  客户端可接受的编码压缩格式</li>
+<li><strong>Accept-Charset：</strong> 可接受的字符集</li>
+<li><strong>Host:</strong> 请求的主机名，允许多个域名绑定同一IP地址</li>
+<li><strong>connection：</strong>连接方式（close或keeplive）</li>
+<li><strong>Cookie:</strong>  存储在客户端的扩展字段</li>
+</ul>
+<h3 id="空行"><a href="#空行" class="headerlink" title="空行:"></a>空行:</h3><p>最后一个请求头之后就是空行，用于告诉服务端以下内容不再是请求头的内容了。</p>
+<h3 id="请求内容"><a href="#请求内容" class="headerlink" title="请求内容:"></a>请求内容:</h3><p>请求内容主要用于POST请求，与POST请求方法配套的请求头一般有Content-Type（标识请求内容的类型）和Content-Length（标识请求内容的长度）</p>
+<h2 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h2><p>HTTP响应报文由状态行、响应头、空行和响应内容4个部分构成</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1556087134966.png"
+                      alt="1556087134966"
+                ></p>
+<h3 id="状态行："><a href="#状态行：" class="headerlink" title="状态行："></a>状态行：</h3><p>由HTTP协议版本、状态码、状态码描述三部分构成，它们之间由空格隔开</p>
+<p>状态码由3位数字组成，第一位标识响应的类型，常用的5大类状态码如下：</p>
+<ul>
+<li>1xx：表示服务器已接收了客户端的请求，客户端可以继续发送请求	</li>
+<li>2xx：表示服务器已成功接收到请求并进行处理</li>
+<li>3xx：表示服务器要求客户端重定向</li>
+<li>4xx：表示客户端的请求有非法内容</li>
+<li>5xx：标识服务器未能正常处理客户端的请求而出现意外错误</li>
+</ul>
+<h3 id="响应头"><a href="#响应头" class="headerlink" title="响应头:"></a>响应头:</h3><p>一般情况下，响应头会包含以下，甚至更多的信息。</p>
+<p>Location：服务器返回给客户端，用于重定向到新的位置</p>
+<p>Server： 包含服务器用来处理请求的软件信息及版本信息</p>
+<p>Vary：标识不可缓存的请求头列表</p>
+<p>Connection: 连接方式。</p>
+<p>对于请求端来讲：close是告诉服务端，断开连接，不用等待后续的求请了。keep-live则是告诉服务端，在完成本次请求的响应后，保持连接，等待本次连接后的后续请求。</p>
+<p>对于响应端来讲：close表示连接已经关闭。keeplive则表示连接保持中，可以继续处理后续请求。Keep-Alive表示如果请求端保持连接，则该请求头部信息表明期望服务端保持连接多长时间（秒），例如300秒，应该这样写Keep-Alive: 300</p>
+<h3 id="空行-1"><a href="#空行-1" class="headerlink" title="空行"></a>空行</h3><p>最后一个响应头之后就是空行，用于告诉请求端以下内容不再是响应头的内容了。</p>
+<h3 id="响应内容"><a href="#响应内容" class="headerlink" title="响应内容"></a>响应内容</h3><p>服务端返回给请求端的文本信息。</p>
+]]></content>
+      <categories>
+        <category>浏览器</category>
+      </categories>
+      <tags>
+        <tag>http</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>URL的输入到浏览器解析</title>
+    <url>/2021/01/01/%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/URL%E7%9A%84%E8%BE%93%E5%85%A5%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[<p>URL的输入到浏览器解析，一般分为以下几个步骤：</p>
+<ul>
+<li>DNS解析</li>
+<li>发起TCP连接</li>
+<li>发送HTTP请求</li>
+<li>服务器处理请求并返回HTTP报文</li>
+<li>浏览器解析渲染页面</li>
+<li>连接结束</li>
+</ul>
+<p>下面我们来看看具体的细节….</p>
+<h2 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h2><p>DNS解析实际上就是寻找你所需要的资源的过程。假设你输入<code>www.baidu.com</code>，而这个网址并不是百度的真实地址，互联网中每一台机器都有唯一标识的IP地址，这个才是关键，但是它不好记，乱七八糟一串数字谁记得住啊，所以就需要一个网址和IP地址的转换，也就是DNS解析。下面看看具体的解析过程</p>
+<h3 id="具体解析"><a href="#具体解析" class="headerlink" title="具体解析"></a>具体解析</h3><p>DNS解析其实是一个递归的过程 </p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-gold-cdn.xitu.io/2019/4/28/16a634c9285cb545?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"
+                      alt="DNS解析"
+                ></p>
+<p> 输入<code>www.google.com</code>网址后，首先在本地的域名服务器中查找，没找到去<code>.</code>根域名服务器查找，没有再去<code>com</code>顶级域名服务器查找，如此的类推下去，直到找到IP地址，然后把它记录在本地，供下次使用。大致过程就是</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">. =&gt; .com =&gt; google.com. =&gt; www.google.com.</span><br></pre></td></tr></table></figure></div>
+
+
+<p>(这个<code>.</code>对应的就是根域名服务器，默认情况下网址的最后一位都是<code>.</code>，通常都会省略，浏览器在请求DNS的时候会自动加上)</p>
+<h3 id="DNS优化"><a href="#DNS优化" class="headerlink" title="DNS优化"></a>DNS优化</h3><p>既然已经懂得了解析的具体过程，我们可以看到上述一共经过了N个过程，每个过程有一定的消耗和时间的等待，因此我们得想办法解决一下这个问题！</p>
+<h4 id="DNS缓存"><a href="#DNS缓存" class="headerlink" title="DNS缓存"></a>DNS缓存</h4><p>DNS存在着多级缓存，从离浏览器的距离排序的话，有以下几种: 浏览器缓存，系统缓存，路由器缓存，IPS服务器缓存，根域名服务器缓存，顶级域名服务器缓存，主域名服务器缓存。</p>
+<ul>
+<li>在你的chrome浏览器中输入:chrome:&#x2F;&#x2F;net-internals&#x2F;#dns，你可以看到chrome浏览器的DNS缓存。</li>
+<li>系统缓存主要存在&#x2F;etc&#x2F;hosts(Linux系统)中</li>
+</ul>
+<h4 id="DNS负载均衡"><a href="#DNS负载均衡" class="headerlink" title="DNS负载均衡"></a>DNS负载均衡</h4><p>不知道你们有没有注意这样一件事，你访问<code>baidu.com</code>的时候，每次响应的并非是同一个服务器（IP地址不同），一般大公司都有成百上千台服务器来支撑访问，假设只有一个服务器，那它的性能和存储量要多大才能支撑这样大量的访问呢？DNS可以返回一个合适的机器的IP给用户，例如可以根据每台机器的负载量，该机器离用户地理位置的距离等等，这种过程就是DNS负载均衡</p>
+<h2 id="发起TCP连接"><a href="#发起TCP连接" class="headerlink" title="发起TCP连接"></a>发起TCP连接</h2><p>TCP提供一种可靠的传输，这个过程涉及到三次握手，四次挥手，下面我们详细看看 TCP提供一种面向连接的，可靠的字节流服务。 其首部的数据格式如下 </p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-gold-cdn.xitu.io/2019/4/28/16a634dbf162e53c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"
+                      alt="TCP首部"
+                ></p>
+<h3 id="字段分析"><a href="#字段分析" class="headerlink" title="字段分析"></a>字段分析</h3><ul>
+<li>源端口：源端口和IP地址的作用是标识报文的返回地址。</li>
+<li>目的端口：端口指明接收方计算机上的应用程序接口。</li>
+</ul>
+<blockquote>
+<p>TCP报头中的源端口号和目的端口号同IP数据报中的源IP与目的IP唯一确定一条TCP连接。</p>
+</blockquote>
+<ul>
+<li>序号：是TCP可靠传输的关键部分。序号是该报文段发送的数据组的第一个字节的序号。在TCP传送的流中，每一个字节都有一个序号。比如一个报文段的序号为300，报文段数据部分共有100字节，则下一个报文段的序号为400。所以序号确保了TCP传输的有序性。</li>
+<li>确认号：即ACK，指明下一个期待收到的字节序号，表明该序号之前的所有数据已经正确无误的收到。确认号只有当ACK标志为1时才有效。比如建立连接时，SYN报文的ACK标志位为0。</li>
+<li>首部长度&#x2F;数据偏移：占4位，它指出TCP报文的数据距离TCP报文段的起始处有多远。由于首部可能含有可选项内容，因此TCP报头的长度是不确定的，报头不包含任何任选字段则长度为20字节，4位首部长度字段所能表示的最大值为1111，转化为10进制为15，15*32&#x2F;8&#x3D;60，故报头最大长度为60字节。首部长度也叫数据偏移，是因为首部长度实际上指示了数据区在报文段中的起始偏移值。</li>
+<li>保留：占6位，保留今后使用，但目前应都位0。</li>
+<li>控制位：URG ACK PSH RST SYN FIN，共6个，每一个标志位表示一个控制功能。<ul>
+<li>紧急URG：当URG&#x3D;1，表明紧急指针字段有效。告诉系统此报文段中有紧急数据</li>
+<li>确认ACK：仅当ACK&#x3D;1时，确认号字段才有效。TCP规定，在连接建立后所有报文的传输都必须把ACK置1。</li>
+<li>推送PSH：当两个应用进程进行交互式通信时，有时在一端的应用进程希望在键入一个命令后立即就能收到对方的响应，这时候就将PSH&#x3D;1。</li>
+<li>复位RST：当RST&#x3D;1，表明TCP连接中出现严重差错，必须释放连接，然后再重新建立连接。</li>
+<li>同步SYN：在连接建立时用来同步序号。当SYN&#x3D;1，ACK&#x3D;0，表明是连接请求报文，若同意连接，则响应报文中应该使SYN&#x3D;1，ACK&#x3D;1。</li>
+<li>终止FIN：用来释放连接。当FIN&#x3D;1，表明此报文的发送方的数据已经发送完毕，并且要求释放。</li>
+</ul>
+</li>
+<li>窗口：滑动窗口大小，用来告知发送端接受端的缓存大小，以此控制发送端发送数据的速率，从而达到流量控制。窗口大小时一个16bit字段，因而窗口大小最大为65535。</li>
+<li>校验和：奇偶校验，此校验和是对整个的 TCP 报文段，包括 TCP 头部和 TCP 数据，以 16 位字进行计算所得。由发送端计算和存储，并由接收端进行验证。</li>
+<li>紧急指针：只有当 URG 标志置 1 时紧急指针才有效。紧急指针是一个正的偏移量，和顺序号字段中的值相加表示紧急数据最后一个字节的序号。 TCP 的紧急方式是发送端向另一端发送紧急数据的一种方式。</li>
+<li>选项和填充：最常见的可选字段是最长报文大小，又称为MSS（Maximum Segment Size），每个连接方通常都在通信的第一个报文段（为建立连接而设置SYN标志为1的那个段）中指明这个选项，它表示本端所能接受的最大报文段的长度。选项长度不一定是32位的整数倍，所以要加填充位，即在这个字段中加入额外的零，以保证TCP头是32的整数倍。</li>
+<li>数据部分： TCP 报文段中的数据部分是可选的。在一个连接建立和一个连接终止时，双方交换的报文段仅有 TCP 首部。如果一方没有数据要发送，也使用没有任何数据的首部来确认收到的数据。在处理超时的许多情况中，也会发送不带任何数据的报文段。</li>
+</ul>
+<blockquote>
+<p>需要注意的是： </p>
+<p>（A）<strong>不要将确认序号ack与标志位中的ACK搞混了。</strong> </p>
+<p>（B）<strong>确认序号ack&#x3D;发起方Req+1，两端配对。</strong></p>
+</blockquote>
+<h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><h5 id="第一次握手："><a href="#第一次握手：" class="headerlink" title="第一次握手："></a>第一次握手：</h5><p>客户端发送syn包(Seq&#x3D;x)到服务器，并进入SYN_SEND状态，等待服务器确认；</p>
+<h5 id="第二次握手："><a href="#第二次握手：" class="headerlink" title="第二次握手："></a>第二次握手：</h5><p>服务器收到syn包，必须确认客户的SYN（ack&#x3D;x+1），同时自己也发送一个SYN包（Seq&#x3D;y），即SYN+ACK包，此时服务器进入SYN_RECV状态；</p>
+<h5 id="第三次握手："><a href="#第三次握手：" class="headerlink" title="第三次握手："></a>第三次握手：</h5><p>客户端收到服务器的SYN＋ACK包，向服务器发送确认包ACK(ack&#x3D;y+1)，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。</p>
+<p>握手过程中传送的包里不包含数据，三次握手完毕后，客户端与服务器才正式开始传送数据。理想状态下，TCP连接一旦建立，在通信双方中的任何一方主动关闭连接之前，TCP 连接都将被一直保持下去。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img-blog.csdn.net/20180717202520531?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4OTUwMzE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"
+                      alt="img"
+                ></p>
+<h5 id="为什么会采用三次握手，若采用二次握手可以吗？-四次呢？"><a href="#为什么会采用三次握手，若采用二次握手可以吗？-四次呢？" class="headerlink" title="为什么会采用三次握手，若采用二次握手可以吗？ 四次呢？"></a>为什么会采用三次握手，若采用二次握手可以吗？ 四次呢？</h5><p>建立连接的过程是利用客户服务器模式，假设主机A为客户端，主机B为服务器端。</p>
+<p>采用三次握手是为了防止失效的连接请求报文段突然又传送到主机B，因而产生错误。失效的连接请求报文段是指：主机A发出的连接请求没有收到主机B的确认，于是经过一段时间后，主机A又重新向主机B发送连接请求，且建立成功，顺序完成数据传输。考虑这样一种特殊情况，主机A第一次发送的连接请求并没有丢失，而是因为网络节点导致延迟达到主机B，主机B以为是主机A又发起的新连接，于是主机B同意连接，并向主机A发回确认，但是此时主机A根本不会理会，主机B就一直在等待主机A发送数据，导致主机B的资源浪费。</p>
+<p>采用两次握手不行，原因就是上面说的失效的连接请求的特殊情况。而在三次握手中， client和server都有一个发syn和收ack的过程， 双方都是发后能收， 表明通信则准备工作OK.</p>
+<p>为什么不是四次握手呢？ 大家应该知道通信中著名的蓝军红军约定， 这个例子说明， 通信不可能100%可靠， 而上面的三次握手已经做好了通信的准备工作， 再增加握手， 并不能显著提高可靠性， 而且也没有必要。</p>
+<h4 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h4><p>数据传输完毕后，双方都可释放连接。最开始的时候，客户端和服务器都是处于ESTABLISHED状态，假设客户端主动关闭，服务器被动关闭。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img-blog.csdn.net/20180717204202563?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4OTUwMzE2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"
+                      alt="img"
+                ></p>
+<h5 id="第一次挥手："><a href="#第一次挥手：" class="headerlink" title="第一次挥手："></a>第一次挥手：</h5><p>客户端发送一个FIN，用来关闭客户端到服务器的数据传送，也就是客户端告诉服务器：我已经不 会再给你发数据了(当然，在fin包之前发送出去的数据，如果没有收到对应的ack确认报文，客户端依然会重发这些数据)，但是，此时客户端还可 以接受数据。 FIN&#x3D;1，其序列号为seq&#x3D;u（等于前面已经传送过来的数据的最后一个字节的序号加1），此时，客户端进入FIN-WAIT-1（终止等待1）状态。 TCP规定，FIN报文段即使不携带数据，也要消耗一个序号。</p>
+<h5 id="第二次挥手："><a href="#第二次挥手：" class="headerlink" title="第二次挥手："></a>第二次挥手：</h5><p>服务器收到FIN包后，发送一个ACK给对方并且带上自己的序列号seq，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号）。此时，服务端就进入了CLOSE-WAIT（关闭等待）状态。TCP服务器通知高层的应用进程，客户端向服务器的方向就释放了，这时候处于半关闭状态，即客户端已经没有数据要发送了，但是服务器若发送数据，客户端依然要接受。这个状态还要持续一段时间，也就是整个CLOSE-WAIT状态持续的时间。</p>
+<p>此时，客户端就进入FIN-WAIT-2（终止等待2）状态，等待服务器发送连接释放报文（在这之前还需要接受服务器发送的最后的数据）。</p>
+<h5 id="第三次挥手："><a href="#第三次挥手：" class="headerlink" title="第三次挥手："></a>第三次挥手：</h5><p>服务器发送一个FIN，用来关闭服务器到客户端的数据传送，也就是告诉客户端，我的数据也发送完了，不会再给你发数据了。由于在半关闭状态，服务器很可能又发送了一些数据，假定此时的序列号为seq&#x3D;w，此时，服务器就进入了LAST-ACK（最后确认）状态，等待客户端的确认。</p>
+<h5 id="第四次挥手："><a href="#第四次挥手：" class="headerlink" title="第四次挥手："></a>第四次挥手：</h5><p>主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，此时，客户端就进入了TIME-WAIT（时间等待）状态。注意此时TCP连接还没有释放，必须经过2∗MSL（最长报文段寿命）的时间后，当客户端撤销相应的TCB后，才进入CLOSED状态。</p>
+<p>服务器只要收到了客户端发出的确认，立即进入CLOSED状态。同样，撤销TCB后，就结束了这次的TCP连接。可以看到，服务器结束TCP连接的时间要比客户端早一些。</p>
+<p>至此，完成四次挥手。</p>
+<h3 id="常见问题："><a href="#常见问题：" class="headerlink" title="常见问题："></a>常见问题：</h3><ul>
+<li><h4 id="为什么客户端最后还要等待2MSL？"><a href="#为什么客户端最后还要等待2MSL？" class="headerlink" title="为什么客户端最后还要等待2MSL？"></a>为什么客户端最后还要等待2MSL？</h4><p>  保证客户端发送的最后一个ACK报文能够到达服务器，因为这个ACK报文可能丢失，站在服务器的角度看来，我已经发送了FIN+ACK报文请求断开了，客户端还没有给我回应，应该是我发送的请求断开报文它没有收到，于是服务器又会重新发送一次，而客户端就能在这个2MSL时间段内收到这个重传的报文，接着给出回应报文，并且会重启2MSL计时器。</p>
+</li>
+<li><h4 id="为什么建立连接是三次握手，关闭连接确是四次挥手呢？"><a href="#为什么建立连接是三次握手，关闭连接确是四次挥手呢？" class="headerlink" title="为什么建立连接是三次握手，关闭连接确是四次挥手呢？"></a>为什么建立连接是三次握手，关闭连接确是四次挥手呢？</h4><p>  建立连接的时候， 服务器在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。 而关闭连接时，服务器收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，而自己也未必全部数据都发送给对方了，所以己方可以立即关闭，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送，从而导致多了一次。</p>
+</li>
+<li><h4 id="如果已经建立了连接，但是客户端突然出现故障了怎么办？"><a href="#如果已经建立了连接，但是客户端突然出现故障了怎么办？" class="headerlink" title="如果已经建立了连接，但是客户端突然出现故障了怎么办？"></a>如果已经建立了连接，但是客户端突然出现故障了怎么办？</h4><p>TCP还设有一个保活计时器，显然，客户端如果出现故障，服务器不能一直等下去，白白浪费资源。服务器每收到一次客户端的请求后都会重新复位这个计时器，时间通常是设置为2小时，若两小时还没有收到客户端的任何数据，服务器就会发送一个探测报文段，以后每隔75秒钟发送一次。若一连发送10个探测报文仍然没反应，服务器就认为客户端出了故障，接着就关闭连接。</p>
+</li>
+</ul>
+<h2 id="发送HTTP请求"><a href="#发送HTTP请求" class="headerlink" title="发送HTTP请求"></a>发送HTTP请求</h2><p>发送HTTP请求的过程就是构建HTTP请求报文并通过TCP协议中发送到服务器指定端口 请求报文由<strong>请求行</strong>，<strong>请求报头</strong>，<strong>请求正文</strong>组成。</p>
+<p><em>tips:HTTP的端口为80&#x2F;8080，而HTTPS的端口为443</em></p>
+<h3 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h3><p>请求行的格式为<code>Method Request-URL HTTP-Version CRLF</code> <code>eg: GET index.html HTTP/1.1</code> 常用的方法有: <code>GET</code>,<code>POST</code>, <code>PUT</code>, <code>DELETE</code>, <code>OPTIONS</code>, <code>HEAD</code>。</p>
+<h4 id="常见的请求方法区别"><a href="#常见的请求方法区别" class="headerlink" title="常见的请求方法区别"></a>常见的请求方法区别</h4><p><code>POST</code>和<code>GET</code>的主要区别</p>
+<ul>
+<li>GET在浏览器回退时是无害的，而POST会再次提交请求</li>
+<li>GET产生的URL地址可以被Bookmark，而POST不可以</li>
+<li>GET请求会被浏览器主动cache，而POST不会，除非手动设置</li>
+<li>GET请求只能进行url编码，而POST支持多种编码方式</li>
+<li>GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留</li>
+<li>GET请求在URL中传送的参数是有长度限制的，而POST么有</li>
+<li>对参数的数据类型，GET只接受ASCII字符，而POST没有限制</li>
+<li>GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息</li>
+<li>GET参数通过URL传递，POST放在Request body中</li>
+<li>★ GET<code>会产生一个</code>TCP<code>数据包，而</code>POST<code>会产生两个</code>TCP&#96;数据包（Firefox就发送一次）</li>
+<li>对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200(返回数据);而对于POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 ok(返回数据)</li>
+</ul>
+]]></content>
+      <categories>
+        <category>浏览器</category>
+      </categories>
+      <tags>
+        <tag>http</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用 Vercel 的无服务器函数</title>
-    <url>/2020/02/28/%E5%BC%80%E5%8F%91/%E4%BD%BF%E7%94%A8%20Vercel%20%E7%9A%84%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%87%BD%E6%95%B0/</url>
+    <url>/2020/02/28/%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/%E4%BD%BF%E7%94%A8%20Vercel%20%E7%9A%84%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<p>前言：使用 Vercel，您可以部署无服务器函数，这是使用 NodeJS 等后端语言编写的代码片段，它们接受 HTTP 请求并提供响应。</p>
 <p>您可以使用无服务器函数来处理用户身份验证、表单提交、数据库查询、自定义 Slack 命令等。</p>
 <p>在本文中，我们将使用 NodeJS 创建一个简单的无服务器函数，然后将其部署在 Vercel 中。</p>
@@ -1129,8 +1877,211 @@ BFC清除浮动</p>
       </tags>
   </entry>
   <entry>
-    <title>前端面试八股文</title>
-    <url>/2021/03/06/%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E6%96%87/</url>
+    <title>前端学习路线</title>
+    <url>/2021/01/01/%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
+    <content><![CDATA[<p>前端发展越来越快，每天都有数不胜数的技术发布。</p>
+<p>想要入门前端却没有一条较为理想的路径？</p>
+<p>在这个世界里兜兜转转了很久还是感觉在外围搬砖？</p>
+<p>那么你可能需要这份技术学习路线图！</p>
+<p>我们把学习前端分为三重境界：</p>
+<p>单机写基础网页</p>
+<p>联机高效写网页</p>
+<p>让网页能够被更多人使用</p>
+<p>接下来我们就通过介绍这三重境界来为你呈现详细的学习路线图。</p>
+<p>单机写基础网页<br>何为单机呢？其实就是一个人 ??</p>
+<p>你一个人使用 Web 基础技术开发网站，没有将代码分享给别人（你可能不知道程序世界的代码分享规则），同时只是在本地环境运行你的网站，你甚至对网站如何能把其他人访问到毫无头绪。</p>
+<p>这个阶段也是成为一名前端工程师最最基础的一环，大部分初学者还停留在这个阶段，那么我们来看一下这个阶段需要什么样的技能。</p>
+<p>HTML + CSS + JavaScript</p>
+<p>没错，其实就是我们耳熟能详的前端三剑客，虽然看起来是最最入门的内容，但是需要了解的内容也不少，就类似我们需要先学 26 个字母，学各种汉字基础，才能写作或者创作诗歌一样。了解这三门技术大致需要了解那些内容以及有哪些学习资源推荐呢？</p>
+<p>HTML<br>HTML 代表超文本标记语言。 它用于前端，为网页提供结构，您可以使用 CSS 设置样式并使用 JavaScript 进行交互。</p>
+<p>HTML 的学习大致需要 6 个阶段：</p>
+<p>学习基础知识：<a class="link"   href="https://www.w3schools.com/html/html_intro.asp" >https://www.w3schools.com/html/html_intro.asp <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>编写语义化的 HTML：<a class="link"   href="https://www.w3schools.com/html/html5_semantic_elements.asp" >https://www.w3schools.com/html/html5_semantic_elements.asp <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>了解表单与校验：<a class="link"   href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation" >https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>遵守一些约定与最佳实践：<a class="link"   href="https://github.com/hail2u/html-best-practices" >https://github.com/hail2u/html-best-practices <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>了解可访问性：<a class="link"   href="https://www.w3schools.com/accessibility/index.php" >https://www.w3schools.com/accessibility/index.php <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>了解 SEO 基础：<a class="link"   href="https://developers.google.com/search/docs" >https://developers.google.com/search/docs <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>CSS<br>CSS 或级联样式表是用于设置任何网站前端样式的语言。 CSS 是万维网的基础技术，与 HTML 和 JavaScript 并列。</p>
+<p>学习基础的 CSS 大致需要 3 个阶段：</p>
+<p>学习基础知识：<a class="link"   href="https://www.w3schools.com/css/" >https://www.w3schools.com/css/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>学会如何布局，其中布局又包括以下知识：</p>
+<p>Floats 浮动：<a class="link"   href="https://css-tricks.com/all-about-floats/" >https://css-tricks.com/all-about-floats/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>Positioning 定位：<a class="link"   href="https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/" >https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>Display 展示：<a class="link"   href="https://www.freecodecamp.org/news/the-css-display-property-display-none-display-table-inline-block-and-more/" >https://www.freecodecamp.org/news/the-css-display-property-display-none-display-table-inline-block-and-more/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>盒子模型：<a class="link"   href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model" >https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>CSS 网格：<a class="link"   href="https://cssgridgarden.com/" >https://cssgridgarden.com/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>Flex 弹性盒布局：<a class="link"   href="https://flexboxfroggy.com/" >https://flexboxfroggy.com/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>学习媒体查询知识与 Web 响应式设计：<a class="link"   href="https://www.freecodecamp.org/learn/responsive-web-design/" >https://www.freecodecamp.org/learn/responsive-web-design/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>JavaScript<br>JavaScript 允许您向页面添加交互性。 您可能在网站上看到的常见示例是滑块、点击交互、弹出窗口等。</p>
+<p>学习基础的 JavaScript 大致需要 5 个阶段：</p>
+<p>基础的语法：<a class="link"   href="https://javascript.info/" >https://javascript.info/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>学习 DOM 操作：<a class="link"   href="https://www.freecodecamp.org/news/what-is-the-dom-document-object-model-meaning-in-javascript/" >https://www.freecodecamp.org/news/what-is-the-dom-document-object-model-meaning-in-javascript/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>学习 Fecth API 与 Ajax（XHR）：<a class="link"   href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" >https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>学习 ES6 与模块化 JavaScript：<a class="link"   href="https://www.javascripttutorial.net/es6/" >https://www.javascripttutorial.net/es6/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>理解进阶知识</p>
+<p>Hositing：<a class="link"   href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting" >https://developer.mozilla.org/en-US/docs/Glossary/Hoisting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>事件模型：<a class="link"   href="https://javascript.info/bubbling-and-capturing" >https://javascript.info/bubbling-and-capturing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>作用域：</p>
+<p><a class="link"   href="https://developer.mozilla.org/en-US/docs/Glossary/Scope" >https://developer.mozilla.org/en-US/docs/Glossary/Scope <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link"   href="https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/" >https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>原型：<a class="link"   href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>Shadow DOM：<a class="link"   href="https://www.youtube.com/watch?v=7Tok22qxPzQ" >https://www.youtube.com/watch?v=7Tok22qxPzQ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>严格模式等：<a class="link"   href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode" >https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>了解了上面的这些内容，你基本上算是一名基础的前端工程师了，你可以编写各种各样的基础界面，也应该在学习的过程中产出了很多个 DEMO 了。</p>
+<p>联机高效写网页<br>请注意我们这一小节的关键词：联机、高效。</p>
+<p>在这个阶段，你将学会如下知识：</p>
+<p>如何以程序员的方式将代码与人分享并能够尝试参与别人代码的改进</p>
+<p>高效的编写网站</p>
+<p>理解网站是如何互通的，你是如何访问的网页的</p>
+<p>基于上述的目标，这一阶段的关键技术如下：</p>
+<p>Git、Github</p>
+<p>Internet、Network 原理</p>
+<p>开发框架：</p>
+<p>JS&#x2F;HTML：Reatc&#x2F;Redux、Vue&#x2F;Vuex 等<br>CSS：Sass、Styled Components、TailwindCSS 等<br>构建：Webpack、Babel、Npm Scripts 等<br>包管理：Yarn、Npm 等<br>开发规范</p>
+<p>CSS：BEM 等<br>JavaScript：Airbnb JavaScript Style Guide 等</p>
+<p>Git<br>Git 是一种版本控制系统。</p>
+<p>版本控制系统允许您跟踪代码库&#x2F;文件随时间的变化。 它们允许您毫无问题地返回到代码库的某个先前版本。 此外，它们还有助于与处理相同代码的人协作——如果您曾经与其他人合作过一个项目，您可能已经知道将其他人的更改复制和合并到您的代码库中的挫败感； 版本控制系统可以让你摆脱这个问题。</p>
+<p>你可以通过下面的链接学习它：</p>
+<p><a class="link"   href="https://www.youtube.com/watch?v=zbKdDsNNOhg" >https://www.youtube.com/watch?v=zbKdDsNNOhg <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://www.youtube.com/watch?v=SWYqp7iY_Tc" >https://www.youtube.com/watch?v=SWYqp7iY_Tc <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://youtu.be/Y9XZQO1n_7c?t=21" >https://youtu.be/Y9XZQO1n_7c?t=21 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>Github<br>GitHub 是使用 Git 进行软件开发和版本控制的互联网托管提供商。 它提供了 Git 的分布式版本控制和源代码管理功能，以及它自己的特性。</p>
+<p>你可以通过下面的链接学习它：</p>
+<p><a class="link"   href="https://github.com/" >https://github.com/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://docs.github.com/en/get-started/quickstart/hello-world" >https://docs.github.com/en/get-started/quickstart/hello-world <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>Internet<br>互联网是一个全球性的计算机网络，它们相互连接，通过一组标准化的协议进行通信。</p>
+<p>了解互联网是如何工作的？</p>
+<p><a class="link"   href="https://www.vox.com/2014/6/16/18076282/the-internet" >https://www.vox.com/2014/6/16/18076282/the-internet <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link"   href="http://web.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm" >http://web.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>什么是 HTTP？</p>
+<p><a class="link"   href="https://www.cloudflare.com/en-gb/learning/ddos/glossary/hypertext-transfer-protocol-http/" >https://www.cloudflare.com/en-gb/learning/ddos/glossary/hypertext-transfer-protocol-http/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link"   href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview" >https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link"   href="https://kamranahmed.info/blog/2016/08/13/http-in-depth/" >https://kamranahmed.info/blog/2016/08/13/http-in-depth/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>HTTP 是基于 TCP&#x2F;IP 的应用层通信协议，它标准化了客户端和服务器之间的通信方式。 它定义了如何通过 Internet 请求和传输内容。</p>
+<p>什么是浏览器？它们是如何工作的？</p>
+<p><a class="link"   href="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/" >https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link"   href="https://www.browserstack.com/guide/browser-rendering-engine" >https://www.browserstack.com/guide/browser-rendering-engine <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><a class="link"   href="https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work" >https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>Web 浏览器是一种软件应用程序，它使用户能够通过其图形用户界面访问和显示网页或其他在线内容。</p>
+<p>什么是 DNS？它们是如何工作的？</p>
+<p><a class="link"   href="https://www.cloudflare.com/en-gb/learning/dns/what-is-dns/" >https://www.cloudflare.com/en-gb/learning/dns/what-is-dns/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>域名系统 (DNS) 是 Internet 的电话簿。 人类通过域名（如 nytimes.com 或 espn.com）在线访问信息。 Web 浏览器通过 Internet 协议 (IP) 地址进行交互。 DNS 将域名转换为 IP 地址，因此浏览器可以加载 Internet 资源</p>
+<p>什么是域名？</p>
+<p><a class="link"   href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_domain_name" >https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_domain_name <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>名是用于访问网站的唯一且易于记忆的地址，例如“google.com”和“facebook.com”。 借助 DNS 系统，用户可以使用域名连接到网站。</p>
+<p>什么是主机？</p>
+<p><a class="link"   href="https://www.youtube.com/watch?v=htbY9-yggB0" >https://www.youtube.com/watch?v=htbY9-yggB0 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>虚拟主机是一种在线服务，可让您将网站文件发布到互联网上。 因此，任何可以访问互联网的人都可以访问您的网站。</p>
+<p>JavaScript 框架<br>React</p>
+<p><a class="link"   href="https://reactjs.org/" >https://reactjs.org/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://reactjs.org/tutorial/tutorial.html" >https://reactjs.org/tutorial/tutorial.html <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>React 是最流行的用于构建用户界面的前端 JavaScript 库。 React 还可以使用 Node 在服务器上渲染，并使用 React Native 为移动应用程序提供动力。</p>
+<p>Redux</p>
+<p><a class="link"   href="https://redux.js.org/" >https://redux.js.org/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://redux.js.org/introduction/getting-started" >https://redux.js.org/introduction/getting-started <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>Redux 是 JavaScript 应用程序的可预测状态容器。 它可以帮助您编写行为一致、在不同环境（客户端、服务器和本机）中运行并且易于测试的应用程序。 最重要的是，它提供了出色的开发人员体验，例如实时代码编辑与时间旅行调试器相结合。</p>
+<p>当然状态管理方面目前也有 Mobx 与 Recoil 等有力的竞争者。</p>
+<p>上述的是 React 生态，此外 JavaScript 社区还有 Vue 与 Angular 等其他非常有竞争力的框架。</p>
+<p>CSS 框架<br>Styled Components</p>
+<p><a class="link"   href="https://github.com/styled-components/styled-components" >https://github.com/styled-components/styled-components <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>利用标记的模板文字（最近添加到 JavaScript）和 CSS 的强大功能，styled-components 允许您编写实际的 CSS 代码来设置组件的样式。 它还删除了组件和样式之间的映射——将组件用作低级样式构造！</p>
+<p>CSS Modules</p>
+<p><a class="link"   href="http://www.ruanyifeng.com/blog/2016/06/css_modules.html" >http://www.ruanyifeng.com/blog/2016/06/css_modules.html <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>给 CSS 加入了局部作用域与模块依赖</p>
+<p>Sass</p>
+<p><a class="link"   href="http://www.ruanyifeng.com/blog/2012/06/sass.html" >http://www.ruanyifeng.com/blog/2012/06/sass.html <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>为 CSS 加入编程元素，被称为 CSS 预处理器</p>
+<p>TailwindCSS</p>
+<p><a class="link"   href="https://tailwindcss.com/" >https://tailwindcss.com/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>供一系列辅助类，直接为 HTML 标记添加这些预设的辅助类就可以快速完成一组专业的网站。</p>
+<p>构建相关<br>Webpack</p>
+<p><a class="link"   href="https://webpack.js.org/" >https://webpack.js.org/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>Webpack 是一个模块打包器。 它的主要目的是捆绑 JavaScript 文件以在浏览器中使用，但它也能够转换、捆绑或打包几乎任何资源或资产。</p>
+<p>除了 Webpack，目前前端圈比较火的还有：</p>
+<p>为库打包的更佳选择：Rollup</p>
+<p>基于浏览器 ESM 的 Bundless 解决方案：Vite</p>
+<p>Npm scripts</p>
+<p><a class="link"   href="http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html" >http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>组合 Yarn、Npm、Pnpm 等包管理一起使用，来便捷的执行一系列脚本</p>
+<p>Babel</p>
+<p><a class="link"   href="http://www.ruanyifeng.com/blog/2016/01/babel.html" >http://www.ruanyifeng.com/blog/2016/01/babel.html <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>Babel是一个广泛使用的转码器，可以将ES6代码转为ES5代码，从而在现有环境执行</p>
+<p>开发规范<br>BEM</p>
+<p><a class="link"   href="https://en.bem.info/" >https://en.bem.info/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://juejin.cn/post/6844903672162304013" >https://juejin.cn/post/6844903672162304013 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>块、元素、修饰符方法（通常称为 BEM）是 HTML 和 CSS 中类的流行命名约定。 由 Yandex 团队开发，其目标是帮助开发人员更好地理解给定项目中 HTML 和 CSS 之间的关系。</p>
+<p>JavaScript Style Guide</p>
+<p><a class="link"   href="https://github.com/airbnb/javascript" >https://github.com/airbnb/javascript <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>编写 JavaScript 最合理的方法之一</p>
+<p>经历上面的一阵狂风乱炸的洗礼之后，你现在已经能够理解如下知识了：</p>
+<p>网页是如何运行的</p>
+<p>如何使用框架（JS、CSS 框架）、现代的前端工程化集合工具辅助你高效的编写界面</p>
+<p>在编写代码的时候，遵守相关的规范，写出更容易让其他人读懂的代码</p>
+<p>将你的代码使用版本控制系统 Git 来追踪，并通过 Github 将你的代码分析给其他程序员学习</p>
+<p>让网页被更多人使用<br>如果你想让你的网站被更多人使用，甚至是你要开发一款产品，完成你的创业目标，那么你可能还需要一些额外的知识辅助你。</p>
+<p>在这个阶段你需要了解的知识点如下：</p>
+<p>确保你的网站安全：HTTPS、Cors、内容安全策略等</p>
+<p>确保的应用尽可能少 BUG：TypeScript、Jest、Cypress、Enzyme、React Testing Library</p>
+<p>让用户在没有网的情况下也能使用：PWA、Storage、Web Socket、Service Workers 等</p>
+<p>让你的网站被更快的访问：Lighthouse、Devtools、Performance Metrics、RAIL Model、PRPL Pattern</p>
+<p>让你的网站能更好的被索引：SSR</p>
+<p>让你的应用分散在各个平台：React Native、Flutter、Electron</p>
+<p>让你的网站也能够处理更复杂的动效：WebAssembly 等</p>
+<p>Web 安全<br>HTTPS</p>
+<p><a class="link"   href="https://www.cloudflare.com/en-gb/learning/ssl/what-is-https/" >https://www.cloudflare.com/en-gb/learning/ssl/what-is-https/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://developers.google.com/web/fundamentals/security/encrypt-in-transit/why-https" >https://developers.google.com/web/fundamentals/security/encrypt-in-transit/why-https <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://developers.google.com/web/fundamentals/security/encrypt-in-transit/enable-https" >https://developers.google.com/web/fundamentals/security/encrypt-in-transit/enable-https <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>HTTPS 是一种在 Web 服务器和浏览器之间发送数据的安全方式。</p>
+<p>CORS</p>
+<p><a class="link"   href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" >https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>跨域资源共享 (CORS) 是一种基于 HTTP 标头的机制，它允许服务器指示除其自身之外的任何来源（域、方案或端口），浏览器应允许从中加载资源。</p>
+<p>CSP（内容安全策略）</p>
+<p><a class="link"   href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP" >https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://developers.google.com/web/fundamentals/security/csp" >https://developers.google.com/web/fundamentals/security/csp <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>内容安全策略是一种计算机安全标准，用于防止在受信任的网页上下文中执行恶意内容而导致的跨站点脚本、点击劫持和其他代码注入攻击。</p>
+<p>测试工具<br>Jest</p>
+<p><a class="link"   href="https://jestjs.io/" >https://jestjs.io/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>Jest 是一个令人愉快的 JavaScript 测试框架，专注于简单性。 它适用于使用以下项目的项目：Babel、TypeScript、Node、React、Angular、Vue 等等！</p>
+<p>React Testing Library</p>
+<p><a class="link"   href="https://github.com/testing-library/react-testing-library" >https://github.com/testing-library/react-testing-library <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>完备的 React DOM 的测试辅助库</p>
+<p>Cypress</p>
+<p><a class="link"   href="https://www.cypress.io/" >https://www.cypress.io/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>对应用进行端到端测试</p>
+<p>Enzyme</p>
+<p><a class="link"   href="https://github.com/enzymejs/enzyme" >https://github.com/enzymejs/enzyme <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>测试 React 的辅助库</p>
+<p>类型检查工具<br>TypeScript</p>
+<p><a class="link"   href="https://www.typescriptlang.org/" >https://www.typescriptlang.org/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://www.typescriptlang.org/docs/" >https://www.typescriptlang.org/docs/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://www.typescriptlang.org/docs/handbook/intro.html" >https://www.typescriptlang.org/docs/handbook/intro.html <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>TypeScript 是一种基于 JavaScript 的强类型编程语言，可为您提供任何规模的更好的工具。</p>
+<p>离线使用<br>Web 最新的 Progressive Web Apps （PWA）技术，使得 Web 网站可以像 App 一样，拥有离线使用、推送通知等功能。</p>
+<p>PWA 主要包含下面几个部分：</p>
+<p>Storage</p>
+<p>WebSockets</p>
+<p>Service Workers</p>
+<p>Location</p>
+<p>Notifications</p>
+<p>Device Orientation</p>
+<p>Payments</p>
+<p>Credentials</p>
+<p>主要的参考学习资源如下：</p>
+<p><a class="link"   href="https://developer.mozilla.org/zh-CN/docs/Web/Progressive_web_apps" >https://developer.mozilla.org/zh-CN/docs/Web/Progressive_web_apps <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://github.com/GoogleChrome/workbox" >https://github.com/GoogleChrome/workbox <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>性能相关<br>Web 性能是加载时间和运行时的客观测量和感知用户体验。 Web 性能是指网站加载、变得交互和响应所需的时间，以及在用户交互期间内容的流畅程度。</p>
+<p>性能涉及到计算、衡量与改进性能，主要涉及下面这些知识点：</p>
+<p>PRPL Pattern</p>
+<p>RAIL Model</p>
+<p>Performance Metrics</p>
+<p>Lighthouse</p>
+<p>Devtools</p>
+<p>主要的参考学习资源如下：</p>
+<p><a class="link"   href="https://developer.mozilla.org/zh-CN/docs/Web/Performance" >https://developer.mozilla.org/zh-CN/docs/Web/Performance <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://web.dev/" >https://web.dev/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>SEO 相关<br>SEO（Search Engine Optimization）—— 搜索引擎优化，目的是帮助我们的网站在Google或者Baidu搜索的时候排名会提升靠前。</p>
+<p>Next.js</p>
+<p><a class="link"   href="https://nextjs.org/" >https://nextjs.org/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://nextjs.org/docs/getting-started" >https://nextjs.org/docs/getting-started <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://www.freecodecamp.org/news/the-next-js-handbook/" >https://www.freecodecamp.org/news/the-next-js-handbook/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>Next.js 是一个构建在 Node.js 之上的开源开发框架，支持基于 React 的 Web 应用程序功能，例如服务器端渲染和生成静态网站。</p>
+<p>多平台<br>React Native</p>
+<p><a class="link"   href="https://reactnative.cn/" >https://reactnative.cn/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://github.com/facebook/react-native" >https://github.com/facebook/react-native <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>使用 React 来开发移动端应用，如 Android 或 iOS。</p>
+<p>Flutter</p>
+<p><a class="link"   href="https://flutter.cn/" >https://flutter.cn/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://flutter-io.cn/" >https://flutter-io.cn/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>Flutter 为应用开发带来了革新： 只要一套代码库（Dart），即可构建、测试和发布适用于移动、Web、桌面和嵌入式平台的精美应用</p>
+<p>Electron</p>
+<p><a class="link"   href="https://www.electronjs.org/" >https://www.electronjs.org/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://wizardforcel.gitbooks.io/electron-doc/content/tutorial/tutorial.html" >https://wizardforcel.gitbooks.io/electron-doc/content/tutorial/tutorial.html <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>Electron（原名为Atom Shell）是GitHub开发的一个开源框架。它通过使用Node.js（作为后端）和Chromium的渲染引擎（作为前端）完成跨平台的桌面GUI应用程序的开发。Electron现已被多个开源Web应用程序用于前端与后端的开发，著名项目包括GitHub的Atom和微软的Visual Studio Code。</p>
+<p>高性能应用<br>WebAssembly</p>
+<p><a class="link"   href="https://developer.mozilla.org/zh-CN/docs/WebAssembly" >https://developer.mozilla.org/zh-CN/docs/WebAssembly <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://juejin.cn/post/7035991254257106958" >https://juejin.cn/post/7035991254257106958 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>WebAssembly是一种新的编码方式，可以在现代的网络浏览器中运行 － 它是一种低级的类汇编语言，具有紧凑的二进制格式，可以接近原生的性能运行，并为诸如C &#x2F; C ++等语言提供一个编译目标，以便它们可以在Web上运行。它也被设计为可以与JavaScript共存，允许两者一起工作。</p>
+<p>当你学完了这个部分的内容，基本上已经是算是一位高阶的前端工程师了，能够在任何大厂胜任各种研发工作，当然能够坚持到这里不容易，需要持续的努力，加油??<br>————————————————</p>
+<p>原文链接：<a class="link"   href="https://blog.csdn.net/qq_46416934/article/details/126096998" >https://blog.csdn.net/qq_46416934/article/details/126096998 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>学习总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端的自我修养</title>
+    <url>/2023/03/06/%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/</url>
     <content><![CDATA[<h2 id="CSS部分"><a href="#CSS部分" class="headerlink" title="CSS部分"></a>CSS部分</h2><h6 id="问：css盒模型是什么？"><a href="#问：css盒模型是什么？" class="headerlink" title="问：css盒模型是什么？"></a>问：css盒模型是什么？</h6><p>答： 在html中所有的元素都可以看成一个盒子，盒子由外边距<code>margin</code>、内边距<code>padding</code>、边框<code>border</code>、内容<code>content</code>四部分构成；盒子的类型分为两种：</p>
 <ul>
 <li><p>标准盒模型：<code>margin border + padding + content</code></p>
@@ -1297,17 +2248,304 @@ BFC清除浮动</p>
 <div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* origin: 拷贝源对象</span></span><br><span class="line"><span class="comment">* deep: 是否使用深拷贝</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="keyword">function</span> <span class="title function_">deepClone</span>(<span class="params">origin, deep</span>) &#123;</span><br><span class="line">   <span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line">   <span class="keyword">if</span> (origin <span class="keyword">instanceof</span> <span class="title class_">Array</span>) obj = [];</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> origin) &#123;</span><br><span class="line">     <span class="keyword">let</span> value = origin[key]</span><br><span class="line">     obj[key] = (!!deep &amp;&amp; <span class="keyword">typeof</span> value === <span class="string">&quot;object&quot;</span> &amp;&amp; value !== <span class="literal">null</span>) ? <span class="title function_">deepClone</span>(value, deep) : value</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> oo_1 = <span class="title function_">deepClone</span>(o, <span class="literal">true</span>)</span><br></pre></td></tr></table></figure></div></li>
 </ol>
 <h6 id="问：-说一下事件循环？"><a href="#问：-说一下事件循环？" class="headerlink" title="问： 说一下事件循环？"></a>问： 说一下事件循环？</h6><p>答： js是一个单线程脚本语言，</p>
-<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2>]]></content>
+<h2 id="经典试题"><a href="#经典试题" class="headerlink" title="经典试题"></a>经典试题</h2><ol>
+<li><p>三次握手和四次挥手详细介绍</p>
+</li>
+<li><p>TCP有哪些手段保证可靠交付</p>
+</li>
+<li><p>URL从输入到页面渲染全流程</p>
+</li>
+<li><p>如何预防中间人攻击</p>
+</li>
+<li><p>DNS解析会出错吗，为什么</p>
+</li>
+<li><p>ES6的Set内部实现</p>
+</li>
+<li><p>如何应对流量劫持</p>
+</li>
+<li><p>算法：top-K问题，分成top-1,top-2,top-K三小问</p>
+</li>
+<li><p>跨域</p>
+</li>
+<li><p>webpack的plugins和loaders的实现原理</p>
+</li>
+<li><p>vue和react谈谈区别和选型考虑</p>
+</li>
+<li><p>webpack如何优化编译速度</p>
+</li>
+<li><p>事件循环机制，node和浏览器的事件循环机制区别</p>
+</li>
+<li><p>单元测试编写有哪些原则</p>
+</li>
+<li><p>一个大型项目如何分配前端开发的工作</p>
+</li>
+<li><p>怼项目</p>
+</li>
+<li><p>typescript有什么好处</p>
+</li>
+<li><p>vue项目中如何约束rxjs数据的类型</p>
+</li>
+<li><p>rxjs高阶数据流定义，常用高阶数据流操作符</p>
+</li>
+<li><p>JWT优缺点</p>
+</li>
+<li><p>选择器优先级</p>
+</li>
+<li><p>基本数据类型</p>
+</li>
+<li><p>RxJS冷热流区别</p>
+</li>
+<li><p>RxJS调试方法</p>
+</li>
+<li><p>nginx负载均衡配置</p>
+</li>
+<li><p>前端性能优化手段</p>
+</li>
+<li><p>针对React的性能优化手段</p>
+</li>
+<li><p>301 302 307 308 401 403</p>
+</li>
+<li><p>vue的nextTick实现原理以及应用场景</p>
+</li>
+<li><p>vue组件间通信</p>
+</li>
+<li><p>谈谈XSS防御，以及Content-Security-Policy细节</p>
+</li>
+<li><p>场景题：一个气球从右上角移动到中间，然后抖动，如何实现</p>
+</li>
+<li><p>场景题：一个关于外边距合并的高度计算</p>
+</li>
+<li><p>mobx-react如何驱动react组件重渲染</p>
+</li>
+<li><p>forceUpdate经历了哪些生命周期，子组件呢?</p>
+</li>
+<li><p>React key场景题：列表使用index做key，删除其中一个后，如何表现？</p>
+</li>
+<li><p>算法：实现setter(obj, ‘a.b.c’ ,val)</p>
+</li>
+<li><p>RxJS相对于其他状态管理方案的优势？</p>
+</li>
+<li><p>手写冒泡排序</p>
+</li>
+<li><p>JWT细节，适用场景</p>
+</li>
+<li><p>跨域</p>
+</li>
+<li><p>方案题：不同前端技术栈的项目，如何实现一套通用组件方案？</p>
+</li>
+<li><p>ES6特性</p>
+<p>闭包和this一起谈谈</p>
+<p>postcss配置</p>
+<p>Promise内部实现原理</p>
+<p>vuex, mobx, redux各自的特点和区别</p>
+<p>react生命周期</p>
+<p>各方面谈谈性能优化</p>
+<p>serviceworker如何保证离线缓存资源更新</p>
+<p>virtual dom有哪些好处</p>
+</li>
+<li><ol>
+<li><p>Vue3 proxy解决了哪些问题？</p>
+</li>
+<li><p>Vue响应式原理</p>
+</li>
+<li><p>发布订阅模式和观察者模式的异同</p>
+</li>
+<li><p>图片懒加载实现</p>
+</li>
+<li><p>css垂直居中</p>
+</li>
+<li><p>CI&#x2F;CD流程</p>
+</li>
+<li><p>谈谈性能优化</p>
+</li>
+<li><p> react生命周期</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>   key的作用</p>
+<p>   hooks</p>
+<p>   vue和react区别，选型考虑</p>
+<pre><code>   canvas优化绘制性能
+
+   webpack性能优化手段
+
+   事件循环
+
+   如何解决同步调用代码耗时太高的问题
+
+   手写Promise实现
+
+   1. Promise实现原理
+</code></pre>
+<ol start="2">
+<li>vue组件间通信<ol start="3">
+<li>性能优化</li>
+</ol>
+</li>
+<li>vuex数据流动过程<ol start="5">
+<li>谈谈css预处理器机制</li>
+</ol>
+</li>
+<li>算法：Promise串行</li>
+</ol>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>1、原型&#x2F;原型链&#x2F;构造函数&#x2F;实例&#x2F;继承</p>
+<p>2、有几种方式可以实现继承</p>
+<p>3、用原型实现继承有什么缺点，怎么解决</p>
+<p>4、arguments</p>
+<p>5、数据类型判断</p>
+<p>6、作用域链、闭包、作用域</p>
+<p>7、Ajax的原生写法</p>
+<p>8、对象深拷贝、浅拷贝</p>
+<p>9、图片懒加载、预加载</p>
+<p>10、实现页面加载进度条</p>
+<p>11、this关键字</p>
+<p>12、函数式编程</p>
+<p>13、手动实现parseInt</p>
+<p>14、为什么会有同源策略</p>
+<p>15、怎么判断两个对象是否相等</p>
+<p>16、事件模型 </p>
+<ul>
+<li>事件委托、代理</li>
+<li>如何让事件先冒泡后捕获</li>
+</ul>
+<p>17、window的onload事件和domcontentloaded</p>
+<p>18、for…in迭代和for…of有什么区别</p>
+<p>19、函数柯里化</p>
+<p>20、call apply区别，原生实现bind </p>
+<ul>
+<li>call，apply，bind 三者用法和区别：角度可为参数、绑定规则（显示绑定和强绑定），运行效率、运行情况。</li>
+</ul>
+<p>21、async&#x2F;await</p>
+<p>22、立即执行函数和使用场景</p>
+<p>23、设计模式(要求说出如何实现,应用,优缺点)&#x2F;单例模式实现</p>
+<p>24、iframe的缺点有哪些</p>
+<p>25、数组问题 </p>
+<ul>
+<li>数组去重</li>
+<li>数组常用方法</li>
+<li>查找数组重复项</li>
+<li>扁平化数组</li>
+<li>按数组中各项和特定值差值排序</li>
+</ul>
+<p>26、BOM属性对象方法</p>
+<p>27、服务端渲染</p>
+<p>28、垃圾回收机制</p>
+<p>29、eventloop </p>
+<ul>
+<li>进程和线程</li>
+<li>任务队列</li>
+</ul>
+<p>30、如何快速让字符串变成已千为精度的数字</p>
+<h3 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h3><p>1、声明 let、const</p>
+<p>2、解构赋值</p>
+<p>3、声明类与继承：class、extend</p>
+<p>4、Promise的使用与实现</p>
+<p>5、generator（异步编程、yield、next()、await 、async）</p>
+<p>6、箭头函数this指向问题、拓展运算符</p>
+<p>7、map和set有没有用过，如何实现一个数组去重，map数据结构有什么优点？</p>
+<p>8、ES6怎么编译成ES5,css-loader原理,过程</p>
+<p>9、ES6转成ES5的常见例子 </p>
+<ul>
+<li>使用es5实现es6的class</li>
+</ul>
+<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><p>1、输入url到展示页面过程发生了什么？</p>
+<p>2、重绘与回流 </p>
+<ul>
+<li>重绘(repaint): 当元素样式的改变不影响布局时，浏览器将使用重绘对元素进行更新，此时由于只需要UI层面的重新像素绘制，因此 损耗较少</li>
+<li>回流(reflow): 当元素的尺寸、结构或触发某些属性时，浏览器会重新渲染页面，称为回流。此时，浏览器需要重新经过计算，计算后还需要重新页面布局，因此是较重的操作。会触发回流的操作:<br>* 页面初次渲染<br>* 浏览器窗口大小改变<br>* 元素尺寸、位置、内容发生改变<br>* 元素字体大小变化<br>* 添加或者删除可见的 dom 元素<br>* 激活 CSS 伪类（例如：:hover）<br>* 查询某些属性或调用某些方法<br>* clientWidth、clientHeight、clientTop、clientLeft<br>* offsetWidth、offsetHeight、offsetTop、offsetLeft<br>* scrollWidth、scrollHeight、scrollTop、scrollLeft<br>* getComputedStyle()<br>* getBoundingClientRect()<br>* scrollTo()<br><strong>回流必定触发重绘，重绘不一定触发回流。重绘的开销较小，回流的代价较高。</strong></li>
+</ul>
+<p>3、防抖与节流</p>
+<p>4、cookies、session、sessionStorage、localStorage</p>
+<p>5、浏览器内核</p>
+<h2 id="服务端与网络"><a href="#服务端与网络" class="headerlink" title="服务端与网络"></a>服务端与网络</h2><p>1、常见状态码</p>
+<p>2、缓存 </p>
+<ul>
+<li>200 From cache和200 ok</li>
+<li>400,401,403状态码分别代表什么</li>
+<li>浏览器缓存</li>
+</ul>
+<p>3、cookie, session, token</p>
+<p>4、前端持久化的方式、区别</p>
+<p>5、DNS是怎么解析的</p>
+<p>6、cdn</p>
+<p>7、计算机网络的相关协议</p>
+<p>8、http&#x2F;https&#x2F;http2.0</p>
+<p>9、get post区别</p>
+<p>10、ajax、 axios库</p>
+<p>11、tcp三次握手，四次挥手流程</p>
+<p>12、跨域</p>
+<p>13、前端安全XSS、CSRF</p>
+<p>14、websocket</p>
+<p>15、Http请求中的keep-alive有了解吗</p>
+<p>16、网络分层</p>
+<p>17、即时通信，除了Ajax和websocket</p>
+<p>18、模块化，commonJS，es6，cmd，amd</p>
+<h2 id="框架（Vue）"><a href="#框架（Vue）" class="headerlink" title="框架（Vue）"></a>框架（Vue）</h2><p>1、vue解决了什么问题</p>
+<p>2、MVVM的理解</p>
+<p>3、如何实现一个自定义组件，不同组件之间如何通信的？</p>
+<p>4、nextTick</p>
+<p>5、生命周期</p>
+<p>6、虚拟dom的原理</p>
+<p>7、双向绑定的原理？数据劫持？</p>
+<p>8、组件通信 </p>
+<ul>
+<li>父-&gt;子</li>
+<li>子-&gt;父</li>
+<li>非父子组件</li>
+</ul>
+<p>9、Proxy 相比于 defineProperty 的优势</p>
+<p>10、watch computed区别</p>
+<p>11、virtual dom 原理实现</p>
+<p>12、vue-router(hash， HTML5 新增的 pushState </p>
+<ul>
+<li>单页应用，如何实现其路由功能—路由原理</li>
+<li>vue-router如何做用户登录权限等</li>
+<li>你在项目中怎么实现路由的嵌套</li>
+</ul>
+<p>13、vuex的理解</p>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><ul>
+<li>页面DOM节点太多，会出现什么问题？如何优化？</li>
+<li>如何做性能监测</li>
+</ul>
+<h2 id="SEO和语义化"><a href="#SEO和语义化" class="headerlink" title="SEO和语义化"></a>SEO和语义化</h2><p>微信小程序和h5差异，如果有开发weex的经验，可能会加上weex</p>
+<h2 id="微信小程序"><a href="#微信小程序" class="headerlink" title="微信小程序"></a>微信小程序</h2><p>微信小程序和h5差异，如果有开发weex的经验，可能会加上weex</p>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>一些基本命令</p>
+<h2 id="打包工具webpack"><a href="#打包工具webpack" class="headerlink" title="打包工具webpack"></a>打包工具webpack</h2><p>1、打包原理</p>
+<p>2、打包插件</p>
+<p>3、webpack热更新原理</p>
+<p>4、优化构建速度</p>
+<h2 id="算法与数据结构"><a href="#算法与数据结构" class="headerlink" title="算法与数据结构"></a>算法与数据结构</h2><p>1、排序算法</p>
+<p>2、动态规划，参见背包问题</p>
+<p>3、二叉树</p>
+<p>4、加油站问题(贪心算法)</p>
+<p>5、二分法</p>
+<p>6、二叉树遍历</p>
+<p>7、单链表反转</p>
+<p>8、取1000个数字里面的质数</p>
+<p>9、找出数组中和为给定值的两个元素，如：[1, 2, 3, 4, 5]中找出和为6的两个元素。</p>
+<p>10、线性顺序存储结构和链式存储结构有什么区别？以及优缺点</p>
+<h2 id="移动端"><a href="#移动端" class="headerlink" title="移动端"></a>移动端</h2><p>1、自适应</p>
+<p>2、pwa</p>
+<p>3、移动端手势</p>
+<h2 id="附加题"><a href="#附加题" class="headerlink" title="附加题"></a>附加题</h2><p>1、无限滚动方案</p>
+<p>2、如何处理兼容性问题</p>
+<p>3、你遇到过最难的问题是什么</p>
+<p>4、ES6 class与ES5 function区别及联系</p>
+<p>5、vue怎么监听数组</p>
+<p>6、写过webpack loader吗</p>
+<p>7、微信网页版登录机制思考</p>
+]]></content>
       <categories>
         <category>前端</category>
       </categories>
       <tags>
-        <tag>面试</tag>
+        <tag>学习总结</tag>
       </tags>
   </entry>
   <entry>
     <title>动态切换elementui主题</title>
-    <url>/2021/03/06/%E5%BC%80%E5%8F%91/%E5%8A%A8%E6%80%81%E5%88%87%E6%8D%A2elementui%E4%B8%BB%E9%A2%98/</url>
+    <url>/2021/03/06/%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/%E5%8A%A8%E6%80%81%E5%88%87%E6%8D%A2elementui%E4%B8%BB%E9%A2%98/</url>
     <content><![CDATA[<h4 id="准备自定义的主题"><a href="#准备自定义的主题" class="headerlink" title="准备自定义的主题"></a>准备自定义的主题</h4><blockquote>
 <p>在<a class="link"   href="https://element.eleme.cn/#/zh-CN/theme" >element ui <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>官网主题页下载自定义后的主题，多套主题存放本地，两者有不同的命名空间，如写两套主题，一套叫 <code>theme-dark</code>，一套叫 <code>theme-light</code> ，主题都在它的 <code>.theme-dark</code>或<code>.theme-light</code> 的命名空间下</p>
 </blockquote>
@@ -1346,6 +2584,270 @@ BFC清除浮动</p>
       </categories>
       <tags>
         <tag>elementui</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大前端学习资源</title>
+    <url>/2020/01/18/%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/%E5%A4%A7%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/</url>
+    <content><![CDATA[<p>vue.js高仿饿了么（1-13章全）<br>链接：<a class="link"   href="https://pan.baidu.com/s/1qYSiYXluA1AlEV0EskxWZw" >https://pan.baidu.com/s/1qYSiYXluA1AlEV0EskxWZw <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：25z9</p>
+<p>Vue.js 2.5 + cube-ui 重构饿了么 App<br>链接：<a class="link"   href="https://pan.baidu.com/s/1UZyLkzYMvhUhhX3GH5ITvA" >https://pan.baidu.com/s/1UZyLkzYMvhUhhX3GH5ITvA <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：bx53</p>
+<p>Vue2.0 + Node.js + MongoDB全栈打造商城系统<br>链接：<a class="link"   href="https://pan.baidu.com/s/1EmAvM3kryVQa3mQkwSY_Aw" >https://pan.baidu.com/s/1EmAvM3kryVQa3mQkwSY_Aw <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：3fqt</p>
+<p>Vue 2.0 高级实战-开发移动端音乐 WebApp<br>链接：<a class="link"   href="https://pan.baidu.com/s/1RvF1KziTgq4HEaIVnCvz1w" >https://pan.baidu.com/s/1RvF1KziTgq4HEaIVnCvz1w <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：v0vb</p>
+<p>vue去哪儿无密APP<br>链接：<a class="link"   href="https://pan.baidu.com/s/1vQMWuSNJJ8OrxoGVcZTgtw" >https://pan.baidu.com/s/1vQMWuSNJJ8OrxoGVcZTgtw <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：u3yz</p>
+<p>Vue全家桶+SSR+Koa2全栈开发美团网<br>链接：<a class="link"   href="https://pan.baidu.com/s/1S3bkusvC14OiyoufCAgGnw" >https://pan.baidu.com/s/1S3bkusvC14OiyoufCAgGnw <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：mr70</p>
+<p>7天搞定Node.js微信公众号开发<br>链接：<a class="link"   href="https://pan.baidu.com/s/1Aw6be7tp8ysDs0N1H7Kf_Q" >https://pan.baidu.com/s/1Aw6be7tp8ysDs0N1H7Kf_Q <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：gf6q</p>
+<p>Vue + Node + MongoDB高级全栈<br>链接：<a class="link"   href="https://pan.baidu.com/s/1dK5XH_Uxi21dZTYwGR-KkQ" >https://pan.baidu.com/s/1dK5XH_Uxi21dZTYwGR-KkQ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：ta3s</p>
+<p>MUI 仿豆瓣电影 APP跨平台混编框架<br>链接：<a class="link"   href="https://pan.baidu.com/s/1CErOI6eWLEhf3qJeSALAng" >https://pan.baidu.com/s/1CErOI6eWLEhf3qJeSALAng <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：59qs</p>
+<p>Vue2.x实战项目(axios路由vuex)<br>链接：<a class="link"   href="https://pan.baidu.com/s/1YPYORI7SnHgGo5Gq7zzGsA" >https://pan.baidu.com/s/1YPYORI7SnHgGo5Gq7zzGsA <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：so0h</p>
+<p>webApp书城整站开发<br>链接：<a class="link"   href="https://pan.baidu.com/s/1nA7CXe_1IYnmQibK3-ETig" >https://pan.baidu.com/s/1nA7CXe_1IYnmQibK3-ETig <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：orul</p>
+<p>Koa2框架从0开始构建预告片网站<br>链接：<a class="link"   href="https://pan.baidu.com/s/1UiwmhLnX1XOCLCAg_rLJwA" >https://pan.baidu.com/s/1UiwmhLnX1XOCLCAg_rLJwA <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：l0kj</p>
+<p>响应式网页制作实战项目<br>链接：<a class="link"   href="https://pan.baidu.com/s/1pHEe8p0b3f-JbQ7A0D1Xhw" >https://pan.baidu.com/s/1pHEe8p0b3f-JbQ7A0D1Xhw <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：7lon</p>
+<p>尚硅谷VUE核心技术视频<br>链接：<a class="link"   href="https://pan.baidu.com/s/1hYxRi5nw82Au9AKdvo4RhQ" >https://pan.baidu.com/s/1hYxRi5nw82Au9AKdvo4RhQ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：aooh</p>
+<p>Vue核心技术 vue实战精讲<br>链接：<a class="link"   href="https://pan.baidu.com/s/1yPHkknNC1IVZIoL0TJoeJA" >https://pan.baidu.com/s/1yPHkknNC1IVZIoL0TJoeJA <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：e1kf</p>
+<p>Ionic2飞速上手的跨平台App开发<br>链接：<a class="link"   href="https://pan.baidu.com/s/1y3psOTyHez06Xfe9Jb-tWw" >https://pan.baidu.com/s/1y3psOTyHez06Xfe9Jb-tWw <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：0eje</p>
+<p>快速上手Ionic3 多平台开发企业级问答社区<br>链接：<a class="link"   href="https://pan.baidu.com/s/1OJhxoef5v6BL9W6MnjNZ3Q" >https://pan.baidu.com/s/1OJhxoef5v6BL9W6MnjNZ3Q <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：souy</p>
+<p>Webpack + React全栈工程架构项目实战精讲<br>链接：<a class="link"   href="https://pan.baidu.com/s/1-H5r17wvTPcnbV2inKFiag" >https://pan.baidu.com/s/1-H5r17wvTPcnbV2inKFiag <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：13w6</p>
+<p>Redux + react + Router + Node.js全栈开发<br>链接：<a class="link"   href="https://pan.baidu.com/s/1YHkdAMBjjIYJr0PKU-IzKQ" >https://pan.baidu.com/s/1YHkdAMBjjIYJr0PKU-IzKQ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：vo4x</p>
+<p>React16 + React-Router4 从零打造企业级电商后台管理系统<br>链接：<a class="link"   href="https://pan.baidu.com/s/1Yf6N2mujJSn-jtqRFCICQw" >https://pan.baidu.com/s/1Yf6N2mujJSn-jtqRFCICQw <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：vvy4</p>
+<p>React.js入门与实战[开发适配PC端及移动端新闻头条平台]<br>链接：<a class="link"   href="https://pan.baidu.com/s/1Sz15gI2jYnD2U9jr2XJLkg" >https://pan.baidu.com/s/1Sz15gI2jYnD2U9jr2XJLkg <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：tpe2</p>
+<p>React 高级实战 打造大众点评 WebApp<br>链接：<a class="link"   href="https://pan.baidu.com/s/1AKe554VkBSdoWmeYnLGsEg" >https://pan.baidu.com/s/1AKe554VkBSdoWmeYnLGsEg <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：6f36</p>
+<p>React Native开发App狗狗说<br>链接：<a class="link"   href="https://pan.baidu.com/s/17Jdq1PwbgTvx7q54xMHMaw" >https://pan.baidu.com/s/17Jdq1PwbgTvx7q54xMHMaw <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：zlay</p>
+<p>掌握React Native技术转型随意切换<br>链接：<a class="link"   href="https://pan.baidu.com/s/1sj654WJ6QFM8Muc6ZCdG7g" >https://pan.baidu.com/s/1sj654WJ6QFM8Muc6ZCdG7g <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：icuo</p>
+<p>Angular JS 仿拉勾网 WebApp<br>链接：<a class="link"   href="https://pan.baidu.com/s/1EaEdEkFZMLvI3NNPYodc5A" >https://pan.baidu.com/s/1EaEdEkFZMLvI3NNPYodc5A <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：5tkc</p>
+<p>Angular 打造企业级协作平台<br>链接：<a class="link"   href="https://pan.baidu.com/s/1vEsBm8drlsyYI3vYVT1m7A" >https://pan.baidu.com/s/1vEsBm8drlsyYI3vYVT1m7A <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：vysn</p>
+<p>Angular 4.0从入门到实战 打造股票管理网站<br>链接：<a class="link"   href="https://pan.baidu.com/s/1CKOtDYw25maVbkYDh84qig" >https://pan.baidu.com/s/1CKOtDYw25maVbkYDh84qig <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：kodf</p>
+<p>AngularJS全栈开发知乎<br>链接：<a class="link"   href="https://pan.baidu.com/s/1wUHp0kF1wcDBNpH4qUOJrg" >https://pan.baidu.com/s/1wUHp0kF1wcDBNpH4qUOJrg <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：bbi6</p>
+<p>手把手从0打造电商平台<br>链接：<a class="link"   href="https://pan.baidu.com/s/1o81d8TozMI72MX_IIRCD9w" >https://pan.baidu.com/s/1o81d8TozMI72MX_IIRCD9w <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：bq1y</p>
+<p>ES6+ 开发电商网站的账号体系 JS SDK<br>链接：<a class="link"   href="https://pan.baidu.com/s/19Tqk4ERUM7m3PdhGDAss7A" >https://pan.baidu.com/s/19Tqk4ERUM7m3PdhGDAss7A <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：12dk</p>
+<p>ES6零基础教学 解析彩票项目<br>链接：<a class="link"   href="https://pan.baidu.com/s/1A7gSrfadxw88lVwiP98Skg" >https://pan.baidu.com/s/1A7gSrfadxw88lVwiP98Skg <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：cdd7</p>
+<p>Node.js入门到企业Web开发中的应用<br>链接：<a class="link"   href="https://pan.baidu.com/s/1Qt252KSqSAIJi-EmKib4PQ" >https://pan.baidu.com/s/1Qt252KSqSAIJi-EmKib4PQ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：qnrd</p>
+<p>Node.js项目线上服务器部署与发布<br>链接：<a class="link"   href="https://pan.baidu.com/s/1WmKWjLzuuGXbkK9qFnrLeQ" >https://pan.baidu.com/s/1WmKWjLzuuGXbkK9qFnrLeQ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：c6md</p>
+<p>四大维度解锁 Webpack 3.0 前端工程化<br>链接：<a class="link"   href="https://pan.baidu.com/s/1hXgm27tTZoRBN8HCE7W0Hw" >https://pan.baidu.com/s/1hXgm27tTZoRBN8HCE7W0Hw <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：85yw</p>
+<p>6小时 jQuery开发一个前端应用<br>链接：<a class="link"   href="https://pan.baidu.com/s/1hwO36zQKZp1gKx6mHxKQ_w" >https://pan.baidu.com/s/1hwO36zQKZp1gKx6mHxKQ_w <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：hnao</p>
+<p>HTTP协议原理+实践 Web开发工程师必学<br>链接：<a class="link"   href="https://pan.baidu.com/s/1isAvkjKOMLsWGGNckOXsPw" >https://pan.baidu.com/s/1isAvkjKOMLsWGGNckOXsPw <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：mk98</p>
+<p>微信小程序入门与实战<br>链接：<a class="link"   href="https://pan.baidu.com/s/10SJrD-S10CQOA4Z_KGZRTw" >https://pan.baidu.com/s/10SJrD-S10CQOA4Z_KGZRTw <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：njaz</p>
+<p>全新升级 Kotlin系统入门与进阶<br>链接：<a class="link"   href="https://pan.baidu.com/s/1WF6ORDNrg4Mel4HllX0zTg" >https://pan.baidu.com/s/1WF6ORDNrg4Mel4HllX0zTg <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：h4mn</p>
+<p>Kotlin打造完整电商APP 模块化 + MVP + 主流框架<br>链接：<a class="link"   href="https://pan.baidu.com/s/1CW-EV7HU70btAOs_v0uMVQ" >https://pan.baidu.com/s/1CW-EV7HU70btAOs_v0uMVQ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：nrht</p>
+<p>开课吧第六期全栈架构师<br>链接：<a class="link"   href="https://pan.baidu.com/s/1Z2zHnDBA1VzzznnGoVvscQ" >https://pan.baidu.com/s/1Z2zHnDBA1VzzznnGoVvscQ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：ncqj</p>
+<p>爱前端-邵山欢大前端全套完整教程<br>链接：<a class="link"   href="https://pan.baidu.com/s/1cp9XG8eVFc-IBFUt7sjCUA" >https://pan.baidu.com/s/1cp9XG8eVFc-IBFUt7sjCUA <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：bbys</p>
+<p>2018新黑马39期web前端开发全套视频教程（没有源码）<br>链接：<a class="link"   href="https://pan.baidu.com/s/1LjVsI1dsyjJXHcLM9MAjFg" >https://pan.baidu.com/s/1LjVsI1dsyjJXHcLM9MAjFg <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>提取码：14k3</p>
+]]></content>
+      <categories>
+        <category>开发</category>
+      </categories>
+      <tags>
+        <tag>资源</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>跨域问题</title>
+    <url>/2021/01/01/%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="1-什么是跨域"><a href="#1-什么是跨域" class="headerlink" title="1. 什么是跨域"></a>1. 什么是跨域</h2><p>跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，由浏览器<strong>同源策略</strong>限制导致的一类请求场景</p>
+<h3 id="1-1-什么是浏览器同源策略"><a href="#1-1-什么是浏览器同源策略" class="headerlink" title="1.1 什么是浏览器同源策略"></a>1.1 什么是浏览器同源策略</h3><p>同源策略&#x2F;SOP（Same origin policy）是一种约定，由Netscape公司1995年引入浏览器，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到XSS、CSFR等攻击。所谓同源是指**”协议+域名+端口”**三者相同，即便两个不同的域名指向同一个ip地址，也非同源。</p>
+<p>同源策略限制以下几种行为：</p>
+<ul>
+<li>Cookie、LocalStorage 和 IndexDB 无法读取</li>
+<li>DOM 和 Js对象无法获得</li>
+<li>AJAX 请求不能发送</li>
+</ul>
+<h3 id="1-2-常见跨域场景"><a href="#1-2-常见跨域场景" class="headerlink" title="1.2  常见跨域场景"></a><strong>1.2  常见跨域场景</strong></h3><table>
+<thead>
+<tr>
+<th>URL</th>
+<th>说明</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em><a class="link"   href="http://www.domain.com:8000/a.js" >http://www.domain.com:8000/a.js <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></em><br/><em><a class="link"   href="http://www.domain.com/b.js" >http://www.domain.com/b.js <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></em></td>
+<td>同一域名，不同端口</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><em><a class="link"   href="http://www.domain.com/a.js" >http://www.domain.com/a.js <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></em><br/><em><a class="link"   href="https://www.domain.com/b.js" >https://www.domain.com/b.js <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></em></td>
+<td>同一域名，不同协议</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><em><a class="link"   href="http://www.domain.com/a.js" >http://www.domain.com/a.js <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></em><br/><em><a class="link"   href="http://192.168.4.12/b.js" >http://192.168.4.12/b.js <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></em></td>
+<td>域名和域名对应相同ip</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>*<a class="link"   href="http://www.domain.com/a.js" >http://www.domain.com/a.js <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br/><a class="link"   href="http://x.domain.com/b.js" >http://x.domain.com/b.js <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a class="link"   href="http://domain.com/c.js" >http://domain.com/c.js <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>*</td>
+<td>主域相同，子域不同</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><em><a class="link"   href="http://www.domain1.com/a.js" >http://www.domain1.com/a.js <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br/><a class="link"   href="http://www.domain2.com/b.js" >http://www.domain2.com/b.js <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></em></td>
+<td>不同域名</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="2-跨域解决方案"><a href="#2-跨域解决方案" class="headerlink" title="2.跨域解决方案"></a>2.跨域解决方案</h2><ul>
+<li>通过jsonp跨域</li>
+<li>document.domain + iframe跨域</li>
+<li>location.hash + iframe</li>
+<li>window.name + iframe跨域</li>
+<li>postMessage跨域</li>
+<li>跨域资源共享（CORS）</li>
+<li>nginx代理跨域</li>
+<li>nodejs中间件代理跨域</li>
+<li>WebSocket协议跨域</li>
+</ul>
+<h4 id="一、-通过jsonp跨域"><a href="#一、-通过jsonp跨域" class="headerlink" title="一、 通过jsonp跨域"></a><strong>一、 通过jsonp跨域</strong></h4><p>通常为了减轻web服务器的负载，我们把js、css，img等静态资源分离到另一台独立域名的服务器上，在html页面中再通过相应的标签从不同域名下加载静态资源，而被浏览器允许，基于此原理，我们可以通过动态创建script，再请求一个带参网址实现跨域通信。</p>
+<p>1.）原生实现：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">   var script = document.createElement(&#x27;script&#x27;);</span><br><span class="line">   script.type = &#x27;text/javascript&#x27;;</span><br><span class="line"></span><br><span class="line">   // 传参并指定回调执行函数为onBack</span><br><span class="line">   script.src = &#x27;http://www.domain2.com:8080/login?user=admin&amp;callback=onBack&#x27;;</span><br><span class="line">   document.head.appendChild(script);</span><br><span class="line"></span><br><span class="line">   // 回调执行函数</span><br><span class="line">   function onBack(res) &#123;</span><br><span class="line">       alert(JSON.stringify(res));</span><br><span class="line">   &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>服务端返回如下（返回时即执行全局函数）：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">onBack(&#123;&quot;status&quot;: true, &quot;user&quot;: &quot;admin&quot;&#125;)</span><br></pre></td></tr></table></figure></div>
+
+<p>2.）jquery ajax：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    url: &#x27;http://www.domain2.com:8080/login&#x27;,</span><br><span class="line">    type: &#x27;get&#x27;,</span><br><span class="line">    dataType: &#x27;jsonp&#x27;,  // 请求方式为jsonp</span><br><span class="line">    jsonpCallback: &quot;onBack&quot;,    // 自定义回调函数名</span><br><span class="line">    data: &#123;&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+
+<p>3.）vue.js：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">this.$http.jsonp(&#x27;http://www.domain2.com:8080/login&#x27;, &#123;</span><br><span class="line">    params: &#123;&#125;,</span><br><span class="line">    jsonp: &#x27;onBack&#x27;</span><br><span class="line">&#125;).then((res) =&gt; &#123;</span><br><span class="line">    console.log(res); </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+
+<p>后端node.js代码示例：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">var querystring = require(&#x27;querystring&#x27;);</span><br><span class="line">var http = require(&#x27;http&#x27;);</span><br><span class="line">var server = http.createServer();</span><br><span class="line"></span><br><span class="line">server.on(&#x27;request&#x27;, function(req, res) &#123;</span><br><span class="line">    var params = qs.parse(req.url.split(&#x27;?&#x27;)[1]);</span><br><span class="line">    var fn = params.callback;</span><br><span class="line"></span><br><span class="line">    // jsonp返回设置</span><br><span class="line">    res.writeHead(200, &#123; &#x27;Content-Type&#x27;: &#x27;text/javascript&#x27; &#125;);</span><br><span class="line">    res.write(fn + &#x27;(&#x27; + JSON.stringify(params) + &#x27;)&#x27;);</span><br><span class="line"></span><br><span class="line">    res.end();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(&#x27;8080&#x27;);</span><br><span class="line">console.log(&#x27;Server is running at port 8080...&#x27;);</span><br></pre></td></tr></table></figure></div>
+
+<p>jsonp缺点：只能实现get一种请求。</p>
+<h4 id="二、-document-domain-iframe跨域"><a href="#二、-document-domain-iframe跨域" class="headerlink" title="二、 document.domain + iframe跨域"></a><strong>二、 document.domain + iframe跨域</strong></h4><p>此方案仅限主域相同，子域不同的跨域应用场景。</p>
+<p>实现原理：两个页面都通过js强制设置document.domain为基础主域，就实现了同域。</p>
+<p>1.）父窗口：(<a class="link"   href="http://www.domain.com/a.html)" >http://www.domain.com/a.html) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;iframe id=&quot;iframe&quot; src=&quot;http://child.domain.com/b.html&quot;&gt;&lt;/iframe&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    document.domain = &#x27;domain.com&#x27;;</span><br><span class="line">    var user = &#x27;admin&#x27;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>2.）子窗口：(<a class="link"   href="http://child.domain.com/b.html)" >http://child.domain.com/b.html) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    document.domain = &#x27;domain.com&#x27;;</span><br><span class="line">    // 获取父窗口中变量</span><br><span class="line">    alert(&#x27;get js data from parent ---&gt; &#x27; + window.parent.user);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="三、-location-hash-iframe跨域"><a href="#三、-location-hash-iframe跨域" class="headerlink" title="三、 location.hash + iframe跨域"></a><strong>三、 location.hash + iframe跨域</strong></h4><p>实现原理： a欲与b跨域相互通信，通过中间页c来实现。 三个页面，不同域之间利用iframe的location.hash传值，相同域之间直接js访问来通信。</p>
+<p>具体实现：A域：a.html -&gt; B域：b.html -&gt; A域：c.html，a与b不同域只能通过hash值单向通信，b与c也不同域也只能单向通信，但c与a同域，所以c可通过parent.parent访问a页面所有对象。</p>
+<p>1.）a.html：(<a class="link"   href="http://www.domain1.com/a.html)" >http://www.domain1.com/a.html) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;iframe id=&quot;iframe&quot; src=&quot;http://www.domain2.com/b.html&quot; style=&quot;display:none;&quot;&gt;&lt;/iframe&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var iframe = document.getElementById(&#x27;iframe&#x27;);</span><br><span class="line"></span><br><span class="line">    // 向b.html传hash值</span><br><span class="line">    setTimeout(function() &#123;</span><br><span class="line">        iframe.src = iframe.src + &#x27;#user=admin&#x27;;</span><br><span class="line">    &#125;, 1000);</span><br><span class="line">    </span><br><span class="line">    // 开放给同域c.html的回调方法</span><br><span class="line">    function onCallback(res) &#123;</span><br><span class="line">        alert(&#x27;data from c.html ---&gt; &#x27; + res);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>2.）b.html：(<a class="link"   href="http://www.domain2.com/b.html)" >http://www.domain2.com/b.html) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;iframe id=&quot;iframe&quot; src=&quot;http://www.domain1.com/c.html&quot; style=&quot;display:none;&quot;&gt;&lt;/iframe&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var iframe = document.getElementById(&#x27;iframe&#x27;);</span><br><span class="line"></span><br><span class="line">    // 监听a.html传来的hash值，再传给c.html</span><br><span class="line">    window.onhashchange = function () &#123;</span><br><span class="line">        iframe.src = iframe.src + location.hash;</span><br><span class="line">    &#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>3.）c.html：(<a class="link"   href="http://www.domain1.com/c.html)" >http://www.domain1.com/c.html) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    // 监听b.html传来的hash值</span><br><span class="line">    window.onhashchange = function () &#123;</span><br><span class="line">        // 再通过操作同域a.html的js回调，将结果传回</span><br><span class="line">        window.parent.parent.onCallback(&#x27;hello: &#x27; + location.hash.replace(&#x27;#user=&#x27;, &#x27;&#x27;));</span><br><span class="line">    &#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="四、-window-name-iframe跨域"><a href="#四、-window-name-iframe跨域" class="headerlink" title="四、 window.name + iframe跨域"></a><strong>四、 window.name + iframe跨域</strong></h4><p>window.name属性的独特之处：name值在不同的页面（甚至不同域名）加载后依旧存在，并且可以支持非常长的 name 值（2MB）。</p>
+<p>1.）a.html：(<a class="link"   href="http://www.domain1.com/a.html)" >http://www.domain1.com/a.html) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">var proxy = function(url, callback) &#123;</span><br><span class="line">    var state = 0;</span><br><span class="line">    var iframe = document.createElement(&#x27;iframe&#x27;);</span><br><span class="line"></span><br><span class="line">    // 加载跨域页面</span><br><span class="line">    iframe.src = url;</span><br><span class="line"></span><br><span class="line">    // onload事件会触发2次，第1次加载跨域页，并留存数据于window.name</span><br><span class="line">    iframe.onload = function() &#123;</span><br><span class="line">        if (state === 1) &#123;</span><br><span class="line">            // 第2次onload(同域proxy页)成功后，读取同域window.name中数据</span><br><span class="line">            callback(iframe.contentWindow.name);</span><br><span class="line">            destoryFrame();</span><br><span class="line"></span><br><span class="line">        &#125; else if (state === 0) &#123;</span><br><span class="line">            // 第1次onload(跨域页)成功后，切换到同域代理页面</span><br><span class="line">            iframe.contentWindow.location = &#x27;http://www.domain1.com/proxy.html&#x27;;</span><br><span class="line">            state = 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    document.body.appendChild(iframe);</span><br><span class="line"></span><br><span class="line">    // 获取数据以后销毁这个iframe，释放内存；这也保证了安全（不被其他域frame js访问）</span><br><span class="line">    function destoryFrame() &#123;</span><br><span class="line">        iframe.contentWindow.document.write(&#x27;&#x27;);</span><br><span class="line">        iframe.contentWindow.close();</span><br><span class="line">        document.body.removeChild(iframe);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 请求跨域b页面数据</span><br><span class="line">proxy(&#x27;http://www.domain2.com/b.html&#x27;, function(data)&#123;</span><br><span class="line">    alert(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+
+<p>2.）proxy.html：(<a class="link"   href="http://www.domain1.com/proxy.html" >http://www.domain1.com/proxy.... <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>)<br>中间代理页，与a.html同域，内容为空即可。</p>
+<p>3.）b.html：(<a class="link"   href="http://www.domain2.com/b.html)" >http://www.domain2.com/b.html) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    window.name = &#x27;This is domain2 data!&#x27;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>总结：通过iframe的src属性由外域转向本地域，跨域数据即由iframe的window.name从外域传递到本地域。这个就巧妙地绕过了浏览器的跨域访问限制，但同时它又是安全操作。</p>
+<h4 id="五、-postMessage跨域"><a href="#五、-postMessage跨域" class="headerlink" title="五、 postMessage跨域"></a><strong>五、 postMessage跨域</strong></h4><p>postMessage是HTML5 XMLHttpRequest Level 2中的API，且是为数不多可以跨域操作的window属性之一，它可用于解决以下方面的问题：<br>a.） 页面和其打开的新窗口的数据传递<br>b.） 多窗口之间消息传递<br>c.） 页面与嵌套的iframe消息传递<br>d.） 上面三个场景的跨域数据传递</p>
+<p>用法：postMessage(data,origin)方法接受两个参数<br>data： html5规范支持任意基本类型或可复制的对象，但部分浏览器只支持字符串，所以传参时最好用JSON.stringify()序列化。<br>origin： 协议+主机+端口号，也可以设置为”*”，表示可以传递给任意窗口，如果要指定和当前窗口同源的话设置为”&#x2F;“。</p>
+<p>1.）a.html：(<a class="link"   href="http://www.domain1.com/a.html)" >http://www.domain1.com/a.html) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;iframe id=&quot;iframe&quot; src=&quot;http://www.domain2.com/b.html&quot; style=&quot;display:none;&quot;&gt;&lt;/iframe&gt;</span><br><span class="line">&lt;script&gt;       </span><br><span class="line">    var iframe = document.getElementById(&#x27;iframe&#x27;);</span><br><span class="line">    iframe.onload = function() &#123;</span><br><span class="line">        var data = &#123;</span><br><span class="line">            name: &#x27;aym&#x27;</span><br><span class="line">        &#125;;</span><br><span class="line">        // 向domain2传送跨域数据</span><br><span class="line">        iframe.contentWindow.postMessage(JSON.stringify(data), &#x27;http://www.domain2.com&#x27;);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    // 接受domain2返回数据</span><br><span class="line">    window.addEventListener(&#x27;message&#x27;, function(e) &#123;</span><br><span class="line">        alert(&#x27;data from domain2 ---&gt; &#x27; + e.data);</span><br><span class="line">    &#125;, false);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>2.）b.html：(<a class="link"   href="http://www.domain2.com/b.html)" >http://www.domain2.com/b.html) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    // 接收domain1的数据</span><br><span class="line">    window.addEventListener(&#x27;message&#x27;, function(e) &#123;</span><br><span class="line">        alert(&#x27;data from domain1 ---&gt; &#x27; + e.data);</span><br><span class="line"></span><br><span class="line">        var data = JSON.parse(e.data);</span><br><span class="line">        if (data) &#123;</span><br><span class="line">            data.number = 16;</span><br><span class="line"></span><br><span class="line">            // 处理后再发回domain1</span><br><span class="line">            window.parent.postMessage(JSON.stringify(data), &#x27;http://www.domain1.com&#x27;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, false);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="六、-跨域资源共享（CORS）"><a href="#六、-跨域资源共享（CORS）" class="headerlink" title="六、 跨域资源共享（CORS）"></a><strong>六、 跨域资源共享（CORS）</strong></h4><p>普通跨域请求：只服务端设置Access-Control-Allow-Origin即可，前端无须设置，若要带cookie请求：前后端都需要设置。</p>
+<p>需注意的是：由于同源策略的限制，所读取的cookie为跨域请求接口所在域的cookie，而非当前页。如果想实现当前页cookie的写入，可参考下文：七、nginx反向代理中设置proxy_cookie_domain 和 八、NodeJs中间件代理中cookieDomainRewrite参数的设置。</p>
+<p>目前，所有浏览器都支持该功能(IE8+：IE8&#x2F;9需要使用XDomainRequest对象来支持CORS）)，CORS也已经成为主流的跨域解决方案。</p>
+<h5 id="1、-前端设置："><a href="#1、-前端设置：" class="headerlink" title="1、 前端设置："></a><strong>1、 前端设置：</strong></h5><p>1.）原生ajax</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 前端设置是否带cookie</span><br><span class="line">xhr.withCredentials = true;</span><br></pre></td></tr></table></figure></div>
+
+<p>示例代码：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">var xhr = new XMLHttpRequest(); // IE8/9需用window.XDomainRequest兼容</span><br><span class="line"></span><br><span class="line">// 前端设置是否带cookie</span><br><span class="line">xhr.withCredentials = true;</span><br><span class="line"></span><br><span class="line">xhr.open(&#x27;post&#x27;, &#x27;http://www.domain2.com:8080/login&#x27;, true);</span><br><span class="line">xhr.setRequestHeader(&#x27;Content-Type&#x27;, &#x27;application/x-www-form-urlencoded&#x27;);</span><br><span class="line">xhr.send(&#x27;user=admin&#x27;);</span><br><span class="line"></span><br><span class="line">xhr.onreadystatechange = function() &#123;</span><br><span class="line">    if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) &#123;</span><br><span class="line">        alert(xhr.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+
+<p>2.）jQuery ajax</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    ...</span><br><span class="line">   xhrFields: &#123;</span><br><span class="line">       withCredentials: true    // 前端设置是否带cookie</span><br><span class="line">   &#125;,</span><br><span class="line">   crossDomain: true,   // 会让请求头中包含跨域的额外信息，但不会含cookie</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+
+<p>3.）vue框架</p>
+<p>a.) axios设置：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">axios.defaults.withCredentials = true</span><br></pre></td></tr></table></figure></div>
+
+<p>b.) vue-resource设置：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">Vue.http.options.credentials = true</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="2、-服务端设置："><a href="#2、-服务端设置：" class="headerlink" title="2、 服务端设置："></a><strong>2、 服务端设置：</strong></h5><p>若后端设置成功，前端浏览器控制台则不会出现跨域报错信息，反之，说明没设成功。</p>
+<p>1.）Java后台：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line"> * 导入包：import javax.servlet.http.HttpServletResponse;</span><br><span class="line"> * 接口参数中定义：HttpServletResponse response</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">// 允许跨域访问的域名：若有端口需写全（协议+域名+端口），若没有端口末尾不用加&#x27;/&#x27;</span><br><span class="line">response.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;http://www.domain1.com&quot;); </span><br><span class="line"></span><br><span class="line">// 允许前端带认证cookie：启用此项后，上面的域名不能为&#x27;*&#x27;，必须指定具体的域名，否则浏览器会提示</span><br><span class="line">response.setHeader(&quot;Access-Control-Allow-Credentials&quot;, &quot;true&quot;); </span><br><span class="line"></span><br><span class="line">// 提示OPTIONS预检时，后端需要设置的两个常用自定义头</span><br><span class="line">response.setHeader(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type,X-Requested-With&quot;);</span><br></pre></td></tr></table></figure></div>
+
+<p>2.）Nodejs后台示例：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">var http = require(&#x27;http&#x27;);</span><br><span class="line">var server = http.createServer();</span><br><span class="line">var qs = require(&#x27;querystring&#x27;);</span><br><span class="line"></span><br><span class="line">server.on(&#x27;request&#x27;, function(req, res) &#123;</span><br><span class="line">    var postData = &#x27;&#x27;;</span><br><span class="line"></span><br><span class="line">    // 数据块接收中</span><br><span class="line">    req.addListener(&#x27;data&#x27;, function(chunk) &#123;</span><br><span class="line">        postData += chunk;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    // 数据接收完毕</span><br><span class="line">    req.addListener(&#x27;end&#x27;, function() &#123;</span><br><span class="line">        postData = qs.parse(postData);</span><br><span class="line"></span><br><span class="line">        // 跨域后台设置</span><br><span class="line">        res.writeHead(200, &#123;</span><br><span class="line">            &#x27;Access-Control-Allow-Credentials&#x27;: &#x27;true&#x27;,     // 后端允许发送Cookie</span><br><span class="line">            &#x27;Access-Control-Allow-Origin&#x27;: &#x27;http://www.domain1.com&#x27;,    // 允许访问的域（协议+域名+端口）</span><br><span class="line">            /* </span><br><span class="line">             * 此处设置的cookie还是domain2的而非domain1，因为后端也不能跨域写cookie(nginx反向代理可以实现)，</span><br><span class="line">             * 但只要domain2中写入一次cookie认证，后面的跨域接口都能从domain2中获取cookie，从而实现所有的接口都能跨域访问</span><br><span class="line">             */</span><br><span class="line">            &#x27;Set-Cookie&#x27;: &#x27;l=a123456;Path=/;Domain=www.domain2.com;HttpOnly&#x27;  // HttpOnly的作用是让js无法读取cookie</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        res.write(JSON.stringify(postData));</span><br><span class="line">        res.end();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(&#x27;8080&#x27;);</span><br><span class="line">console.log(&#x27;Server is running at port 8080...&#x27;);</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="七、-nginx代理跨域"><a href="#七、-nginx代理跨域" class="headerlink" title="七、 nginx代理跨域"></a><strong>七、 nginx代理跨域</strong></h4><h5 id="1、-nginx配置解决iconfont跨域"><a href="#1、-nginx配置解决iconfont跨域" class="headerlink" title="1、 nginx配置解决iconfont跨域"></a><strong>1、 nginx配置解决iconfont跨域</strong></h5><p>浏览器跨域访问js、css、img等常规静态资源被同源策略许可，但iconfont字体文件(eot|otf|ttf|woff|svg)例外，此时可在nginx的静态资源服务器中加入以下配置。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">  add_header Access-Control-Allow-Origin *;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="2、-nginx反向代理接口跨域"><a href="#2、-nginx反向代理接口跨域" class="headerlink" title="2、 nginx反向代理接口跨域"></a><strong>2、 nginx反向代理接口跨域</strong></h5><p>跨域原理： 同源策略是浏览器的安全策略，不是HTTP协议的一部分。服务器端调用HTTP接口只是使用HTTP协议，不会执行JS脚本，不需要同源策略，也就不存在跨越问题。</p>
+<p>实现思路：通过nginx配置一个代理服务器（域名与domain1相同，端口不同）做跳板机，反向代理访问domain2接口，并且可以顺便修改cookie中domain信息，方便当前域cookie写入，实现跨域登录。</p>
+<p>nginx具体配置：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">#proxy服务器</span><br><span class="line">server &#123;</span><br><span class="line">    listen       81;</span><br><span class="line">    server_name  www.domain1.com;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass   http://www.domain2.com:8080;  #反向代理</span><br><span class="line">        proxy_cookie_domain www.domain2.com www.domain1.com; #修改cookie里域名</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line"></span><br><span class="line">        # 当用webpack-dev-server等中间件代理接口访问nignx时，此时无浏览器参与，故没有同源限制，下面的跨域配置可不启用</span><br><span class="line">        add_header Access-Control-Allow-Origin http://www.domain1.com;  #当前端只跨域不带cookie时，可为*</span><br><span class="line">        add_header Access-Control-Allow-Credentials true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>1.) 前端代码示例：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">var xhr = new XMLHttpRequest();</span><br><span class="line"></span><br><span class="line">// 前端开关：浏览器是否读写cookie</span><br><span class="line">xhr.withCredentials = true;</span><br><span class="line"></span><br><span class="line">// 访问nginx中的代理服务器</span><br><span class="line">xhr.open(&#x27;get&#x27;, &#x27;http://www.domain1.com:81/?user=admin&#x27;, true);</span><br><span class="line">xhr.send();</span><br></pre></td></tr></table></figure></div>
+
+<p>2.) Nodejs后台示例：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">var http = require(&#x27;http&#x27;);</span><br><span class="line">var server = http.createServer();</span><br><span class="line">var qs = require(&#x27;querystring&#x27;);</span><br><span class="line"></span><br><span class="line">server.on(&#x27;request&#x27;, function(req, res) &#123;</span><br><span class="line">    var params = qs.parse(req.url.substring(2));</span><br><span class="line"></span><br><span class="line">    // 向前台写cookie</span><br><span class="line">    res.writeHead(200, &#123;</span><br><span class="line">        &#x27;Set-Cookie&#x27;: &#x27;l=a123456;Path=/;Domain=www.domain2.com;HttpOnly&#x27;   // HttpOnly:脚本无法读取</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    res.write(JSON.stringify(params));</span><br><span class="line">    res.end();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(&#x27;8080&#x27;);</span><br><span class="line">console.log(&#x27;Server is running at port 8080...&#x27;);</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="八、-Nodejs中间件代理跨域"><a href="#八、-Nodejs中间件代理跨域" class="headerlink" title="八、 Nodejs中间件代理跨域"></a><strong>八、 Nodejs中间件代理跨域</strong></h4><p>node中间件实现跨域代理，原理大致与nginx相同，都是通过启一个代理服务器，实现数据的转发，也可以通过设置cookieDomainRewrite参数修改响应头中cookie中域名，实现当前域的cookie写入，方便接口登录认证。</p>
+<h5 id="1、-非vue框架的跨域（2次跨域）"><a href="#1、-非vue框架的跨域（2次跨域）" class="headerlink" title="1、 非vue框架的跨域（2次跨域）"></a><strong>1、 非vue框架的跨域（2次跨域）</strong></h5><p>利用node + express + http-proxy-middleware搭建一个proxy服务器。</p>
+<p>1.）前端代码示例：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">var xhr = new XMLHttpRequest();</span><br><span class="line"></span><br><span class="line">// 前端开关：浏览器是否读写cookie</span><br><span class="line">xhr.withCredentials = true;</span><br><span class="line"></span><br><span class="line">// 访问http-proxy-middleware代理服务器</span><br><span class="line">xhr.open(&#x27;get&#x27;, &#x27;http://www.domain1.com:3000/login?user=admin&#x27;, true);</span><br><span class="line">xhr.send();</span><br></pre></td></tr></table></figure></div>
+
+<p>2.）中间件服务器：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">var express = require(&#x27;express&#x27;);</span><br><span class="line">var proxy = require(&#x27;http-proxy-middleware&#x27;);</span><br><span class="line">var app = express();</span><br><span class="line"></span><br><span class="line">app.use(&#x27;/&#x27;, proxy(&#123;</span><br><span class="line">    // 代理跨域目标接口</span><br><span class="line">    target: &#x27;http://www.domain2.com:8080&#x27;,</span><br><span class="line">    changeOrigin: true,</span><br><span class="line"></span><br><span class="line">    // 修改响应头信息，实现跨域并允许带cookie</span><br><span class="line">    onProxyRes: function(proxyRes, req, res) &#123;</span><br><span class="line">        res.header(&#x27;Access-Control-Allow-Origin&#x27;, &#x27;http://www.domain1.com&#x27;);</span><br><span class="line">        res.header(&#x27;Access-Control-Allow-Credentials&#x27;, &#x27;true&#x27;);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    // 修改响应信息中的cookie域名</span><br><span class="line">    cookieDomainRewrite: &#x27;www.domain1.com&#x27;  // 可以为false，表示不修改</span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line">app.listen(3000);</span><br><span class="line">console.log(&#x27;Proxy server is listen at port 3000...&#x27;);</span><br></pre></td></tr></table></figure></div>
+
+<p>3.）Nodejs后台同（六：nginx）</p>
+<h5 id="2、-vue框架的跨域（1次跨域）"><a href="#2、-vue框架的跨域（1次跨域）" class="headerlink" title="2、 vue框架的跨域（1次跨域）"></a><strong>2、 vue框架的跨域（1次跨域）</strong></h5><p>利用node + webpack + webpack-dev-server代理接口跨域。在开发环境下，由于vue渲染服务和接口代理服务都是webpack-dev-server同一个，所以页面与代理接口之间不再跨域，无须设置headers跨域信息了。</p>
+<p>webpack.config.js部分配置：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">    entry: &#123;&#125;,</span><br><span class="line">    module: &#123;&#125;,</span><br><span class="line">    ...</span><br><span class="line">    devServer: &#123;</span><br><span class="line">        historyApiFallback: true,</span><br><span class="line">        proxy: [&#123;</span><br><span class="line">            context: &#x27;/login&#x27;,</span><br><span class="line">            target: &#x27;http://www.domain2.com:8080&#x27;,  // 代理跨域目标接口</span><br><span class="line">            changeOrigin: true,</span><br><span class="line">            secure: false,  // 当代理某些https服务报错时用</span><br><span class="line">            cookieDomainRewrite: &#x27;www.domain1.com&#x27;  // 可以为false，表示不修改</span><br><span class="line">        &#125;],</span><br><span class="line">        noInfo: true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="九、-WebSocket协议跨域"><a href="#九、-WebSocket协议跨域" class="headerlink" title="九、 WebSocket协议跨域"></a>九、 WebSocket协议跨域</h4><p>WebSocket protocol是HTML5一种新的协议。它实现了浏览器与服务器全双工通信，同时允许跨域通讯，是server push技术的一种很好的实现。<br>原生WebSocket API使用起来不太方便，我们使用Socket.io，它很好地封装了webSocket接口，提供了更简单、灵活的接口，也对不支持webSocket的浏览器提供了向下兼容。</p>
+<p>1.）前端代码：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;user input：&lt;input type=&quot;text&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;script src=&quot;./socket.io.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">var socket = io(&#x27;http://www.domain2.com:8080&#x27;);</span><br><span class="line"></span><br><span class="line">// 连接成功处理</span><br><span class="line">socket.on(&#x27;connect&#x27;, function() &#123;</span><br><span class="line">    // 监听服务端消息</span><br><span class="line">    socket.on(&#x27;message&#x27;, function(msg) &#123;</span><br><span class="line">        console.log(&#x27;data from server: ---&gt; &#x27; + msg); </span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    // 监听服务端关闭</span><br><span class="line">    socket.on(&#x27;disconnect&#x27;, function() &#123; </span><br><span class="line">        console.log(&#x27;Server socket has closed.&#x27;); </span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">document.getElementsByTagName(&#x27;input&#x27;)[0].onblur = function() &#123;</span><br><span class="line">    socket.send(this.value);</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>2.）Nodejs socket后台：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">var http = require(&#x27;http&#x27;);</span><br><span class="line">var socket = require(&#x27;socket.io&#x27;);</span><br><span class="line"></span><br><span class="line">// 启http服务</span><br><span class="line">var server = http.createServer(function(req, res) &#123;</span><br><span class="line">    res.writeHead(200, &#123;</span><br><span class="line">        &#x27;Content-type&#x27;: &#x27;text/html&#x27;</span><br><span class="line">    &#125;);</span><br><span class="line">    res.end();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(&#x27;8080&#x27;);</span><br><span class="line">console.log(&#x27;Server is running at port 8080...&#x27;);</span><br><span class="line"></span><br><span class="line">// 监听socket连接</span><br><span class="line">socket.listen(server).on(&#x27;connection&#x27;, function(client) &#123;</span><br><span class="line">    // 接收信息</span><br><span class="line">    client.on(&#x27;message&#x27;, function(msg) &#123;</span><br><span class="line">        client.send(&#x27;hello：&#x27; + msg);</span><br><span class="line">        console.log(&#x27;data from client: ---&gt; &#x27; + msg);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    // 断开处理</span><br><span class="line">    client.on(&#x27;disconnect&#x27;, function() &#123;</span><br><span class="line">        console.log(&#x27;Client socket has closed.&#x27;); </span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>浏览器</category>
+      </categories>
+      <tags>
+        <tag>http</tag>
       </tags>
   </entry>
   <entry>
@@ -1618,6 +3120,61 @@ BFC清除浮动</p>
       </tags>
   </entry>
   <entry>
+    <title>个人简历</title>
+    <url>/2017/11/04/%E7%94%9F%E6%B4%BB%E9%9A%8F%E8%AE%B0/%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/</url>
+    <content><![CDATA[<h2 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h2><p>姜文 | 男 | 1994 | 汉 |未婚</p>
+<p>福建农林大学东方学院|本科|学士 </p>
+<p>手机&#x2F;微信：17759795597</p>
+<p>Email：<a class="link"   href="mailto:&#x6a;&#x69;&#x61;&#110;&#x67;&#x77;&#101;&#110;&#53;&#57;&#52;&#x35;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;" >&#x6a;&#x69;&#x61;&#110;&#x67;&#x77;&#101;&#110;&#53;&#57;&#52;&#x35;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d; <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>Github：<a class="link"   href="https://github.com/jiangwen5945" >https://github.com/jiangwen5945 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>技术博客：<a class="link"   href="http://blog.github.io/" >https://jiangwen1994.cn <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> </p>
+<p>期望职位：前端开发工程师</p>
+<p>期望薪资：税前月薪 8k~10k</p>
+<p>期望城市：福州 | 广州 |深圳</p>
+<hr>
+<h2 id="工作经历"><a href="#工作经历" class="headerlink" title="工作经历"></a>工作经历</h2><p><strong>福建华超信息科技有限公司 (2018.11-2019.2)</strong></p>
+<p>app研发项目组，负责app前端开发的工作，采用基于h5的hybrid app的开发模式，根据ui设计稿完成界面的布局搭建，配合后端数据的API接口完成业务的逻辑操作</p>
+<p><strong>福州中榕网络科技有限公司 (2017.10-2018.11)</strong></p>
+<p>公司的IT技术部任职前端开发的岗位，任职期间负责购物商城（pc、微信小程序）和公司官网（响应式）及后台管理系统的开发；日常推广活动专题页面的制作；以及公司网站页面关键词的seo优化</p>
+<hr>
+<h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><blockquote>
+<p><a class="link"   href="https://jiangwen1994.cn/" >个人主页 · 技术博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</blockquote>
+<p><strong>项目描述：</strong>采用了响应式的布局，兼容PC端和移动端，并按照模块化模式进行开发，运用到了webpack、ejs、Echarts等工具，对webp格式图片进行了兼容支持,以及sprite、懒加载、防抖节流等技术进行网站性能的优化，并使用Github进行项目代码的版本控制，满足日常博客日志的更新和博客代码的优化以及新增功能</p>
+<blockquote>
+<p>国家电网-电力执法办APP</p>
+</blockquote>
+<p><strong>项目描述：</strong>该项目是一款可在Android和IOS手机平台上运行的Hybrid App ，基于Vue框架为代码语言进行开发，视图层采用Flex弹性布局，逻辑层采用模块化模式开发；同时引入了Echarts，layer等插件功能；满足了根据不同登录角色权限完成各个地区的隐患的表单提报、查询、审批等业务功能，实现业务逻辑的需求</p>
+<blockquote>
+<p><a class="link"   href="http://www.987tea.com/PC/Default" >中榕商城 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</blockquote>
+<p><strong>项目描述：</strong>该项目是一个可在pc和微信小程序端运行的专业茶叶茶具综合网上购物商城；视图层采用Flex弹性布局，逻辑层采用模块化开发，并运用Sass、懒加载、雪碧图等技术，结合layer、swiper等前端插件进行开发</p>
+<blockquote>
+<p><a class="link"   href="http://www.chinazooron.com/" >中榕企业官网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</blockquote>
+<p><strong>项目描述：</strong>公司官网用于进行企业文化、公司业务、岗位招聘联系等功能的展示和介绍；基于UI框架Bootstrap开发，实现多终端响应式布局与良好的兼容性(IE8)，并对网站关键词进行搜索引擎优化</p>
+<blockquote>
+<p><a class="link"   href="https://xiamao.350427.com/" >瞎猫网 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</blockquote>
+<p><strong>项目描述：</strong>该项目是一个以坚果类作为食品的垂直细分领域的商城购物平台，配合商城的后台系统进行商城  数据的管理，按照主流商城的业务流程进行开发搭建，完成了从用户注册登陆、商品浏览、到添加购物车及下单结算和物流信息查询反馈等购物流程。</p>
+<p>后端部分：PHP + MySQL</p>
+<p>前端部分：DIV+CSS+JS&#x2F;JQuery+Ajax</p>
+<hr>
+<h2 id="自我评价"><a href="#自我评价" class="headerlink" title="自我评价"></a>自我评价</h2><blockquote>
+<p>Stay hungry, stay foolish</p>
+</blockquote>
+<p>学而知不足，对技术充满着探索和分享总结的热情。关注前端领域的技术发展和变化,了解Vue、jQuery框架，熟悉es6、h5、css模块化等前端技术，参与过移动端(hybrid,原生h5)、PC端项目，对于前端有相关优化的经验见解,以及一定的设计与审美能力。</p>
+<hr>
+<h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><p>感谢您花时间阅读我的简历，期待能有机会与您共事。</p>
+]]></content>
+      <categories>
+        <category>个人</category>
+      </categories>
+      <tags>
+        <tag>个人</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>满纸荒唐言</title>
     <url>/2023/03/06/%E7%94%9F%E6%B4%BB%E9%9A%8F%E8%AE%B0/%E6%BB%A1%E7%BA%B8%E8%8D%92%E5%94%90%E8%A8%80/</url>
     <content><![CDATA[<!-- B站视频卡片 -->
@@ -1691,7 +3248,7 @@ BFC清除浮动</p>
   </entry>
   <entry>
     <title>Typescript学习笔记</title>
-    <url>/2023/03/12/Javascript/Typescript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%9D%E8%AF%86TS%E5%92%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <url>/2020/01/01/Javascript/Typescript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%88%9D%E8%AF%86TS%E5%92%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<blockquote>
 <p>TypeScript是一种由微软开发的开源编程语言,它是JavaScript的一个超集,具有以下特性：</p>
 </blockquote>
