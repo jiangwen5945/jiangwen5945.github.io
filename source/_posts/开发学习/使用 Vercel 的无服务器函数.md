@@ -3,7 +3,7 @@ title: 使用 Vercel 的无服务器函数
 excerpt: false
 thumbnail: 'https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/dd3e880811ebb6e017c2d2eca2.webp'
 tags: [Vercel]
-categories: [开发]
+categories: 开发
 date: 2020-02-28 12:15:00
 ---
 

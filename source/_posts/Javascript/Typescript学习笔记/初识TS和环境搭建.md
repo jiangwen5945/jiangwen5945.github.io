@@ -3,7 +3,7 @@ title: Typescript学习笔记
 tags: [Typescript]
 categories: Typescript
 thumbnail: https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/20ab6cb5cef84475ad912705b3d5da51.webp
-date: 2023-03-12 21:59:26
+date: 2020-01-01 18:00:00
 ---
 
 > TypeScript是一种由微软开发的开源编程语言,它是JavaScript的一个超集,具有以下特性：
