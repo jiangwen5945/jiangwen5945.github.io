@@ -178,9 +178,10 @@ navbar:
     About: 
       icon: fa-regular fa-compass
       submenus:
-        我: /about
+        博主: /about
+        说说: /essays
+        相册:  /masonry
         link: /links
-        说说: /essays 
   # Navbar search (local search). Requires hexo-generator-searchdb (npm i hexo-generator-searchdb). See https://github.com/theme-next/hexo-generator-searchdb
   search:
     # Whether to enable
@@ -199,15 +200,18 @@ home:
     first_item: menu # First item in sidebar. menu, info
     announcement: # Announcement text
     links:
-      Archives: 
-        path: /archives 
-        icon: fa-regular fa-archive # can be empty
-      Tags: 
-        path: /tags 
-        icon: fa-regular fa-tags # can be empty
-      Categories: 
-        path: /categories 
-        icon: fa-regular fa-folder # can be empty
+      博主: 
+        path: /about
+        icon: fa-regular fa-mask
+      说说:
+        path: /essays
+        icon: fa-regular fa-pen-line
+      相册:  
+        path: /masonry
+        icon: fa-regular fa-image
+      友链: 
+        path: /links
+        icon: fa-regular fa-link
       # ...... # you can add more
   # Article date format
   article_date_format: auto # auto, relative, YYYY-MM-DD, YYYY-MM-DD HH:mm:ss etc.
