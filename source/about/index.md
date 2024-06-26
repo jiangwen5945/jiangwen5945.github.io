@@ -20,7 +20,7 @@ comment: false
 ## 个人作品
 - 瞎猫商城 <a href="https://xiamao-mall.jiangwen.site"><i class='fa-regular fa-arrow-up-right-from-square fa-sm'></i></a>
 - 瞎猫后台管理系统 <a href="https://admin.jiangwen.site"><i class='fa-regular fa-arrow-up-right-from-square fa-sm'></i></a>
-- 文以载道<a href="https://blog.jiangwen.site"><i class='fa-regular fa-arrow-up-right-from-square fa-sm'></i></a>
+- 博客网站(文以载道)<a href="https://blog.jiangwen.site"><i class='fa-regular fa-arrow-up-right-from-square fa-sm'></i></a>
 - 数据可视化面板 <a href="https://panel.jiangwen.site"><i class='fa-regular fa-arrow-up-right-from-square fa-sm'></i></a>
 - 瞎猫寻音(小程序)
 - 瞎猫觅书(小程序)
@@ -30,6 +30,10 @@ comment: false
 - 国家电力设施(uni-app)
 - 兴业银行金服云(pc+移动)
 - 中榕商城(pc+移动)
+- 数字助手工作台
+- 视频会议技术支持系统
+- 海峡峰会展播app
+- IT微服务（网点设备故障申告系统、设备自助服务系统）
 
 
 ## 社交平台
