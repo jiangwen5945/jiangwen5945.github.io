@@ -1,7 +1,7 @@
 ---
 title: 实现一个简单的vue
 excerpt: false
-thumbnail: 'https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/dd3e880811ebb6e017c2d2eca2.webp'
+thumbnail: 'https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/cover/4.webp'
 tags: [Vue]
 categories: [Vue]
 date: 2022-10-28 12:15:00

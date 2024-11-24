@@ -1,7 +1,7 @@
 ---
 title: 实现移动端Retina屏幕1px边框
 excerpt: false
-thumbnail: 'https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/dd3e880811ebb6e017c2d2eca2.webp'
+thumbnail: 'https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/cover/4.webp'
 tags: [移动端适配, H5]
 categories: [CSS]
 date: 2021-11-18 11:25:00

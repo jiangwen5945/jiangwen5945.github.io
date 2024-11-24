@@ -1,9 +1,9 @@
 ---
-title: Hello Hexo
+title: Hexo入坑指南
 tags: [Hexo]
 categories: Hexo
-sticky: 999
-thumbnail: 'https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/dd3e880811ebb6e017c2d2eca2.webp'
+sticky: 9
+thumbnail: 'https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/cover/0.webp'
 excerpt: This is the excerpt of the post
 date: 2022-09-28 11:45:00
 ---

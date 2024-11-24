@@ -2,7 +2,7 @@
 title: Typescript学习笔记
 tags: [Typescript]
 categories: Typescript
-thumbnail: https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/20ab6cb5cef84475ad912705b3d5da51.webp
+thumbnail: https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/cover/11.webp
 date: 2020-01-01 18:00:00
 ---
 

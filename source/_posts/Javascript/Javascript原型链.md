@@ -1,7 +1,7 @@
 ---
 title: Javascript原型链
 excerpt: false
-thumbnail: 'https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/dd3e880811ebb6e017c2d2eca2.webp'
+thumbnail: 'https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/cover/4.webp'
 tags: [Javascript]
 categories: [Javascript]
 date: 2020-02-28 12:15:00

@@ -4,7 +4,7 @@ excerpt: false
 tags: [http]
 categories: 浏览器
 date: 2021-01-01 18:00:00
-thumbnail: 'https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/dd3e880811ebb6e017c2d2eca2.webp'
+thumbnail: 'https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/cover/4.webp'
 ---
 
 URL的输入到浏览器解析，一般分为以下几个步骤：

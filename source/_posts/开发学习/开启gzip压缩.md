@@ -3,7 +3,7 @@ title: 开启gzip压缩
 tags: [优化， gzip]
 categories: 开发
 date: 2022-03-06 18:50:24
-thumbnail: https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/20ab6cb5cef84475ad912705b3d5da51.webp
+thumbnail: https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/cover/11.webp
 ---
 
 1. 首先安装插件 `npm i compression-webpack-plugin@10.0.0 `

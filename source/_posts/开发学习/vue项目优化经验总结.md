@@ -3,7 +3,7 @@ title: vue项目优化经验总结
 tags: [优化， gzip]
 categories: 开发
 date: 2022-04-16 18:50:24
-thumbnail: https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/20ab6cb5cef84475ad912705b3d5da51.webp
+thumbnail: https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/cover/11.webp
 ---
 
 

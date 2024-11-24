@@ -1,7 +1,7 @@
 ---
 title: diff算法原理解析
 excerpt: false
-thumbnail: 'https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/dd3e880811ebb6e017c2d2eca2.webp'
+thumbnail: 'https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/cover/4.webp'
 tags: [Vue]
 categories: [Vue]
 date: 2022-11-22 11:15:00

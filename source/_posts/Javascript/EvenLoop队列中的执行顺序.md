@@ -1,7 +1,7 @@
 ---
 title: EvenLoop队列中的执行顺序
 excerpt: false
-thumbnail: 'https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/dd3e880811ebb6e017c2d2eca2.webp'
+thumbnail: 'https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/cover/8.webp'
 tags: [EvenLoop]
 categories: [Javascript]
 date: 2023-03-28 12:15:00
