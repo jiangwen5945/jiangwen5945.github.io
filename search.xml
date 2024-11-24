@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title></title>
-    <url>/2024/06/26/Macbook%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <url>/2024/11/24/Macbook%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
     <content><![CDATA[<p>浏览器全屏快捷键： <em>control+cmmand+f</em></p>
 <p>浏览器全屏后隐藏地址栏和书签栏：<em>shift+cmmand+f</em></p>
 ]]></content>
@@ -494,6 +494,19 @@ BFC清除浮动</p>
       </tags>
   </entry>
   <entry>
+    <title>Hello git</title>
+    <url>/2022/09/28/Git/hello-git/</url>
+    <content><![CDATA[<h2 id="git起步"><a href="#git起步" class="headerlink" title="git起步"></a>git起步</h2><h5 id="…在命令行上创建新的存储库"><a href="#…在命令行上创建新的存储库" class="headerlink" title="…在命令行上创建新的存储库"></a>…在命令行上创建新的存储库</h5><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;# article-img&quot;</span> &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">&quot;first commit&quot;</span></span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin git@github.com:jiangwen5945/article-img.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="…从命令行推送现有存储库"><a href="#…从命令行推送现有存储库" class="headerlink" title="…从命令行推送现有存储库"></a>…从命令行推送现有存储库</h5><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:jiangwen5945/article-img.git</span><br><span class="line">git branch -M main</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure></div>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>实现移动端Retina屏幕1px边框</title>
     <url>/2021/11/18/CSS/%E5%AE%9E%E7%8E%B0%E7%A7%BB%E5%8A%A8%E7%AB%AFRetina%E5%B1%8F%E5%B9%951px%E8%BE%B9%E6%A1%86/</url>
     <content><![CDATA[<blockquote>
@@ -593,19 +606,6 @@ BFC清除浮动</p>
       <tags>
         <tag>H5</tag>
         <tag>移动端适配</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello git</title>
-    <url>/2022/09/28/Git/hello-git/</url>
-    <content><![CDATA[<h2 id="git起步"><a href="#git起步" class="headerlink" title="git起步"></a>git起步</h2><h5 id="…在命令行上创建新的存储库"><a href="#…在命令行上创建新的存储库" class="headerlink" title="…在命令行上创建新的存储库"></a>…在命令行上创建新的存储库</h5><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;# article-img&quot;</span> &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">&quot;first commit&quot;</span></span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin git@github.com:jiangwen5945/article-img.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure></div>
-
-<h5 id="…从命令行推送现有存储库"><a href="#…从命令行推送现有存储库" class="headerlink" title="…从命令行推送现有存储库"></a>…从命令行推送现有存储库</h5><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:jiangwen5945/article-img.git</span><br><span class="line">git branch -M main</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure></div>]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -776,7 +776,7 @@ input和textarea的区别</p>
     <title>Hello Hexo</title>
     <url>/2022/09/28/Hexo/Hello%20Hexo/</url>
     <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
-<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+<h2 id="快速开始111"><a href="#快速开始111" class="headerlink" title="快速开始111"></a>快速开始111</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
 
 <p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
@@ -2591,275 +2591,6 @@ input和textarea的区别</p>
       </tags>
   </entry>
   <entry>
-    <title>红黑树</title>
-    <url>/2020/02/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%BA%A2%E9%BB%91%E6%A0%91/</url>
-    <content><![CDATA[<h5 id="二叉查找树（BST）具备什么特性呢？"><a href="#二叉查找树（BST）具备什么特性呢？" class="headerlink" title="二叉查找树（BST）具备什么特性呢？"></a>二叉查找树（BST）具备什么特性呢？</h5><p>1.左子树上所有结点的值均小于或等于它的根结点的值。</p>
-<p>2.右子树上所有结点的值均大于或等于它的根结点的值。</p>
-<p>3.左、右子树也分别为二叉排序树。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="http://5b0988e595225.cdn.sohucs.com/images/20171102/202128cf82084e64a251b458f0ddcd9b.jpeg"
-                      alt="img"
-                ></p>
-<h6 id="红黑树-一种平衡二叉树-的特性"><a href="#红黑树-一种平衡二叉树-的特性" class="headerlink" title="红黑树(一种平衡二叉树)的特性:"></a>红黑树(一种平衡二叉树)的特性:</h6><p>1.节点是红色或黑色。(废话)</p>
-<p>2.根节点是黑色。</p>
-<p>3.每个叶子节点都是黑色的空节点（NIL节点）。</p>
-<p>4 每个红色节点的两个子节点都是黑色。(不能有两个连续的红色节点)</p>
-<p>5.从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点(相同黑高度)。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="http://5b0988e595225.cdn.sohucs.com/images/20171102/eefb5a3397ef4089b356e7c9f0938a8d.jpeg"
-                      alt="img"
-                ></p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>红黑树</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>经典排序算法</title>
-    <url>/2020/02/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><hr>
-<ul>
-<li><p><strong>时间复杂度：</strong>一个算法执行所耗费的时间</p>
-</li>
-<li><p><strong>空间复杂度：</strong>运行完一个程序所需内存的大小</p>
-</li>
-<li><p><strong>稳定：</strong>元素间相对位置固定，即：如果a原本在b前面，而a&#x3D;b，排序之后a仍然在b的前面</p>
-</li>
-<li><p><strong>不稳定：</strong>元素间相对位置不固定，即：如果a原本在b的前面，而a&#x3D;b，排序之后a可能会出现在b的后面；</p>
-</li>
-<li><p><strong>内排序：</strong>所有排序操作都在内存中完成</p>
-</li>
-<li><p><strong>外排序：</strong>由于数据太大，因此把数据放在磁盘中，而排序通过磁盘和内存的数据传输才能进行</p>
-</li>
-</ul>
-<h2 id="排序方法归纳"><a href="#排序方法归纳" class="headerlink" title="排序方法归纳"></a>排序方法归纳</h2><hr>
-<table>
-<thead>
-<tr>
-<th>排序算法</th>
-<th>平均时间复杂度</th>
-<th>最好情况</th>
-<th>最坏情况</th>
-<th>空间复杂度</th>
-<th>排序方式</th>
-<th>稳定性</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>冒泡排序</td>
-<td>O(n²)</td>
-<td>O(n)</td>
-<td>O(n²)</td>
-<td>O(1)</td>
-<td>In-place</td>
-<td>稳定</td>
-</tr>
-<tr>
-<td>选择排序</td>
-<td>O(n²)</td>
-<td>O(n²)</td>
-<td>O(n²)</td>
-<td>O(1)</td>
-<td>In-place</td>
-<td>不稳定</td>
-</tr>
-<tr>
-<td>插入排序</td>
-<td>O(n²)</td>
-<td>O(n)</td>
-<td>O(n²)</td>
-<td>O(1)</td>
-<td>In-place</td>
-<td>稳定</td>
-</tr>
-<tr>
-<td>希尔排序</td>
-<td>O(n ㏒ n)</td>
-<td>O(n ㏒² n)</td>
-<td>O(n ㏒² n)</td>
-<td>O(1)</td>
-<td>In-place</td>
-<td>不稳定</td>
-</tr>
-<tr>
-<td>归并排序</td>
-<td>O(n ㏒ n)</td>
-<td>O(n ㏒ n)</td>
-<td>O(n ㏒ n)</td>
-<td>O(n)</td>
-<td>Out-place</td>
-<td>稳定</td>
-</tr>
-<tr>
-<td>快速排序</td>
-<td>O(n ㏒ n)</td>
-<td>O(n ㏒ n)</td>
-<td>O(n²)</td>
-<td>O(㏒ n)</td>
-<td>In-place</td>
-<td>不稳定</td>
-</tr>
-<tr>
-<td>堆排序</td>
-<td>O(n ㏒ n)</td>
-<td>O(n ㏒ n)</td>
-<td>O(n ㏒ n)</td>
-<td>O(1)</td>
-<td>In-place</td>
-<td>不稳定</td>
-</tr>
-<tr>
-<td>计数排序</td>
-<td>O(n+k)</td>
-<td>O(n+k)</td>
-<td>O(n+k)</td>
-<td>O(k)</td>
-<td>Out-place</td>
-<td>稳定</td>
-</tr>
-<tr>
-<td>桶排序</td>
-<td>O(n+k)</td>
-<td>O(n+k)</td>
-<td>O(n²)</td>
-<td>O(n+k)</td>
-<td>Out-place</td>
-<td>稳定</td>
-</tr>
-<tr>
-<td>基数排序</td>
-<td>O(n*k)</td>
-<td>O(n+k)</td>
-<td>O(n*k)</td>
-<td>O(n+k)</td>
-<td>Out-place</td>
-<td>稳定</td>
-</tr>
-</tbody></table>
-<h2 id="排序方法介绍"><a href="#排序方法介绍" class="headerlink" title="排序方法介绍"></a>排序方法介绍</h2><hr>
-<h3 id="1-冒泡排序√"><a href="#1-冒泡排序√" class="headerlink" title="1.冒泡排序√"></a>1.冒泡排序√</h3><blockquote>
-<p>从字面上能理解， “冒泡”即小值的浮上来，大值沉下去。</p>
-</blockquote>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="http://image.woshipm.com/wp-files/2018/07/tBe5DiPERN9khb4wBLiR.gif!v.jpg"
-                      alt="img"
-                ></p>
-<p><strong>基本思路</strong></p>
-<ul>
-<li>第一步比较相邻的元素大小。如果第一个比第二个大，就交换两个元素位置</li>
-<li>之后对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数</li>
-<li>针对除了最后一位的所有元素重复以上的步骤</li>
-<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较</li>
-</ul>
-<p><strong>代码</strong></p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> bubbleSort = <span class="keyword">function</span> (<span class="params">arr</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>-<span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = len; j &gt; i; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[i]) &#123;</span><br><span class="line">                <span class="keyword">let</span> temp = arr[i];</span><br><span class="line">                    arr[i] =  arr[j]</span><br><span class="line">                    arr[j] =  temp</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-
-
-<hr>
-<h3 id="2-选择排序法√"><a href="#2-选择排序法√" class="headerlink" title="2.选择排序法√"></a>2.选择排序法√</h3><blockquote>
-<p>选择排序是从冒泡排序演化而来，每一轮比较得出最小值，然后依次和每轮“无序区”中参与比较的第一个值进行交换。</p>
-</blockquote>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="http://image.woshipm.com/wp-files/2018/07/Gv8YsuJtLdTahrWU047a.gif!v.jpg"
-                      alt="img"
-                ></p>
-<p><strong>基本思路</strong></p>
-<ul>
-<li>初始时在序列中找到最小元素</li>
-<li>放到序列的起始位置作为已排序序列</li>
-<li>然后再从剩余未排序元素中继续寻找最小元素，放到已排序序列的末尾</li>
-<li>以此类推，直到所有元素均排序完毕</li>
-</ul>
-<p><strong>代码</strong></p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> selectSort = <span class="keyword">function</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span> - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> min = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = i + <span class="number">1</span>; j &lt; arr.<span class="property">length</span>; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (arr[min] &gt; arr[j]) &#123;</span><br><span class="line">        min = j;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (i != min) &#123;</span><br><span class="line">      <span class="title function_">swap</span>(arr, i, min);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i + <span class="number">1</span>, <span class="string">&quot;: &quot;</span> + arr);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 元素交换函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">swap</span>(<span class="params">arr, index1, index2</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> temp = arr[index1];</span><br><span class="line">  arr[index1] = arr[index2];</span><br><span class="line">  arr[index2] = temp;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
-
-
-
-<hr>
-<h3 id="3-插入排序√"><a href="#3-插入排序√" class="headerlink" title="3.插入排序√"></a>3.插入排序√</h3><blockquote>
-<p>插入排序是基于互相比较的排序。所谓的“比较”，就是通过比较数组中的元素，看谁大谁小，根据结果对应调整元素的位置。</p>
-</blockquote>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="http://image.woshipm.com/wp-files/2018/07/HjtcaFfR8pg62X5xihiN.gif!v.jpg"
-                      alt="img"
-                ></p>
-<p><strong>基本思路</strong></p>
-<ul>
-<li>初始时先默认将第一个元素标记为已排序</li>
-<li>然后提取第一个没有排序过的元素，找出插入提取元素的地方并和已经排序过的元素进行比较。</li>
-<li>比较大小若条件成立，则将已排序过的元素往右移1个单位，如果条件不成立，则在现有位置直接插入。</li>
-<li>以此类推，直到所有元素均排序完毕</li>
-</ul>
-<p><strong>代码</strong></p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">11</span>, <span class="number">21</span>, <span class="number">13</span>]</span><br><span class="line"><span class="keyword">var</span> insertSort = <span class="keyword">function</span> (<span class="params">arr</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> len = arr.<span class="property">length</span>,</span><br><span class="line">        key;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> j = i;</span><br><span class="line">        key = arr[j];  <span class="comment">// 1:key = 3  2:key = 1</span></span><br><span class="line">        <span class="keyword">while</span> (--j &gt; -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; key) &#123;</span><br><span class="line">                arr[j + <span class="number">1</span>] = arr[j];	<span class="comment">// arr[0] = 4 arr[1]=4 key =3</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[j + <span class="number">1</span>] = key;	<span class="comment">// arr[0] = 3  arr[1]=4   key=3</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
-
-
-
-<hr>
-<h3 id="4-快速排序"><a href="#4-快速排序" class="headerlink" title="4.快速排序"></a>4.快速排序</h3><blockquote>
-<p>通过一趟排序将待排记录分隔成独立的两部分，其中一部分记录的关键字均比另一部分的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序。</p>
-</blockquote>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forum.mianbaoban.cn/data/attachment/forum/201803/20/140159bsq685wqc58h7zha.gif"
-                      alt="img"
-                ></p>
-<hr>
-<h3 id="5-归并排序"><a href="#5-归并排序" class="headerlink" title="5.归并排序"></a>5.归并排序</h3><blockquote>
-<p>和选择排序一样，归并排序的性能不受输入数据的影响，但表现比选择排序好的多，因为始终都是O(n log n）的时间复杂度。代价是需要额外的内存空间。</p>
-<p>归并排序是建立在归并操作上的一种有效的排序算法。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。归并排序是一种稳定的排序方法。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为2-路归并。</p>
-</blockquote>
-<hr>
-<h3 id="6-希尔排序"><a href="#6-希尔排序" class="headerlink" title="6.希尔排序"></a>6.希尔排序</h3><blockquote>
-<p>希尔排序也是一种插入排序，它是简单插入排序经过改进之后的一个更高效的版本，也称为缩小增量排序，同时该算法是冲破O(n2）的第一批算法之一。它与插入排序的不同之处在于，它会优先比较距离较远的元素。希尔排序又叫缩小增量排序。</p>
-<p>希尔排序是把记录按下表的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法便终止。</p>
-</blockquote>
-<hr>
-<h3 id="7-堆排序"><a href="#7-堆排序" class="headerlink" title="7.堆排序"></a>7.堆排序</h3><blockquote>
-<p>堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。堆积是一个近似完全二叉树的结构，并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。</p>
-</blockquote>
-<hr>
-<h3 id="8-计数排序"><a href="#8-计数排序" class="headerlink" title="8.计数排序"></a>8.计数排序</h3><blockquote>
-<p>计数排序的核心在于将输入的数据值转化为键存储在额外开辟的数组空间中。 作为一种线性时间复杂度的排序，计数排序要求输入的数据必须是有确定范围的整数。</p>
-<p>计数排序(Counting sort)是一种稳定的排序算法。计数排序使用一个额外的数组C，其中第i个元素是待排序数组A中值等于i的元素的个数。然后根据数组C来将A中的元素排到正确的位置。它只能对整数进行排序。</p>
-</blockquote>
-<hr>
-<h3 id="9-桶排序"><a href="#9-桶排序" class="headerlink" title="9.桶排序"></a>9.桶排序</h3><blockquote>
-<p>桶排序是计数排序的升级版。它利用了函数的映射关系，高效与否的关键就在于这个映射函数的确定。</p>
-<p>桶排序 (Bucket sort)的工作的原理：假设输入数据服从均匀分布，将数据分到有限数量的桶里，每个桶再分别排序</p>
-</blockquote>
-<hr>
-<h3 id="10-基数排序"><a href="#10-基数排序" class="headerlink" title="10.基数排序"></a>10.基数排序</h3><blockquote>
-<p>基数排序也是非比较的排序算法，对每一位进行排序，从最低位开始排序，复杂度为O(kn),为数组长度，k为数组中的数的最大的位数；</p>
-<p>基数排序是按照低位先排序，然后收集；再按照高位排序，然后再收集；依次类推，直到最高位。有时候有些属性是有优先级顺序的，先按低优先级排序，再按高优先级排序。最后的次序就是高优先级高的在前，高优先级相同的低优先级高的在前。基数排序基于分别排序，分别收集，所以是稳定的。</p>
-</blockquote>
-<h2 id="引用参考："><a href="#引用参考：" class="headerlink" title="引用参考："></a>引用参考：</h2><ol>
-<li><a class="link"   href="https://blog.csdn.net/hellozhxy/article/details/79911867" >十大经典排序算法最强总结 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>排序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>10万级数据渲染优化方案</title>
     <url>/2021/11/18/%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/10%E4%B8%87%E7%BA%A7%E6%95%B0%E6%8D%AE%E6%B8%B2%E6%9F%93%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<p>假设我们需要在页面上加载获取到的10万条数据📊，在不采取优化方案的情况下它的耗时为 482 ms</p>
@@ -3880,6 +3611,49 @@ input和textarea的区别</p>
       </tags>
   </entry>
   <entry>
+    <title>动态切换elementui主题</title>
+    <url>/2021/03/06/%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/%E5%8A%A8%E6%80%81%E5%88%87%E6%8D%A2elementui%E4%B8%BB%E9%A2%98/</url>
+    <content><![CDATA[<h4 id="准备自定义的主题"><a href="#准备自定义的主题" class="headerlink" title="准备自定义的主题"></a>准备自定义的主题</h4><blockquote>
+<p>在<a class="link"   href="https://element.eleme.cn/#/zh-CN/theme" >element ui <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>官网主题页下载自定义后的主题，多套主题存放本地，两者有不同的命名空间，如写两套主题，一套叫 <code>theme-dark</code>，一套叫 <code>theme-light</code> ，主题都在它的 <code>.theme-dark</code>或<code>.theme-light</code> 的命名空间下</p>
+</blockquote>
+<h4 id="批量为css文件扩展命名空间"><a href="#批量为css文件扩展命名空间" class="headerlink" title="批量为css文件扩展命名空间"></a>批量为css文件扩展命名空间</h4><blockquote>
+<p>使用gulp-css-wrap将这个主题的每个元素外面包裹一个class 来做命名空间。</p>
+</blockquote>
+<ol>
+<li><p>创建一个新的项目<code>css-wrap</code>，并初始化搭建gulp环境</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 1.安装gulp：</span><br><span class="line">npm install gulp</span><br><span class="line">// 2.安装gulp-clean-css</span><br><span class="line">npm install gulp-clean-css</span><br><span class="line">// 3.安装gulp-css-wrap</span><br><span class="line">npm install gulp-css-wrap</span><br></pre></td></tr></table></figure></div>
+
+</li>
+<li><p>在项目根目录下创建一个名为 gulpfile.js 的文件</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> cleanCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-clean-css&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> cssWrap = <span class="built_in">require</span>(<span class="string">&#x27;gulp-css-wrap&#x27;</span>)</span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;css-wrap&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.<span class="title function_">src</span>(path.<span class="title function_">resolve</span>(<span class="string">&#x27;./theme/index.css&#x27;</span>))</span><br><span class="line">  <span class="comment">/* 找需要添加命名空间的css文件，支持正则表达式 */</span></span><br><span class="line">  .<span class="title function_">pipe</span>(<span class="title function_">cssWrap</span>(&#123;</span><br><span class="line">      <span class="attr">selector</span>: <span class="string">&#x27;.custom-dark&#x27;</span> <span class="comment">/* 添加的命名空间 */</span></span><br><span class="line">  &#125;))</span><br><span class="line">  .<span class="title function_">pipe</span>(<span class="title function_">cleanCSS</span>())</span><br><span class="line">  .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;src/theme&#x27;</span>)) <span class="comment">/* 存放的目录 */</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>将生成在<code>scr/theme</code>下的css和字体文件复制到所需项目中</p>
+</li>
+</ol>
+<h4 id="项目中动态切换主题"><a href="#项目中动态切换主题" class="headerlink" title="项目中动态切换主题"></a>项目中动态切换主题</h4><ol>
+<li>在<code>main.js</code>中引入全部所需的css主题样式</li>
+</ol>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;element-ui/lib/theme-chalk/index.css&#x27;</span>; <span class="comment">// 基础css不能少，否则一些组件会丢失样式</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;../src/styles/theme/dark.css&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;../src/styles/theme/light.css&quot;</span>;</span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>设置<code>App.vue</code>入口页面中<code>#app</code>的元素的类名为默认主题的名称</li>
+</ol>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot; class=&quot;custom-dark&quot;&gt;</span><br><span class="line">    &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></div>
+
+<ol start="3">
+<li>修改<code>#app</code>元素的类目切换主题</li>
+</ol>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;app&quot;</span>).<span class="title function_">setAttribute</span>(<span class="string">&quot;class&quot;</span>, <span class="string">&#x27;custom-&#x27;</span> + <span class="variable language_">this</span>.<span class="property">theme</span>);</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>开发</category>
+      </categories>
+      <tags>
+        <tag>elementui</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>后台管理系统的权限控制与管理</title>
     <url>/2021/11/18/%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6%E4%B8%8E%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<blockquote>
@@ -3960,49 +3734,6 @@ input和textarea的区别</p>
       </categories>
       <tags>
         <tag>权限控制</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>动态切换elementui主题</title>
-    <url>/2021/03/06/%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/%E5%8A%A8%E6%80%81%E5%88%87%E6%8D%A2elementui%E4%B8%BB%E9%A2%98/</url>
-    <content><![CDATA[<h4 id="准备自定义的主题"><a href="#准备自定义的主题" class="headerlink" title="准备自定义的主题"></a>准备自定义的主题</h4><blockquote>
-<p>在<a class="link"   href="https://element.eleme.cn/#/zh-CN/theme" >element ui <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>官网主题页下载自定义后的主题，多套主题存放本地，两者有不同的命名空间，如写两套主题，一套叫 <code>theme-dark</code>，一套叫 <code>theme-light</code> ，主题都在它的 <code>.theme-dark</code>或<code>.theme-light</code> 的命名空间下</p>
-</blockquote>
-<h4 id="批量为css文件扩展命名空间"><a href="#批量为css文件扩展命名空间" class="headerlink" title="批量为css文件扩展命名空间"></a>批量为css文件扩展命名空间</h4><blockquote>
-<p>使用gulp-css-wrap将这个主题的每个元素外面包裹一个class 来做命名空间。</p>
-</blockquote>
-<ol>
-<li><p>创建一个新的项目<code>css-wrap</code>，并初始化搭建gulp环境</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 1.安装gulp：</span><br><span class="line">npm install gulp</span><br><span class="line">// 2.安装gulp-clean-css</span><br><span class="line">npm install gulp-clean-css</span><br><span class="line">// 3.安装gulp-css-wrap</span><br><span class="line">npm install gulp-css-wrap</span><br></pre></td></tr></table></figure></div>
-
-</li>
-<li><p>在项目根目录下创建一个名为 gulpfile.js 的文件</p>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> cleanCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-clean-css&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> cssWrap = <span class="built_in">require</span>(<span class="string">&#x27;gulp-css-wrap&#x27;</span>)</span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;css-wrap&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.<span class="title function_">src</span>(path.<span class="title function_">resolve</span>(<span class="string">&#x27;./theme/index.css&#x27;</span>))</span><br><span class="line">  <span class="comment">/* 找需要添加命名空间的css文件，支持正则表达式 */</span></span><br><span class="line">  .<span class="title function_">pipe</span>(<span class="title function_">cssWrap</span>(&#123;</span><br><span class="line">      <span class="attr">selector</span>: <span class="string">&#x27;.custom-dark&#x27;</span> <span class="comment">/* 添加的命名空间 */</span></span><br><span class="line">  &#125;))</span><br><span class="line">  .<span class="title function_">pipe</span>(<span class="title function_">cleanCSS</span>())</span><br><span class="line">  .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;src/theme&#x27;</span>)) <span class="comment">/* 存放的目录 */</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p>将生成在<code>scr/theme</code>下的css和字体文件复制到所需项目中</p>
-</li>
-</ol>
-<h4 id="项目中动态切换主题"><a href="#项目中动态切换主题" class="headerlink" title="项目中动态切换主题"></a>项目中动态切换主题</h4><ol>
-<li>在<code>main.js</code>中引入全部所需的css主题样式</li>
-</ol>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;element-ui/lib/theme-chalk/index.css&#x27;</span>; <span class="comment">// 基础css不能少，否则一些组件会丢失样式</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;../src/styles/theme/dark.css&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;../src/styles/theme/light.css&quot;</span>;</span><br></pre></td></tr></table></figure></div>
-
-<ol start="2">
-<li>设置<code>App.vue</code>入口页面中<code>#app</code>的元素的类名为默认主题的名称</li>
-</ol>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot; class=&quot;custom-dark&quot;&gt;</span><br><span class="line">    &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></div>
-
-<ol start="3">
-<li>修改<code>#app</code>元素的类目切换主题</li>
-</ol>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;app&quot;</span>).<span class="title function_">setAttribute</span>(<span class="string">&quot;class&quot;</span>, <span class="string">&#x27;custom-&#x27;</span> + <span class="variable language_">this</span>.<span class="property">theme</span>);</span><br></pre></td></tr></table></figure></div>
-
-]]></content>
-      <categories>
-        <category>开发</category>
-      </categories>
-      <tags>
-        <tag>elementui</tag>
       </tags>
   </entry>
   <entry>
@@ -4310,6 +4041,275 @@ input和textarea的区别</p>
       </categories>
       <tags>
         <tag>http</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>红黑树</title>
+    <url>/2020/02/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%BA%A2%E9%BB%91%E6%A0%91/</url>
+    <content><![CDATA[<h5 id="二叉查找树（BST）具备什么特性呢？"><a href="#二叉查找树（BST）具备什么特性呢？" class="headerlink" title="二叉查找树（BST）具备什么特性呢？"></a>二叉查找树（BST）具备什么特性呢？</h5><p>1.左子树上所有结点的值均小于或等于它的根结点的值。</p>
+<p>2.右子树上所有结点的值均大于或等于它的根结点的值。</p>
+<p>3.左、右子树也分别为二叉排序树。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://5b0988e595225.cdn.sohucs.com/images/20171102/202128cf82084e64a251b458f0ddcd9b.jpeg"
+                      alt="img"
+                ></p>
+<h6 id="红黑树-一种平衡二叉树-的特性"><a href="#红黑树-一种平衡二叉树-的特性" class="headerlink" title="红黑树(一种平衡二叉树)的特性:"></a>红黑树(一种平衡二叉树)的特性:</h6><p>1.节点是红色或黑色。(废话)</p>
+<p>2.根节点是黑色。</p>
+<p>3.每个叶子节点都是黑色的空节点（NIL节点）。</p>
+<p>4 每个红色节点的两个子节点都是黑色。(不能有两个连续的红色节点)</p>
+<p>5.从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点(相同黑高度)。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://5b0988e595225.cdn.sohucs.com/images/20171102/eefb5a3397ef4089b356e7c9f0938a8d.jpeg"
+                      alt="img"
+                ></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>红黑树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>经典排序算法</title>
+    <url>/2020/02/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><hr>
+<ul>
+<li><p><strong>时间复杂度：</strong>一个算法执行所耗费的时间</p>
+</li>
+<li><p><strong>空间复杂度：</strong>运行完一个程序所需内存的大小</p>
+</li>
+<li><p><strong>稳定：</strong>元素间相对位置固定，即：如果a原本在b前面，而a&#x3D;b，排序之后a仍然在b的前面</p>
+</li>
+<li><p><strong>不稳定：</strong>元素间相对位置不固定，即：如果a原本在b的前面，而a&#x3D;b，排序之后a可能会出现在b的后面；</p>
+</li>
+<li><p><strong>内排序：</strong>所有排序操作都在内存中完成</p>
+</li>
+<li><p><strong>外排序：</strong>由于数据太大，因此把数据放在磁盘中，而排序通过磁盘和内存的数据传输才能进行</p>
+</li>
+</ul>
+<h2 id="排序方法归纳"><a href="#排序方法归纳" class="headerlink" title="排序方法归纳"></a>排序方法归纳</h2><hr>
+<table>
+<thead>
+<tr>
+<th>排序算法</th>
+<th>平均时间复杂度</th>
+<th>最好情况</th>
+<th>最坏情况</th>
+<th>空间复杂度</th>
+<th>排序方式</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>冒泡排序</td>
+<td>O(n²)</td>
+<td>O(n)</td>
+<td>O(n²)</td>
+<td>O(1)</td>
+<td>In-place</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>选择排序</td>
+<td>O(n²)</td>
+<td>O(n²)</td>
+<td>O(n²)</td>
+<td>O(1)</td>
+<td>In-place</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>插入排序</td>
+<td>O(n²)</td>
+<td>O(n)</td>
+<td>O(n²)</td>
+<td>O(1)</td>
+<td>In-place</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>希尔排序</td>
+<td>O(n ㏒ n)</td>
+<td>O(n ㏒² n)</td>
+<td>O(n ㏒² n)</td>
+<td>O(1)</td>
+<td>In-place</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>归并排序</td>
+<td>O(n ㏒ n)</td>
+<td>O(n ㏒ n)</td>
+<td>O(n ㏒ n)</td>
+<td>O(n)</td>
+<td>Out-place</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>O(n ㏒ n)</td>
+<td>O(n ㏒ n)</td>
+<td>O(n²)</td>
+<td>O(㏒ n)</td>
+<td>In-place</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td>O(n ㏒ n)</td>
+<td>O(n ㏒ n)</td>
+<td>O(n ㏒ n)</td>
+<td>O(1)</td>
+<td>In-place</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>计数排序</td>
+<td>O(n+k)</td>
+<td>O(n+k)</td>
+<td>O(n+k)</td>
+<td>O(k)</td>
+<td>Out-place</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>桶排序</td>
+<td>O(n+k)</td>
+<td>O(n+k)</td>
+<td>O(n²)</td>
+<td>O(n+k)</td>
+<td>Out-place</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>基数排序</td>
+<td>O(n*k)</td>
+<td>O(n+k)</td>
+<td>O(n*k)</td>
+<td>O(n+k)</td>
+<td>Out-place</td>
+<td>稳定</td>
+</tr>
+</tbody></table>
+<h2 id="排序方法介绍"><a href="#排序方法介绍" class="headerlink" title="排序方法介绍"></a>排序方法介绍</h2><hr>
+<h3 id="1-冒泡排序√"><a href="#1-冒泡排序√" class="headerlink" title="1.冒泡排序√"></a>1.冒泡排序√</h3><blockquote>
+<p>从字面上能理解， “冒泡”即小值的浮上来，大值沉下去。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://image.woshipm.com/wp-files/2018/07/tBe5DiPERN9khb4wBLiR.gif!v.jpg"
+                      alt="img"
+                ></p>
+<p><strong>基本思路</strong></p>
+<ul>
+<li>第一步比较相邻的元素大小。如果第一个比第二个大，就交换两个元素位置</li>
+<li>之后对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数</li>
+<li>针对除了最后一位的所有元素重复以上的步骤</li>
+<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较</li>
+</ul>
+<p><strong>代码</strong></p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> bubbleSort = <span class="keyword">function</span> (<span class="params">arr</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>-<span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = len; j &gt; i; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[i]) &#123;</span><br><span class="line">                <span class="keyword">let</span> temp = arr[i];</span><br><span class="line">                    arr[i] =  arr[j]</span><br><span class="line">                    arr[j] =  temp</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+<hr>
+<h3 id="2-选择排序法√"><a href="#2-选择排序法√" class="headerlink" title="2.选择排序法√"></a>2.选择排序法√</h3><blockquote>
+<p>选择排序是从冒泡排序演化而来，每一轮比较得出最小值，然后依次和每轮“无序区”中参与比较的第一个值进行交换。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://image.woshipm.com/wp-files/2018/07/Gv8YsuJtLdTahrWU047a.gif!v.jpg"
+                      alt="img"
+                ></p>
+<p><strong>基本思路</strong></p>
+<ul>
+<li>初始时在序列中找到最小元素</li>
+<li>放到序列的起始位置作为已排序序列</li>
+<li>然后再从剩余未排序元素中继续寻找最小元素，放到已排序序列的末尾</li>
+<li>以此类推，直到所有元素均排序完毕</li>
+</ul>
+<p><strong>代码</strong></p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> selectSort = <span class="keyword">function</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span> - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> min = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = i + <span class="number">1</span>; j &lt; arr.<span class="property">length</span>; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (arr[min] &gt; arr[j]) &#123;</span><br><span class="line">        min = j;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (i != min) &#123;</span><br><span class="line">      <span class="title function_">swap</span>(arr, i, min);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i + <span class="number">1</span>, <span class="string">&quot;: &quot;</span> + arr);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 元素交换函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">swap</span>(<span class="params">arr, index1, index2</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> temp = arr[index1];</span><br><span class="line">  arr[index1] = arr[index2];</span><br><span class="line">  arr[index2] = temp;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+
+
+
+<hr>
+<h3 id="3-插入排序√"><a href="#3-插入排序√" class="headerlink" title="3.插入排序√"></a>3.插入排序√</h3><blockquote>
+<p>插入排序是基于互相比较的排序。所谓的“比较”，就是通过比较数组中的元素，看谁大谁小，根据结果对应调整元素的位置。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://image.woshipm.com/wp-files/2018/07/HjtcaFfR8pg62X5xihiN.gif!v.jpg"
+                      alt="img"
+                ></p>
+<p><strong>基本思路</strong></p>
+<ul>
+<li>初始时先默认将第一个元素标记为已排序</li>
+<li>然后提取第一个没有排序过的元素，找出插入提取元素的地方并和已经排序过的元素进行比较。</li>
+<li>比较大小若条件成立，则将已排序过的元素往右移1个单位，如果条件不成立，则在现有位置直接插入。</li>
+<li>以此类推，直到所有元素均排序完毕</li>
+</ul>
+<p><strong>代码</strong></p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">11</span>, <span class="number">21</span>, <span class="number">13</span>]</span><br><span class="line"><span class="keyword">var</span> insertSort = <span class="keyword">function</span> (<span class="params">arr</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> len = arr.<span class="property">length</span>,</span><br><span class="line">        key;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> j = i;</span><br><span class="line">        key = arr[j];  <span class="comment">// 1:key = 3  2:key = 1</span></span><br><span class="line">        <span class="keyword">while</span> (--j &gt; -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; key) &#123;</span><br><span class="line">                arr[j + <span class="number">1</span>] = arr[j];	<span class="comment">// arr[0] = 4 arr[1]=4 key =3</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[j + <span class="number">1</span>] = key;	<span class="comment">// arr[0] = 3  arr[1]=4   key=3</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+
+
+
+<hr>
+<h3 id="4-快速排序"><a href="#4-快速排序" class="headerlink" title="4.快速排序"></a>4.快速排序</h3><blockquote>
+<p>通过一趟排序将待排记录分隔成独立的两部分，其中一部分记录的关键字均比另一部分的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forum.mianbaoban.cn/data/attachment/forum/201803/20/140159bsq685wqc58h7zha.gif"
+                      alt="img"
+                ></p>
+<hr>
+<h3 id="5-归并排序"><a href="#5-归并排序" class="headerlink" title="5.归并排序"></a>5.归并排序</h3><blockquote>
+<p>和选择排序一样，归并排序的性能不受输入数据的影响，但表现比选择排序好的多，因为始终都是O(n log n）的时间复杂度。代价是需要额外的内存空间。</p>
+<p>归并排序是建立在归并操作上的一种有效的排序算法。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。归并排序是一种稳定的排序方法。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为2-路归并。</p>
+</blockquote>
+<hr>
+<h3 id="6-希尔排序"><a href="#6-希尔排序" class="headerlink" title="6.希尔排序"></a>6.希尔排序</h3><blockquote>
+<p>希尔排序也是一种插入排序，它是简单插入排序经过改进之后的一个更高效的版本，也称为缩小增量排序，同时该算法是冲破O(n2）的第一批算法之一。它与插入排序的不同之处在于，它会优先比较距离较远的元素。希尔排序又叫缩小增量排序。</p>
+<p>希尔排序是把记录按下表的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法便终止。</p>
+</blockquote>
+<hr>
+<h3 id="7-堆排序"><a href="#7-堆排序" class="headerlink" title="7.堆排序"></a>7.堆排序</h3><blockquote>
+<p>堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。堆积是一个近似完全二叉树的结构，并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。</p>
+</blockquote>
+<hr>
+<h3 id="8-计数排序"><a href="#8-计数排序" class="headerlink" title="8.计数排序"></a>8.计数排序</h3><blockquote>
+<p>计数排序的核心在于将输入的数据值转化为键存储在额外开辟的数组空间中。 作为一种线性时间复杂度的排序，计数排序要求输入的数据必须是有确定范围的整数。</p>
+<p>计数排序(Counting sort)是一种稳定的排序算法。计数排序使用一个额外的数组C，其中第i个元素是待排序数组A中值等于i的元素的个数。然后根据数组C来将A中的元素排到正确的位置。它只能对整数进行排序。</p>
+</blockquote>
+<hr>
+<h3 id="9-桶排序"><a href="#9-桶排序" class="headerlink" title="9.桶排序"></a>9.桶排序</h3><blockquote>
+<p>桶排序是计数排序的升级版。它利用了函数的映射关系，高效与否的关键就在于这个映射函数的确定。</p>
+<p>桶排序 (Bucket sort)的工作的原理：假设输入数据服从均匀分布，将数据分到有限数量的桶里，每个桶再分别排序</p>
+</blockquote>
+<hr>
+<h3 id="10-基数排序"><a href="#10-基数排序" class="headerlink" title="10.基数排序"></a>10.基数排序</h3><blockquote>
+<p>基数排序也是非比较的排序算法，对每一位进行排序，从最低位开始排序，复杂度为O(kn),为数组长度，k为数组中的数的最大的位数；</p>
+<p>基数排序是按照低位先排序，然后收集；再按照高位排序，然后再收集；依次类推，直到最高位。有时候有些属性是有优先级顺序的，先按低优先级排序，再按高优先级排序。最后的次序就是高优先级高的在前，高优先级相同的低优先级高的在前。基数排序基于分别排序，分别收集，所以是稳定的。</p>
+</blockquote>
+<h2 id="引用参考："><a href="#引用参考：" class="headerlink" title="引用参考："></a>引用参考：</h2><ol>
+<li><a class="link"   href="https://blog.csdn.net/hellozhxy/article/details/79911867" >十大经典排序算法最强总结 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>排序</tag>
       </tags>
   </entry>
   <entry>
