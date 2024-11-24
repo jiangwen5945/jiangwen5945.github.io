@@ -8,10 +8,11 @@
 
 
 # BASIC INFORMATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
-# Docs: https://redefine-docs.ohevan.com/basic/info
 info:
   # Site title
   title: JiangWen's Blog
+  # Site subtitle
+  subtitle: Redefine Your Hexo Journey.
   # Author name
   author: JiangWen
   # Site URL
@@ -20,10 +21,9 @@ info:
 
 
 # IMAGE CONFIGURATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
-# Docs: https://redefine-docs.ohevan.com/basic/defaults
 defaults:
   # Favicon
-  favicon: /images/avatar.svg
+  favicon: /images/favicon.png
   # Site logo
   logo:
   # Site avatar
@@ -32,11 +32,10 @@ defaults:
 
 
 # COLORS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
-# Docs: https://redefine-docs.ohevan.com/basic/colors
 colors:
   #Primary color
-  primary: "#37a2ce"
-  # Secondary color (TBD)
+  primary: "#3e9ff9"
+  # Secondary color (beta)
   secondary:
   # Default theme mode initial value (will be overwritten by prefer-color-scheme)
   default_mode: light # light, dark
@@ -44,18 +43,22 @@ colors:
 
 
 # SITE CUSTOMIZATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
-# Docs: https://redefine-docs.ohevan.com/basic/global
 global:
   # Custom fonts
   fonts:
     # Chinese fonts
     chinese: 
-      enable: false # Whether to enable custom chinese fonts
+      enable: false # Whether to enable custom chinese font
       family:  # Font family
       url:  # Font URL to CSS file
     # English fonts
     english: 
-      enable: false # Whether to enable custom english fonts
+      enable: false # Whether to enable custom chinese font
+      family:  # Font family
+      url:  # Font URL to CSS file
+    # Custom title fonts (navbar, sidebar)
+    title:
+      enable: false # Whether to enable custom title fonts
       family:  # Font family
       url:  # Font URL to CSS file
   # Content max width
@@ -70,7 +73,7 @@ global:
   scroll_progress:
     bar: false # progress bar
     percentage: true # percentage
-  # Website counter
+  # Website counter (powered by https://busuanzi.ibruce.info/)
   website_counter:
     url: https://cn.vercount.one/js # counter API URL (no need to change)
     enable: true # enable website counter or not
@@ -80,7 +83,9 @@ global:
   # Whether to enable single page experience (using swup). See https://swup.js.org/. similar to pjax
   single_page: true
   # Whether to enable Preloader.
-  preloader: true
+  preloader:
+    enable: false  # Changed from true
+    custom_message:  # Add this line
   # Whether to enable open graph
   open_graph: true
   # Google Analytics
@@ -91,21 +96,19 @@ global:
     
 
 # FONTAWESOME >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
-# Docs: https://redefine-docs.ohevan.com/basic/fontawesome
 fontawesome: # Pro v6.2.1
   # Thin version
-  thin: false
+  thin: true
   # Light version
-  light: false
+  light: true
   # Duotone version
-  duotone: false
+  duotone: true
   # Sharp Solid version
-  sharp_solid: false
+  sharp_solid: true
 # FONTAWESOME <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
 # HOME BANNER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
-# Docs: https://redefine-docs.ohevan.com/home/home_banner
 home_banner:
   # Whether to enable home banner
   enable: true
@@ -114,7 +117,9 @@ home_banner:
   # Home banner image
   image: 
     light: https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/c5340e3e880811ebb6edd017c2d2eca2.webp  # light mode
+    # light: /images/mode-light.webp   # light mode
     dark: https://jiangwen-blog.oss-cn-fuzhou.aliyuncs.com/images/50bb6cb5cef84475bd912705b3d5da55.webp  # dark mode
+    # dark: /images/mode-dark.webp  # dark mode
   # Home banner title
   title: 文以载道
   # Home banner subtitle
@@ -128,7 +133,7 @@ home_banner:
     starting_delay: 500 # Start delay (ms)
     backing_delay: 1500 # Backing delay (ms)
     loop: true # Whether to loop
-    smart_backspace: true # Whether to smart backspace
+    smart_backspace: false # Whether to smart backspace
   # Color of home banner text
   text_color: 
     light: "#fff" # light mode
@@ -152,16 +157,13 @@ home_banner:
   # Home banner social links
   social_links:
     # Whether to enable
-    enable: false
-    # Social links style
-    style: default # default, reverse, center
+    enable: true
     # Social links
     links:
       github: https://github.com/jiangwen5945  # your GitHub URL
-      instagram: # your Instagram URL
-      zhihu:  # your ZhiHu URL
-      twitter:  # your twitter URL
+      npm: https://www.npmjs.com/package/hexo-theme-redefine
       email: 908565666@qq.com # your email
+      instagram: # your Instagram URL
       # ...... # you can add more
     # Social links with QRcode drawers
     qrs:
@@ -171,7 +173,6 @@ home_banner:
 
 
 # NAVIGATION BAR >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
-# Docs: https://redefine-docs.ohevan.com/home/navbar
 navbar:
   # Auto hide navbar
   auto_hide: true
@@ -180,10 +181,6 @@ navbar:
     left: "#f78736" #left side 
     right: "#367df7"  #right side
     transparency: 35 #percent (10-99)
-  # Navbar width (usually no need to modify)
-  width:
-    home: 1200px #home page
-    pages: 1000px #other pages
   # Navbar links
   links:
     Home: 
@@ -215,15 +212,13 @@ navbar:
 
 
 # HOME PAGE ARTICLE SETTINGS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
-# Docs: https://redefine-docs.ohevan.com/home/home
 home:
   # Sidebar settings
   sidebar:
     enable: true # Whether to enable sidebar
     position: left # Sidebar position. left, right
     first_item: menu # First item in sidebar. menu, info
-    announcement: # Announcement text
-    show_on_mobile: true # Whether to show sidebar navigation on mobile sheet menu
+    announcement: Just for fun. # Announcement text
     links:
       博主: 
         path: /about
@@ -234,9 +229,14 @@ home:
       相册:  
         path: /masonry
         icon: fa-regular fa-image
+      书签:
+        path: /bookmarks
+        icon: fa-regular fa-bookmark
       # ...... # you can add more
   # Article date format
   article_date_format: auto # auto, relative, YYYY-MM-DD, YYYY-MM-DD HH:mm:ss etc.
+  # Article excerpt length
+  excerpt_length: 200 # Max length of article excerpt
   # Article categories visibility
   categories:
     enable: true  # Whether to enable
@@ -249,7 +249,6 @@ home:
 
 
 # ARTICLE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
-# Docs: https://redefine-docs.ohevan.com/posts/articles
 articles:
   # Set the styles of the article
   style:
@@ -276,11 +275,14 @@ articles:
   author_label: 
     enable: true # Whether to enable
     auto: false # Whether to automatically add author label, e.g. Lv1, Lv2, Lv3...
-    list: []
+    list: ["Master"]
   # Code block settings
   code_block:
     copy: true # Whether to enable code block copy button
     style: mac # mac | simple
+    highlight_theme: # Color scheme for highlightjs code highlighting. For preview, see https://highlightjs.org/examples
+      light: github # light mode theme, support: github, atom-one-light, default
+      dark: vs2015 # dark mode theme, support: github-dark, monokai-sublime, vs2015, night-owl, atom-one-dark, nord, tokyo-night-dark, a11y-dark, agate
     font: # Custom font
       enable: false # Whether to enable
       family: # Font family
@@ -296,12 +298,15 @@ articles:
   copyright:
     enable: true # Whether to enable
     default: cc_by_nc_sa # Default license, can be cc_by_nc_sa, cc_by_nd, cc_by_nc, cc_by_sa, cc_by, all_rights_reserved, public_domain
+    # Whether to enable license
   # Whether to enable lazyload for images
   lazyload: true
+  # Pangu.js (space between Chinese and English). See https://github.com/vinta/pangu.js
+  pangu_js: true
   # Article recommendation. Requires nodejieba (npm install nodejieba). Transplanted from hexo-theme-volantis.
   recommendation:
     # Whether to enable article recommendation
-    enable: false
+    enable: true
     # Article recommendation title
     title: 推荐阅读
     # Max number of articles to display
@@ -316,7 +321,6 @@ articles:
 
 
 # COMMENT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
-# Docs: https://redefine-docs.ohevan.com/posts/comment
 comment:
   # Whether to enable comment
   enable: true
@@ -328,10 +332,9 @@ comment:
     waline:
       serverUrl: comment.jiangwen.site # Waline server URL. e.g. https://example.example.com
       lang: zh-CN # Waline language. e.g. zh-CN, en-US. See https://waline.js.org/guide/client/i18n.html
-      emoji: [] # Waline emojis, see https://waline.js.org/guide/features/emoji.html
+      emoji: [ ] # Waline emojis, see https://waline.js.org/guide/features/emoji.html
       recaptchaV3Key: wasd # Google reCAPTCHA v3 key. See https://waline.js.org/reference/client/props.html#recaptchav3key
       turnstileKey: # Turnstile key. See https://waline.js.org/reference/client/props.html#turnstilekey
-      reaction: false # Waline reaction. See https://waline.js.org/reference/client/props.html#reaction
     # Gitalk comment system. See https://github.com/gitalk/gitalk
     gitalk:
       clientID: # GitHub Application Client ID
@@ -357,6 +360,7 @@ comment:
       lang: en # Giscus language. e.g. en, zh-CN, zh-TW
       input_position: bottom # Place the comment box above/below the comments. e.g. top, bottom
       loading: lazy # Load the comments lazily
+
 # COMMENT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
@@ -382,31 +386,29 @@ footer:
 
 
 # INJECT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
-# Docs: https://redefine-docs.ohevan.com/inject
 inject:
   # Whether to enable inject
-  enable: false
+  enable: true
   # Inject custom head html code
   head: 
     -
     -
   # Inject custom footer html code
   footer:
-    -
+    - <script defer src="https://events.ohevan.com/script.js" data-website-id="d70a02b2-4de2-4995-8a26-7bc745a8b460"></script>
     -
 # INJECT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
 # PLUGINS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
-# Docs: https://redefine-docs.ohevan.com/plugins
 plugins:
   # RSS feed. Requires hexo-generator-feed (npm i hexo-generator-feed). See https://github.com/hexojs/hexo-generator-feed
   feed:
-    enable: false # Whether to enable
-  # Aplayer. See https://github.com/DIYgod/APlayer
-  aplayer:
     enable: true # Whether to enable
-    type: fixed # fixed, mini
+  # Aplayer (fixed). See https://github.com/DIYgod/APlayer
+  aplayer:
+    enable: false # Whether to enable
+    type: mini
     audios:
     - name: The Promise
       artist: Secret Garden
@@ -423,13 +425,12 @@ plugins:
 
   # Mermaid JS. Requires hexo-filter-mermaid-diagrams (npm i hexo-filter-mermaid-diagrams). See https://mermaid.js.org/
   mermaid:
-    enable: false # enable mermaid or not
+    enable: true # enable mermaid or not
     version: "9.3.0" # default v9.3.0
 # PLUGINS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
 # PAGE TEMPLATES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
-# Docs: https://redefine-docs.ohevan.com/page_templates
 page_templates:
   # Friend Links page column number
   friends_column: 2
@@ -439,20 +440,19 @@ page_templates:
 
 
 # CDN >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
-# Docs: https://redefine-docs.ohevan.com/cdn
 cdn:
   # Whether to enable CDN
-  enable: false
+  enable: true
   # CDN Provider
-  provider: zstatic # zstatic, sustech, staticfile, bootcdn, cdnjs, jsdelivr, unpkg, aliyun, custom
+  provider: npmmirror # npmmirror, zstatic, sustech, cdnjs, jsdelivr, unpkg, custom
   # Custom CDN URL
   # format example: https://cdn.custom.com/hexo-theme-redefine/${version}/source/${path}
-  # The ${path} must leads to the root of the "source" folder of the theme
-  custom_url: 
+  # The ${path} must be in the source folder of the theme
+  custom_url:
 # CDN <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
+
 # DEVELOPER MODE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
-# Docs: https://redefine-docs.ohevan.com/developer
 developer:
   # Whether to enable developer mode (only for developers who want to modify the theme source code, not for ordinary users)
   enable: false
