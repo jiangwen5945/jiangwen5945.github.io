@@ -1,0 +1,45 @@
+{
+	"head": {
+		"title": "JiangWen",
+		"description": "Author:JiangWen,Category:Personal Blog",
+		"favicon": "favicon.ico"
+	},
+	"intro": {
+		"title": "JiangWen",
+		"subtitle": "Front back left right end engineer",
+		"enter": "enter",
+		"supportAuthor": true,
+		"background": true
+	},
+	"main": {
+		"name": "JiangWen",
+		"signature": "Code & Input & Output",
+		"avatar": {
+			"link": "assets/avatar.png",
+			"height": "100",
+			"width": "100"
+		},
+		"ul": {
+			"first": {
+				"href": "blog/",
+				"icon": "bokeyuan",
+				"text": "Blog"
+			},
+			"second": {
+				"href": "about/",
+				"icon": "xiaolian",
+				"text": "About"
+			},
+			"third": {
+				"href": "mailto:jiangwen5945@gmail.com",
+				"icon": "email",
+				"text": "Email"
+			},
+			"fourth": {
+				"href": "https://github.com/jiangwen5945",
+				"icon": "github",
+				"text": "Github"
+			}
+		}
+	}
+}
