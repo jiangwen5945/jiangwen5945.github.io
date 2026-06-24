@@ -8,10 +8,7 @@ const del = require('del')
 const babel = require('gulp-babel')
 const autoprefixer = require('gulp-autoprefixer')
 const connect = require('gulp-connect')
-const pug = require('gulp-pug')
 const less = require('gulp-less')
-
-const config = require('./config.json')
 
 gulp.task('clean', function () {
 	return del(['./dist/css/', './dist/js/'])
@@ -46,10 +43,9 @@ gulp.task('js', function () {
 		.pipe(gulp.dest('./dist/js'))
 })
 
-gulp.task('pug', function () {
+gulp.task('htmlsrc', function () {
 	return gulp
-		.src('./src/index.pug')
-		.pipe(pug({ data: config }))
+		.src('./src/index.html')
 		.pipe(gulp.dest('./dist'))
 })
 
@@ -65,12 +61,11 @@ gulp.task('cname', function () {
 		.pipe(gulp.dest('./dist'));
 })
 
-gulp.task('build', gulp.series('clean', 'assets', 'pug', 'css', 'js', 'html', 'cname'))
+gulp.task('build', gulp.series('clean', 'assets', 'htmlsrc', 'css', 'js', 'html', 'cname'))
 gulp.task('default', gulp.series('build'))
 
 gulp.task('watch', function () {
-	gulp.watch('./src/components/*.pug', gulp.parallel('pug'))
-	gulp.watch('./src/index.pug', gulp.parallel('pug'))
+	gulp.watch('./src/index.html', gulp.parallel('htmlsrc'))
 	gulp.watch('./src/css/**/*.scss', gulp.parallel(['css']))
 	gulp.watch('./src/js/*.js', gulp.parallel(['js']))
 	connect.server({

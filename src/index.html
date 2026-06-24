@@ -1,0 +1,161 @@
+<!-- ============================================================
+	JiangWen 个人主页
+	作者: JiangWen <jiangwen5945@gmail.com>
+	============================================================ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- 页面元信息 -->
+	<title>JiangWen</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="renderer" content="webkit">
+
+	<!-- 主题色（状态栏、浏览器主题） -->
+	<meta name="theme-color" content="#222325">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#222325">
+	<meta name="msapplication-navbutton-color" content="#222325">
+
+	<!-- 样式 -->
+	<link rel="stylesheet" href="assets/font.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- DNS 预取 & 预加载 -->
+	<meta http-equiv="x-dns-prefetch-control" content="on">
+	<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+	<link rel="prefetch" href="https://cdn.jsdelivr.net/">
+
+	<!-- SEO & 图标 -->
+	<meta name="description" content="Author:JiangWen,Category:Personal Blog">
+	<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+	<!-- IE 兼容警告（仅 IE 9 以下可见） -->
+	<!--[if lt IE 9]>
+		<style>
+			.alert { padding: 15px; margin-bottom: 20px; border: 1px solid transparent; border-radius: 4px } .alert-danger { background-color: #f2dede; border-color: #ebccd1; color: #a94442; border-bottom: 1px solid #ebccd1 } .alert-link { color: #843534; font-weight: bold } .topframe { margin: 0; padding-left: 15px; padding-right: 15px; text-align: center; border-radius: 0; position: fixed; left: 0; right: 0; top: 0; z-index: 1000 }
+		</style>
+		<div class="alert alert-danger topframe">
+			你的浏览器实在<strong>太太太太太太旧了</strong>，放学别走，升级完浏览器再说
+			<a class="alert-link" target="_blank" href="http://browsehappy.com">立即升级</a>
+		</div>
+		<script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+		<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<main>
+		<!-- ============================================================
+			首屏：全屏标题 + WebGL 流体背景
+			============================================================ -->
+		<div class="content content-intro">
+			<!-- WebGL 流体模拟画布 -->
+			<div class="content-inner">
+				<canvas id="background"></canvas>
+				<div class="wrap fade">
+					<!-- 标题区域 -->
+					<h2 class="content-title">JiangWen</h2>
+					<h3 class="content-subtitle" original-content="Front back left right end engineer">&nbsp;</h3>
+					<a class="enter">enter</a>
+					<!-- 滚动提示箭头 -->
+					<div class="arrow arrow-1"></div>
+					<div class="arrow arrow-2"></div>
+				</div>
+			</div>
+			<!-- 变形 SVG 形状动画 -->
+			<div class="shape-wrap">
+				<svg class="shape" width="100%" height="100vh" preserveAspectRatio="none" viewBox="0 0 1440 800" xmlns:pathdata="http://www.codrops.com/">
+					<path d="M -44,-50 C -52.71,28.52 15.86,8.186 184,14.69 383.3,22.39 462.5,12.58 638,14 835.5,15.6 987,6.4 1194,13.86 1661,30.68 1652,-36.74 1582,-140.1 1512,-243.5 15.88,-589.5 -44,-50 Z" pathdata:id="M -44,-50 C -137.1,117.4 67.86,445.5 236,452 435.3,459.7 500.5,242.6 676,244 873.5,245.6 957,522.4 1154,594 1593,753.7 1793,226.3 1582,-126 1371,-478.3 219.8,-524.2 -44,-50 Z"></path>
+				</svg>
+			</div>
+		</div>
+		<!-- ============================================================
+			第二屏：个人资料名片
+			============================================================ -->
+		<div class="content content-main">
+			<!-- 名片卡片 -->
+			<div id="card">
+				<div class="card-inner fade">
+					<!-- 头像 & 名称 -->
+					<header>
+						<img src="assets/avatar.png" width="100" height="100" alt="avatar">
+						<h1 data-translate="name">JiangWen</h1>
+						<h2 id="signature" data-translate="signature">Code &amp; Input &amp; Output</h2>
+					</header>
+					<!-- 导航链接列表 -->
+					<ul>
+						<li>
+							<a href="blog/" aria-label="Blog">
+								<i class="icon icon-blog"></i>
+								<span data-translate="Blog">Blog</span>
+							</a>
+						</li>
+						<li>
+							<a href="terminal-portfolio/" aria-label="Terminal">
+								<i class="icon icon-terminal"></i>
+								<span data-translate="Terminal">Terminal</span>
+							</a>
+						</li>
+						<li>
+							<a href="code-lab/" aria-label="Portfolio" target="_blank">
+								<i class="icon icon-quanbuzuopinji"></i>
+								<span data-translate="Portfolio">Portfolio</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://github.com/jiangwen5945" aria-label="Github" target="_blank">
+								<i class="icon icon-github"></i>
+								<span data-translate="Github">Github</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- 贪吃蛇网格动画画布 -->
+			<canvas class="grid-background" id="gridCanvas"></canvas>
+		</div>
+		<!-- ============================================================
+			脚本区
+			============================================================ -->
+		<!-- Anime.js 动画引擎 -->
+		<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+		<script>
+			window.$ = selector => document.querySelector(selector)
+			const getOriginalContent = selector => $(selector).getAttribute("original-content")
+			window.subtitle = getOriginalContent(".content-subtitle")
+			window.signature = getOriginalContent("#signature")
+			window.config = {
+				SIM_RESOLUTION: 128,
+				DYE_RESOLUTION: 1024,
+				CAPTURE_RESOLUTION: 512,
+				DENSITY_DISSIPATION: 1,
+				VELOCITY_DISSIPATION: 0.2,
+				PRESSURE: 0.8,
+				PRESSURE_ITERATIONS: 20,
+				CURL: 30,
+				SPLAT_RADIUS: 0.25,
+				SPLAT_FORCE: 6000,
+				SHADING: true,
+				COLORFUL: true,
+				COLOR_UPDATE_SPEED: 10,
+				PAUSED: false,
+				BACK_COLOR: { r: 30, g: 31, b: 33 },
+				TRANSPARENT: false,
+				BLOOM: true,
+				BLOOM_ITERATIONS: 8,
+				BLOOM_RESOLUTION: 256,
+				BLOOM_INTENSITY: 0.4,
+				BLOOM_THRESHOLD: 0.8,
+				BLOOM_SOFT_KNEE: 0.7,
+				SUNRAYS: true,
+				SUNRAYS_RESOLUTION: 196,
+				SUNRAYS_WEIGHT: 1.0,
+			}
+		</script>
+		<!-- 主逻辑：页面切换、打字机效果、网格动画 -->
+		<script src="js/main.js"></script>
+		<!-- WebGL 流体背景（按需启用） -->
+		<script src="js/background.js"></script>
+	</main>
+</body>
+</html>
