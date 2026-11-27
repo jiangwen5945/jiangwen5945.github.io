@@ -28,7 +28,7 @@ export default defineConfig({
       }
     }
   },
-  base: '/code-lab/',
+  base: '/',
   plugins: [
     vue(),
     vueJsx({
