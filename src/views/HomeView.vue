@@ -18,7 +18,7 @@ const works = [
     title: 'code-lab',
     desc: '代码实验室',
     img: `${baseUrl}img/work/item-1.webp`,
-    url: `${baseUrl}zendo`,
+    url: `${baseUrl}`,
     platforms: ['pc']
   },
   {
